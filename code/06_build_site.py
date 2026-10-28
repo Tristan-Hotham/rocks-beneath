@@ -70,6 +70,8 @@ PAL = {"periods": [[p[0], p[1], p[2], p[3], p[4], p[5]] for p in PERIODS], "eras
        "c69": [[c[0], c[1], c[2], c[3]] for c in C1969], "rock": [[r[0], r[1], r[2]] for r in ROCK],
        "sup": [[s[0], s[1], s[2]] for s in SUPER], "ctx_uk": CONTEXT_UK, "ctx_world": CONTEXT_WORLD}
 GRIDS = {"uk": {"nz": UM["z"], "ox": UM["gx0"], "oy": UM["gy0"], "w": UM["w"], "h": UM["h"], "chunks": UM["chunks"], "dir": "data/uk/", "pre": "u_"},
+         "seaUK": {"nz": UM["z"], "ox": UM["gx0"], "oy": UM["gy0"], "w": UM["w"], "h": UM["h"], "chunks": json.load(open(os.path.join(DATA, "sea", "meta.json")))["uk_chunks"], "dir": "data/sea/uk/", "pre": "c_"},
+         "seaW": {"nz": WM["tz"] + 1, "ox": 0, "oy": 0, "w": 2 ** WM["tz"] * WM["res"], "h": 2 ** WM["tz"] * WM["res"], "chunks": json.load(open(os.path.join(DATA, "sea", "meta.json")))["world_tiles"], "dir": "data/sea/world/", "pre": "c_"},
          "world": {"nz": WM["tz"] + 1, "ox": 0, "oy": 0, "w": 2 ** WM["tz"] * WM["res"], "h": 2 ** WM["tz"] * WM["res"], "chunks": WM["tiles"], "dir": "data/world/", "pre": "w_"}}
 
 # label places: GB cities and towns (OS Open Names); Ireland and Northern Ireland (GeoNames 15,000+)
@@ -89,6 +91,22 @@ def tr(name):
     return out
 
 
+# sea and ocean labels: name, lat, lon, shown from zoom, to zoom, view (approximate label positions)
+SEAS = [["North Sea", 56.2, 3.2, 4, 9, "uk"], ["Irish Sea", 53.9, -5.3, 5, 10, "uk"], ["English Channel", 50.15, -2.2, 5, 10, "uk"],
+        ["Atlantic\nOcean", 56.5, -11.5, 4, 8, "uk"], ["Celtic Sea", 50.9, -7.6, 5, 9, "uk"], ["Norwegian Sea", 62.6, 1.0, 4, 8, "uk"],
+        ["Sea of the\nHebrides", 57.05, -7.15, 7, 10, "uk"], ["The Minch", 58.05, -5.85, 7.5, 10, "uk"], ["Moray Firth", 57.75, -3.45, 7.5, 10.5, "uk"],
+        ["St George's\nChannel", 52.15, -5.7, 6.5, 10, "uk"], ["Bristol Channel", 51.35, -4.1, 7, 10.5, "uk"], ["Firth of Clyde", 55.6, -5.05, 8, 11, "uk"],
+        ["Atlantic\nOcean", 30, -42, 2, 6, "world"], ["Atlantic\nOcean", -20, -14, 2, 6, "world"], ["Pacific\nOcean", 22, -145, 2, 6, "world"],
+        ["Pacific\nOcean", -22, -120, 2, 6, "world"], ["Pacific\nOcean", 10, 165, 2, 6, "world"], ["Indian\nOcean", -22, 80, 2, 6, "world"],
+        ["Arctic Ocean", 80, 10, 2, 6, "world"], ["Southern Ocean", -60, 40, 2, 6, "world"], ["Mediterranean Sea", 34.5, 18, 3, 7, "world"],
+        ["Caribbean Sea", 15, -76, 3, 7, "world"], ["Gulf of Mexico", 25, -91, 3, 7, "world"], ["Arabian Sea", 14, 64, 3, 7, "world"],
+        ["Bay of Bengal", 15, 88, 3, 7, "world"], ["South China Sea", 13, 114, 3, 7, "world"], ["Philippine Sea", 20, 132, 3, 7, "world"],
+        ["Bering Sea", 58, -177, 3, 7, "world"], ["Sea of Okhotsk", 55, 150, 3, 7, "world"], ["Black Sea", 43.2, 34, 4, 8, "world"],
+        ["Red Sea", 20, 38.5, 4, 8, "world"], ["Baltic Sea", 57.8, 19.3, 4, 8, "world"], ["North Sea", 56, 3, 4, 8, "world"],
+        ["Hudson Bay", 60, -85, 3, 7, "world"], ["Tasman Sea", -38, 160, 3, 7, "world"], ["Coral Sea", -16, 154, 3, 7, "world"],
+        ["Gulf of Guinea", 1.5, 3, 3, 7, "world"], ["Labrador Sea", 58, -55, 3, 7, "world"], ["Norwegian Sea", 68, 3, 3, 7, "world"],
+        ["Barents Sea", 74, 40, 3, 7, "world"], ["Sea of Japan", 40, 134, 4, 8, "world"], ["Persian Gulf", 27, 51, 5, 8, "world"]]
+WINDEX = json.load(open(os.path.join(DATA, "water", "index.json")))
 TR = {"lakes_london": tr("lakes_london"), "anglesey_london": tr("anglesey_london")}
 
 
@@ -145,7 +163,7 @@ if __name__ == "__main__":
     html = re.sub(r"\{\{([^}|]+)(\|(\w+))?\}\}", sub, tpl)
     slim = {k: v for k, v in R.items() if k not in ("world_age_hist",)}
     for k, v in (("RESULTS", slim), ("PAL", PAL), ("GRIDS", GRIDS), ("UNITS_UK", UK), ("LABELS", LBL), ("COAL", coal), ("TRANSECTS", TR), ("SOURCES", srcs),
-                 ("AGEHIST", R["world_age_hist"])):
+                 ("AGEHIST", R["world_age_hist"]), ("SEAS", SEAS), ("WINDEX", {"cells": WINDEX["cells"]})):
         html = html.replace("/*%s*/" % k, json.dumps(v, ensure_ascii=False, separators=(",", ":")))
     assert "{{" not in html and "/*RESULTS*/" not in html
     vis = re.sub(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", "", html, flags=re.S)

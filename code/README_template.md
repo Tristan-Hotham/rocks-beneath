@@ -40,6 +40,8 @@ Every number is in `data/results.json`, which the page, paper, blog and collage 
 | `data/transect_lakes_london.csv`, `transect_anglesey_london.csv` | The rock every kilometre along the two lines. |
 | `data/towns_on_coal_measures.csv` | OS Open Names cities and towns on the Coal Measures. |
 | `data/uk_lines.json`, `data/world_lines.json` | Faults and dykes (simplified) for the map. |
+| `data/water/` | Rivers and lakes for the map: OS Open Rivers for Great Britain (`gb_main.json` for the largest rivers, `gb<class>_<lon>_<lat>.json` one-degree cells of smaller ones, classed by the length of river network upstream) and Natural Earth rivers and lakes for Ireland and the world (`world_a.json`, `world_b.json`). |
+| `data/sea/` | Sea mask with depth shading (0 land, 1 to 255 depth code), in the same chunk layout as the geology grids. |
 | `data/places_gb.json`, `data/places_world.json` | Place search lists (OS Open Names; GeoNames). |
 | `data/results.json` | Every number used anywhere. |
 | `code/common.py` | Paths, time scale, palettes and classification rules. |
@@ -52,6 +54,7 @@ Every number is in `data/results.json`, which the page, paper, blog and collage 
 | `code/07_figures.py`, `code/08_header.py`, `code/figlib.py` | Static figures and social card (matplotlib). |
 | `code/09_paper.py` | Builds the paper PDF from `code/paper_template.tex` with xelatex. |
 | `code/10_release.py` | README, blog post, blog and Zenodo metadata, Zenodo folder. |
+| `code/11_water.py`, `code/12_sea.py` | Rivers and lakes; sea mask and depth shading. |
 | `reddit/` | Collage (`collage.py`, PNG) and post text. |
 | `release/` | Paper PDF and source, blog post and figures, Zenodo files. |
 
@@ -65,7 +68,7 @@ Every number is in `data/results.json`, which the page, paper, blog and collage 
 
 ## What loads live on the page
 
-Bundled: all geology, hill shading, names, faults, charts. Live from the internet: base maps (Esri Canvas, World Topo, World Imagery, Esri reference labels and World Hillshade; OpenStreetMap), Google Fonts, Leaflet 1.9.4 (cdnjs), and in the world view Leaflet.VectorGrid 1.3.0 (unpkg), Macrostrat live tiles (`https://tiles.macrostrat.org/carto/{z}/{x}/{y}`) and the Macrostrat API (`https://macrostrat.org/api/v2/geologic_units/map`).
+Bundled: all geology, hill shading, rivers, lakes, sea, names, faults, charts. Live from the internet: base maps (Esri Canvas, World Topo, World Imagery, Esri reference labels and World Hillshade; OpenStreetMap), Google Fonts, Leaflet 1.9.4 (cdnjs), and in the world view Leaflet.VectorGrid 1.3.0 (unpkg), Macrostrat live tiles (`https://tiles.macrostrat.org/carto/{z}/{x}/{y}`) and the Macrostrat API (`https://macrostrat.org/api/v2/geologic_units/map`).
 
 ## Known limits
 
@@ -83,6 +86,8 @@ python3 code/01_uk.py
 python3 code/02_world.py
 python3 code/03_uk_extras.py
 python3 code/04_places.py
+python3 code/11_water.py
+python3 code/12_sea.py
 python3 code/05_analyse.py
 python3 code/06_build_site.py
 FONT_DIR=path/to/fonts python3 code/07_figures.py
@@ -100,6 +105,7 @@ Needs Python 3 with numpy, scipy, Pillow, pyproj, shapely, pyshp, mapbox_vector_
 - World geology: Macrostrat (macrostrat.org), CC BY 4.0; Peters, Husson and Czaplewski (2018). Source maps: see `data/world_sources.csv`.
 - Lewisian ages: BGS Earthwise, Bedrock Geology UK North: Archaean and Palaeoproterozoic.
 - Palette: colours sampled from the index of the Geological Map of the British Islands, 5th edition (1969, K. C. Dunham, Director); the map is not reproduced.
+- Water: rivers in Great Britain from OS Open Rivers (contains OS data © Crown copyright and database right 2026, Open Government Licence v3.0); rivers and lakes elsewhere from Natural Earth (public domain); sea depth from the AWS Terrain Tiles.
 - Places: OS Open Names, contains OS data © Crown copyright and database right 2026 (Open Government Licence v3.0); GeoNames cities15000 (CC BY 4.0). Relief: AWS Terrain Tiles (Mapzen terrarium). Land and countries: Natural Earth (public domain). Map library: Leaflet.
 
 Derived data: CC BY 4.0 with the attributions above (see `LICENSE`). Text and figures: CC BY 4.0. Code: MIT.
