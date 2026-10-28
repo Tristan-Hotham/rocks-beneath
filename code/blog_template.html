@@ -1,0 +1,164 @@
+<!-- wp:paragraph -->
+<p><em>What lies under your town, how old is it, and why do England's rocks get younger all the way to London? I built an interactive geological map of the British Isles and the world in the colours of the classic 1969 survey map.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://tristan-hotham.github.io/rocks-beneath/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23734962">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>Some maps you learn by heart without trying. For anyone who took geology at school, the 1969 Geological Map of the British Islands is one of them: a single sheet with an index of about forty colours, the Chalk a soft grey green, the Coal Measures grey, the Carboniferous Limestone sky blue, the Keuper Marl brick red and the old Highland schists in pale pinks and yellows. The map is still in copyright, so I have not copied it. But I have borrowed its colours.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Today the surveys publish their maps as open data. I took the British Geological Survey's 1:625,000 bedrock map for Great Britain, Northern Ireland and the Isle of Man, Geological Survey Ireland's 1:500,000 map for the Republic, and Macrostrat's compilation of the world's geological maps, sampled the colours from the 1969 index and keyed them to today's rock units. The result is a map you can click anywhere: {{uk_area_km2.isles|int}} square kilometres of the British Isles and the rest of the world's land beyond.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_map1969.png|Map of the bedrock of Britain and Ireland in the 1969 colours with hill shading: pale blue Carboniferous Limestone across central Ireland, pale pinks and yellows over the Scottish Highlands, lilac Silurian and Ordovician rocks in Wales and the Southern Uplands, a red band of Triassic rocks through the English Midlands, yellow Jurassic and grey green Chalk across the south and east, and a key with the share of land for each colour.|The bedrock of the British Isles in colours sampled from the 1969 map's index, with today's BGS and GSI data and hill shading.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Four ways to colour a rock</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The 1969 palette is lovely but idiosyncratic: it was built around the rocks that mattered to Britain, such as coal, building stone and water. So the page also offers the international colours for each geological period, a colouring by rock type, and a smooth scale of age. There is a time slider too. Press play and the islands build themselves from the oldest rock to the youngest, starting with {{oldest.max_age_ma|int}} million-year-old gneiss in the Outer Hebrides.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_palettes.png|Four small maps of the British Isles side by side: the 1969 survey colours, the international period colours, a rock type colouring, and a scale of age from pale yellow for young rocks to dark purple for the oldest in north west Scotland.|The same rocks, four ways: the 1969 survey, the international period colours, rock type and age.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The layer cake</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The thing the map shows best is the tilt of England. Its rocks were laid down in layers and then tipped gently down to the south east, so their edges come to the surface in bands that get younger as you head towards London. I drew a straight line from the summit of Scafell Pike to Charing Cross and read the rock every kilometre. It starts on Ordovician rocks about {{transect.lakes_london.start_max_ma|int}} million years old, among the old volcanoes of the Lake District, crosses the Carboniferous of Lancashire, the red Triassic of the Midlands, the Jurassic of the Cotswold edge and the Chalk of the Chilterns, and ends on the {{transect.lakes_london.end|raw}}, the London Clay country, about {{transect.lakes_london.end_max_ma|int}} million years old.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_transect.png|Two charts of rock age against distance. From Scafell Pike to London and from Holyhead to London, the bars step down from about 450 or 500 million years at the start to about 55 million years at London, through Coal Measures, Mercia Mudstone, Lias, Oolite and Chalk.|The oldest age of the bedrock every kilometre from Scafell Pike and from Holyhead to London.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The rank correlation between distance along the line and the age of the rock is {{transect.lakes_london.rho|f2}}; from Holyhead it is {{transect.anglesey_london.rho|f2}}. Across the whole of England and Wales, how far south east a point lies and how old its rock is correlate at {{layer_cake_rho_ew|f2}}. The places that break the pattern, the Lake District, Wales and the Pennines, are the older, harder, crumpled rocks, and that is why they are the high ground.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What Britain is made of</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>More of Great Britain is Carboniferous than anything else: {{uk_top.period_pct|f1}}% of the land, from the limestone dales to the coalfields. Ireland is even more Carboniferous, {{uk_carb_ireland_roi_pct|f1}}% of the Republic, which is why the 1969 map paints the middle of the island pale blue. Scotland is mostly older: {{uk_period_share.scotland.NP|f1}}% of it is Neoproterozoic, the schists of the Highlands. Wales is Silurian and Ordovician, and England's south and east are the Jurassic and Cretaceous.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_shares.png|Three bar charts of the share of land by geological period for Great Britain, the island of Ireland and the world. Carboniferous is the longest bar for Great Britain at 17.5% and for Ireland at 49.2%; the world's land is spread across all periods with the young Quaternary, Neogene, Palaeogene and Cretaceous largest.|Share of the land by period: Great Britain, Ireland and the world's dated land.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The oldest rocks of all are the Lewisian gneisses of the Outer Hebrides and the far north west, which began as igneous rocks between about 3,200 and 2,800 million years ago. They cover {{oldest.lewisian_km2|int}} km² on the map. The youngest bedrock is in Norfolk and Suffolk, shelly sands and gravels from the last few million years, and the youngest volcanic rocks are the lavas of Skye, Mull and Antrim, about 60 million years old.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Coal towns and white cliffs</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Coal Measures cover just {{coal.gb_pct|f1}}% of Great Britain. But {{coal.os_towns_on_cm|int}} of the {{coal.os_towns|int}} cities and towns in the Ordnance Survey's gazetteer stand on them, {{coal.ratio_towns_to_land|f1}} times what their area alone would give. Sheffield, Leeds, Bradford, Swansea, Newcastle, Wolverhampton, Stoke-on-Trent, Wigan: the map of the coal is a map of industrial Britain.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_coal.png|Map of northern England, Wales and southern Scotland with the Coal Measures in grey and all other rocks faded, and black dots for towns on the Coal Measures clustered in the coalfields of Yorkshire, Lancashire, the Midlands, Northumberland and Durham, south Wales and central Scotland.|The Coal Measures (grey) and the cities and towns that stand on them.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>The map of the coal is a map of industrial Britain.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:paragraph -->
+<p>The Chalk covers {{chalk.gb_pct|f1}}% of Great Britain and {{chalk.england_pct|f1}}% of England. I checked the famous white cliffs on the map: Dover, Beachy Head, the Seven Sisters, Old Harry, Durdle Door and Flamborough Head all fall on the White Chalk Subgroup.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Under the boulder clay</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Bedrock is what lies under everything else, and in Britain there is a lot of everything else. The ice sheets and their meltwater, the rivers and the bogs have covered {{superficial.gb_pct|f1}}% of Great Britain with loose deposits, {{superficial.scotland_pct|f1}}% of Scotland. Till, the stony clay left by glaciers that older maps call boulder clay, covers {{superficial.pct_till|f1}}% on its own. You can lay these deposits over the bedrock on the interactive map.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_superficial.png|Map of Great Britain and Northern Ireland showing superficial deposits: pale blue till over much of Scotland, northern England and East Anglia, brown peat on the Scottish uplands and the Fens, yellow alluvium along rivers, with a bar chart of shares led by till at 29.3%.|Superficial deposits over Great Britain's bedrock (BGS 625k).}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">And the world</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Switch to the world view and the same palettes spread over every continent. {{world_era_share.PC|f1}}% of the world's dated, ice-free land on the map is Precambrian, gathered in the old shields: {{shields.Fennoscandia (Norway, Sweden, Finland)|f1}}% of Norway, Sweden and Finland, {{shields.Canada|f1}}% of Canada, {{shields.India|f1}}% of India. Click any rock and the page will light up everywhere else on Earth with rocks of the same age.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_world.png|World map coloured by geological period, with the Precambrian shields of Canada, Scandinavia, Africa, Brazil, India and Western Australia in pinks and reds, and a bar chart of the share of each region that is Precambrian, led by Fennoscandia at 86.2%.|The world by geological period (Macrostrat), and how much of each region is Precambrian.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>I drew every polygon of the BGS and GSI bedrock maps onto a grid in the web map's own projection, about 175 m on the ground, and gave each unit an age range, a period, a rock type and a 1969 colour class. The colours come from the 1969 map's index, sampled pixel by pixel; where the old map named a rock group (Chalk, Lias, Oolite, Coal Measures, Old Red Sandstone, Moine, Dalradian, Lewisian and so on) today's units of that group take its colour. The world map is Macrostrat's generalised compilation at about 5 km, which stitches together regional maps of very different detail, so it has seams. All the areas are measured on these grids, and all the numbers are in the project's results file.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>These are small-scale maps, so lines are smoothed and small outcrops merged, and a unit's age is the range it spans rather than the age of every rock in it. If you want to know what is under your own garden, the BGS's own detailed maps are the place to go next.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://tristan-hotham.github.io/rocks-beneath/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23734962">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/rocks-beneath">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Bedrock and superficial deposits, Great Britain and Northern Ireland: <a href="https://ogcapi.bgs.ac.uk/">BGS Geology 625k (DiGMapGB-625)</a>, British Geological Survey, Open Government Licence. Contains British Geological Survey materials © UKRI 2026.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Bedrock, Ireland: <a href="https://www.gsi.ie/">Geological Survey Ireland and GSNI 1:500,000 bedrock geology</a>. Contains Irish Public Sector Data (Geological Survey Ireland) licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>World: <a href="https://macrostrat.org/">Macrostrat</a> (CC BY 4.0), built from the geological maps of the Arctic, North America, Europe, Africa and Australia and a generalised geology of the world.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Colours: sampled from the index of the Geological Map of the British Islands, 5th edition (1969); the map itself is not reproduced. Lewisian ages: <a href="https://earthwise.bgs.ac.uk/index.php/Bedrock_Geology_UK_North:_Archaean_and_Palaeoproterozoic">BGS Earthwise</a>.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Places: <a href="https://www.ordnancesurvey.co.uk/">OS Open Names</a> (OGL v3) and <a href="https://www.geonames.org/">GeoNames</a> (CC BY 4.0). Relief: AWS Terrain Tiles. Land: Natural Earth.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Paper, data and code: <a href="https://doi.org/10.5281/zenodo.23734962">Zenodo</a> and <a href="https://github.com/Tristan-Hotham/rocks-beneath">GitHub</a>.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

@@ -1,0 +1,200 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,amsmath,longtable,xcolor,colortbl}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={The Rocks Beneath: An Interactive Geological Map of the British Isles and the World},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries The Rocks Beneath:\\[2pt] An Interactive Geological Map of the British Isles\\[2pt] and the World, in the Colours of the 1969 Survey\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/10.5281/zenodo.23734962}{https://doi.org/10.5281/zenodo.23734962}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+I describe an open, interactive geological map of the British Isles and the world, coloured with a palette sampled from the index of the fifth edition (1969) of the Geological Map of the British Islands, and use it to measure what the islands are made of. The British Geological Survey's 1:625,000 bedrock map ({{n_units_uk.bgs|int}} units) and Geological Survey Ireland's 1:500,000 map ({{n_units_uk.gsi|int}} units) are drawn onto a common Web Mercator grid of about 175 m, with Macrostrat's generalised world map ({{world.units|int}} units) at about 5 km. Each unit is given an age range, a period, a rock type and one of 37 colour classes keyed to the rock groups the 1969 map used. Carboniferous rocks cover more of Great Britain than any other period ({{uk_top.period_pct|f1}}\%), and {{uk_carb_ireland_roi_pct|f1}}\% of the Republic of Ireland; {{oldest.precambrian_pct_gb|f1}}\% of Great Britain is Precambrian. Along a line from Scafell Pike to London the age of the bedrock falls almost steadily (Spearman's $\rho$ = {{transect.lakes_london.rho|f2}}), and across England and Wales the south-eastward tilt of the strata gives $\rho$ = {{layer_cake_rho_ew|f2}} between position and age. The Coal Measures cover {{coal.gb_pct|f1}}\% of Great Britain but carry {{coal.os_towns_on_cm_pct|f1}}\% of its cities and towns. Superficial deposits hide the bedrock over {{superficial.gb_pct|f1}}\% of Great Britain, till alone over {{superficial.pct_till|f1}}\%. On the world map {{world_era_share.PC|f1}}\% of the dated, ice-free land is Precambrian, from {{shields.Fennoscandia (Norway, Sweden, Finland)|f1}}\% of Fennoscandia to under 10\% of China and the United States. The maps are generalised and the world map mixes sources of very different detail; the results describe broad patterns, not individual outcrops.
+
+\textbf{Keywords:} geology; geological maps; British Geological Survey; Geological Survey Ireland; Macrostrat; cartography; colour; stratigraphy; open data; web mapping
+\end{quote}
+
+\section{Introduction}
+
+In 1969 the Geological Survey published the fifth edition of its Geological Map of the British Islands, a single sheet at about 25 miles to the inch with an index of roughly forty colours (Geological Survey of Great Britain 1969). Its palette became a kind of shorthand: the grey green of the Chalk, the grey of the Coal Measures, the pale blue of the Carboniferous Limestone, the brick red of the Keuper Marl and the pale pinks and yellows of the Highland schists. The map has been reprinted several times and remains in copyright, so it is not reproduced or redrawn here.
+
+Its colours, however, can be borrowed, and today's surveys publish their maps as open data. This note does three things. First, it builds a palette from the index swatches of the 1969 map and keys it, class by class, to the units of today's digital maps: the British Geological Survey's Geology 625k (DiGMapGB-625) for Great Britain, Northern Ireland and the Isle of Man (British Geological Survey 2026) and Geological Survey Ireland's 1:500,000 bedrock map for the Republic of Ireland (Geological Survey Ireland 2024), with Macrostrat's generalised compilation for the rest of the world (Peters et al. 2018). Second, it describes an interactive web page that lets a reader switch between that palette, the international period colours, rock types and a continuous scale of age, filter by age with a time slider, and click any spot for its rock. Third, it uses the same grids to answer some simple questions. What are the islands made of? Where are the oldest and youngest rocks? How regular is the tilted ``layer cake'' of England? How closely did industrial towns follow the coal? And how does Britain compare with the rest of the world's land?
+
+The interactive version is at \url{https://tristan-hotham.github.io/rocks-beneath/}.
+
+\section{Data}
+
+\subsection{Great Britain, Northern Ireland and the Isle of Man}
+
+BGS Geology 625k is the British Geological Survey's smallest-scale digital geological map. I used its bedrock layer ({{n_units_uk.bgs|int}} distinct units, as combinations of a lexicon code and a rock code, in 11,244 polygons), its superficial deposits layer (10,651 polygons), and its faults (2,741 lines) and dykes (3,263 narrow polygons), retrieved from the BGS OGC API Features service on {{meta.retrieved|raw}}. Each bedrock polygon carries the unit's name and rock description, its parent formation, group and supergroup where they exist, and its oldest and youngest ages in years with the names of the corresponding stages, epochs, periods and eras. The ages follow an older time scale than today's international chart: the Carboniferous begins at 354 million years and the Permian at 290, rather than today's 359 and 299. Where the oldest age is given only as ``Archaean'', as it is for the Lewisian Complex, the dataset has no number; I use 3,200 million years, the oldest protolith age of the Lewisian gneisses of the Outer Hebrides reported by BGS (British Geological Survey, n.d.). Where it is given only as ``Palaeoproterozoic'' or ``Proterozoic'' I use 2,500 million years, the start of the Proterozoic. Two units have no age at all and are left undated. The data are licensed under the Open Government Licence v3.
+
+\subsection{Ireland}
+
+Geological Survey Ireland and the Geological Survey of Northern Ireland publish a seamless 1:500,000 bedrock map of the island of Ireland ({{n_units_uk.gsi|int}} numbered units in 3,257 polygons, in the Irish Transverse Mercator projection), with faults and dykes. Each unit has a name that combines a depositional setting and a lithology, such as ``Waulsortian mudbank; Pale-grey massive limestone'', and an age bracket in words, such as ``Palaeozoic, Carboniferous, Mississippian''. I converted the 33 distinct age brackets to ranges in millions of years using the period and epoch boundaries of the international chart (Cohen et al. 2013, updated), rounded to the nearest million years; two units whose names are more specific than their brackets (the Lias and the Upper Cretaceous chalk) were given the narrower ranges. I use this map for the Republic of Ireland and BGS for Northern Ireland: where both have data, BGS takes precedence. The GSI data are licensed under CC BY 4.0 and the GSNI data under the Open Government Licence v3.
+
+\subsection{The world}
+
+Macrostrat assembles regional and global geological maps into a single database and serves them as vector tiles at several levels of generalisation (Peters et al. 2018). I used its ``carto'' tiles at zoom 4: all 226 tiles that contain data, with {{world.units|int}} distinct legend entries once each is identified by its name, lithology, age range and source. At this zoom Macrostrat draws on six source maps (Table~\ref{tab:sources}): geological maps of the Arctic, North America, Europe at 1:5 million, Africa at 1:10 million and Australia at 1:2.5 million, and a generalised geology of the world for South America, Asia and other regions not covered by the others. Each unit has a best estimate of its oldest and youngest ages in millions of years and the names of its oldest and youngest intervals. The tiles are licensed under CC BY 4.0.
+
+\subsection{Places, relief and land}
+
+Place search and labels use OS Open Names for Great Britain (cities, towns and villages; Ordnance Survey 2026) and GeoNames for Ireland and the world (places of 15,000 or more people; GeoNames 2026). Hill shading comes from the AWS Terrain Tiles (Mapzen terrarium encoding), at zoom 10 for Britain and Ireland and zoom 4 for the world. Natural Earth land and country polygons (public domain) are used to keep the world map to land and to group it by country and continent; county polygons (England, Wales, Scotland) separate the three nations of Great Britain.
+
+\section{Methods}
+
+\subsection{Grids}
+
+The interactive page uses Web Mercator, the projection of the base maps it is drawn over, so I drew every polygon onto a grid of Web Mercator pixels. For Britain and Ireland the grid is at zoom 9, 305.7 m per pixel at the equator and about 175 m on the ground at 55 degrees north, close to the width of a drawn line on a 1:625,000 map. Polygons are drawn largest first, so that smaller polygons inside larger ones (and the holes they fill) take precedence, and the holes of each polygon are cleared before smaller polygons are drawn. The world grid is at zoom 5, about 4.9 km per pixel at the equator, and is clipped to Natural Earth's 1:10 million land; lake, submarine and ocean-floor units are dropped. Ice sheets are kept but counted separately. Every area in this note is measured on these grids, with each pixel weighted by its true ground area, which in Web Mercator shrinks with the square of the cosine of latitude. Measured this way Great Britain (with its islands) covers {{uk_area_km2.gb|int}} km\textsuperscript{2}, Northern Ireland {{uk_area_km2.ni|int}} km\textsuperscript{2} and the Republic of Ireland {{uk_area_km2.roi|int}} km\textsuperscript{2}.
+
+On the page, each grid is cut into 512 pixel chunks stored as PNG images whose red and green channels hold the unit number, and whose blue channel holds the superficial deposit class for Britain; an overview at a quarter of the resolution serves the zoomed-out views. The browser recolours the units for each palette and filter. When a reader zooms in beyond the native grid, blocks of unit numbers are enlarged with the Scale2x (EPX) rule (Mazzoleni, n.d.), which rounds off the stair steps of diagonal boundaries without inventing new units.
+
+\subsection{Periods, eras and ages}
+
+A unit's period is the period that contains the middle of its age range; for Precambrian units whose oldest age is 1,000 million years or more, it is the era of the oldest age. BGS units are placed on BGS's own time scale, so that each lands in the period BGS names for it; one override places the Warwickshire Group, which runs from the Late Carboniferous into the earliest Permian, in the Carboniferous, where the BGS lexicon places nearly all of it. The time slider uses each unit's oldest age for ``older than'' (the rock had begun to form by then) and its youngest age for ``younger than''. The continuous age colouring uses the oldest age on a logarithmic scale.
+
+\subsection{Rock types}
+
+I grouped the surveys' lithology descriptions into nine rock types: sandstone and conglomerate; mudstone, siltstone and shale; limestone and dolomite; chalk; coal-bearing rocks; clay, sand and gravel (soft sediments); igneous intrusions; volcanic rocks; and metamorphic rocks. Coal anywhere in the description makes a unit coal-bearing; otherwise metamorphic, volcanic and intrusive terms take precedence, and sedimentary units are typed by the first rock named. On the world map many units are described only as ``sedimentary rocks'' and form a tenth group; units with no description are counted as other or unknown.
+
+\subsection{The 1969 palette}
+
+I sampled the colour of each swatch in the index of the 1969 map, taking the median of the lighter pixels in a small box inside each swatch to avoid its printed number. The resulting 37 classes are listed in Table~\ref{tab:palette}. Where the 1969 map named a rock group, today's units of that group take its colour: the Chalk Group, the Gault and Upper Greensand, the Lower Greensand, the Wealden Group, the Inferior and Great Oolite and Ravenscar groups (``Lower Oolite''), the Ancholme and Corallian groups with the Portland and Purbeck (``Upper Oolite''), the Lias Group, the Mercia Mudstone (``Keuper''), the Sherwood Sandstone (``Bunter''), the Zechstein (``Magnesian Limestone''), the Pennine, South Wales and Scottish Coal Measures and the Warwickshire Group, the Millstone Grit and Culm, the Old Red Sandstone by epoch, the Torridon, Stoer and Sleat groups, the Moine and Dalradian supergroups and the Lewisian Complex. Other sedimentary units take the colour of their period or epoch; Carboniferous units below the Millstone Grit, including Scotland's Strathclyde and Clackmannan groups and Ireland's Mississippian limestones and shales, take the Carboniferous Limestone colour. Volcanic rocks are coloured by age, as on the 1969 index, and intrusions by composition (acid or basic). On the world map each unit takes the 1969 colour of its period and rock type. The other colourings are the international period colours of the Commission for the Geological Map of the World (Cohen et al. 2013, updated), my own colours for the rock types, and a continuous scale of age.
+
+\section{Results}
+
+\subsection{What the islands are made of}
+
+Table~\ref{tab:periods} and Figure~\ref{fig:shares} give the share of the land on each period. Carboniferous rocks cover more of Great Britain than those of any other period, {{uk_top.period_pct|f1}}\%, followed by the Neoproterozoic ({{uk_period_share.gb.NP|f1}}\%, almost all of it in the Scottish Highlands), the Cretaceous ({{uk_period_share.gb.K|f1}}\%), the Jurassic ({{uk_period_share.gb.J|f1}}\%) and the Devonian ({{uk_period_share.gb.D|f1}}\%). The nations are very different. In England the Carboniferous ({{uk_period_share.england.C|f1}}\%), Cretaceous ({{uk_period_share.england.K|f1}}\%) and Jurassic ({{uk_period_share.england.J|f1}}\%) lead; in Wales the Silurian ({{uk_period_share.wales.S|f1}}\%) and Ordovician ({{uk_period_share.wales.O|f1}}\%); in Scotland the Neoproterozoic ({{uk_period_share.scotland.NP|f1}}\%) and Devonian ({{uk_period_share.scotland.D|f1}}\%). Ireland is dominated by the Carboniferous, {{uk_period_share.ireland.C|f1}}\% of the island and {{uk_carb_ireland_roi_pct|f1}}\% of the Republic, most of it the limestones that the 1969 map painted pale blue across the middle of the country. By era, {{uk_era_share_gb.CZ|f1}}\% of Great Britain is Cenozoic, {{uk_era_share_gb.MZ|f1}}\% Mesozoic, {{uk_era_share_gb.PZ|f1}}\% Palaeozoic and {{oldest.precambrian_pct_gb|f1}}\% Precambrian.
+
+By rock type, mudstones, siltstones and shales cover {{uk_rock_share.gb.md|f1}}\% of Great Britain, sandstones and conglomerates {{uk_rock_share.gb.ss|f1}}\%, metamorphic rocks {{uk_rock_share.gb.mm|f1}}\%, chalk {{uk_rock_share.gb.ch|f1}}\%, limestones {{uk_rock_share.gb.ls|f1}}\%, igneous intrusions {{uk_rock_share.gb.ii|f1}}\% and volcanic rocks {{uk_rock_share.gb.vo|f1}}\%. People are distributed very differently from rock: of the population of Great Britain's GeoNames places of 15,000 or more, {{towns_by_period_pop_pct.Pg|f1}}\% live on Palaeogene bedrock, mostly the London Basin, and {{towns_by_period_pop_pct.C|f1}}\% on Carboniferous bedrock.
+
+{{TABLE_PERIODS}}
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=0.78\textwidth]{fig_map1969.png}
+\caption{The bedrock of the British Isles in the 1969 palette, with hill shading. BGS Geology 625k for Great Britain, Northern Ireland and the Isle of Man; GSI 1:500,000 for the Republic of Ireland. Web Mercator. Percentages are shares of the land of the British Isles.}\label{fig:map}
+\end{figure}
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=\textwidth]{fig_palettes.png}
+\caption{The same map in the four colourings offered on the interactive page: the 1969 palette, the international period colours, rock type and the oldest age of each unit on a logarithmic scale.}\label{fig:palettes}
+\end{figure}
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=\textwidth]{fig_shares.png}
+\caption{Share of the land by period: Great Britain and the island of Ireland (BGS and GSI) and the world's dated, ice-free land (Macrostrat, zoom 4).}\label{fig:shares}
+\end{figure}
+
+\subsection{The tilted layer cake}
+
+The strata of England and Wales were laid down one on top of another and then tilted gently down towards the south east and eroded, so that their edges crop out in bands that get younger towards London. Figure~\ref{fig:transect} samples the map every kilometre along two straight lines. From the summit of Scafell Pike ({{spots.Scafell Pike.name|raw}}, {{transect.lakes_london.start_max_ma|int}} million years at its oldest) to Charing Cross ({{transect.lakes_london.end|raw}}, {{transect.lakes_london.end_max_ma|f1}} million years), {{transect.lakes_london.km|int}} km, the rank correlation between distance and oldest age is {{transect.lakes_london.rho|f2}}; from Holyhead to London ({{transect.anglesey_london.km|int}} km) it is {{transect.anglesey_london.rho|f2}}. The order of periods along the first line runs Ordovician, Silurian, Carboniferous, Triassic and Permian (with Carboniferous returning in the Pennine and Midland coalfields), then Jurassic, Cretaceous and Palaeogene. Across all of England and Wales ({{layer_cake_n|int}} sample pixels), position along a north-west to south-east axis and the oldest age of the bedrock have a rank correlation of {{layer_cake_rho_ew|f2}}, and {{layer_cake_rho_england_sed|f2}} for England's sedimentary rocks alone. The exceptions are the uplands of older, harder and more deformed rock: the Lake District, Wales and the Pennine and Midland inliers.
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=\textwidth]{fig_transect.png}
+\caption{The oldest age of the bedrock (logarithmic scale) every kilometre along straight lines from Scafell Pike and from Holyhead to London, coloured with the 1969 palette. Gaps are sea or estuary.}\label{fig:transect}
+\end{figure}
+
+\subsection{Oldest and youngest}
+
+The oldest rocks of the British Isles are the Lewisian gneisses of the Outer Hebrides and the north west Highlands. The Lewisian Complex covers {{oldest.lewisian_km2|int}} km\textsuperscript{2} of the map ({{oldest.lewisian_pct_gb|f2}}\% of Great Britain), {{oldest.outer_hebrides_pct_of_lewisian|f1}}\% of it in the Outer Hebrides; at the Butt of Lewis the map gives {{spots.Butt of Lewis.name|raw}}. In Ireland the oldest units are the Palaeoproterozoic and Mesoproterozoic gneisses of the Annagh Gneiss Complex in north Mayo and the Rhinns Complex of Inishtrahull. The youngest bedrock is in Norfolk and Suffolk: the {{youngest_bedrock.0.name|raw}}, {{youngest_bedrock.0.km2|int}} km\textsuperscript{2}, ranging from {{youngest_bedrock.0.max_ma|f1}} million years to the present. The youngest igneous rocks are the Palaeogene lavas and intrusions of the Hebrides and Antrim, which cover {{palaeogene_igneous_km2.isles|int}} km\textsuperscript{2}: {{palaeogene_igneous_km2.ni|int}} km\textsuperscript{2} in Northern Ireland and {{palaeogene_igneous_km2.gb|int}} km\textsuperscript{2} in Great Britain.
+
+\subsection{Chalk and coal}
+
+The Chalk covers {{chalk.gb_km2|int}} km\textsuperscript{2} of Great Britain ({{chalk.gb_pct|f1}}\%) and {{chalk.england_pct|f1}}\% of England. All six of the coastal landmarks I checked by their OS Open Names positions fall on the White Chalk Subgroup: Dover, Beachy Head, the Seven Sisters, Old Harry, Durdle Door and Flamborough Head. In Northern Ireland the chalk (the Ulster White Limestone) crops out in {{chalk.ni_km2|int}} km\textsuperscript{2} around the edge of the Antrim lavas.
+
+The Coal Measures cover {{coal.gb_km2|int}} km\textsuperscript{2}, {{coal.gb_pct|f1}}\% of Great Britain. Of the {{coal.os_towns|int}} cities and towns in OS Open Names, {{coal.os_towns_on_cm|int}} ({{coal.os_towns_on_cm_pct|f1}}\%) stand on them, {{coal.ratio_towns_to_land|f1}} times the share their area alone would give; so do {{coal.gn_towns_on_cm|int}} of the {{coal.gn_towns|int}} GeoNames places of 15,000 or more, with {{coal.gn_pop_on_cm_pct|f1}}\% of their population (Figure~\ref{fig:coal}). The largest are Sheffield, Leeds, Bradford, Swansea, Newcastle upon Tyne, Wolverhampton, Stoke-on-Trent and Oldham. This is the familiar geography of the industrial revolution, and the map shows it directly; it says nothing about which towns were built on coal mining as opposed to merely standing on coal-bearing rock.
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=0.66\textwidth]{fig_coal.png}
+\caption{The Coal Measures (grey; all other bedrock faded) and the {{coal.os_towns_on_cm|int}} OS Open Names cities and towns that stand on them.}\label{fig:coal}
+\end{figure}
+
+\subsection{The superficial blanket}
+
+Most of Great Britain's bedrock is hidden. Superficial deposits cover {{superficial.gb_pct|f1}}\% of the land where they are mapped ({{superficial.gb_notmapped_km2|int}} km\textsuperscript{2} is marked as not mapped): {{superficial.scotland_pct|f1}}\% of Scotland, {{superficial.england_pct|f1}}\% of England and {{superficial.wales_pct|f1}}\% of Wales. Till, the unsorted debris of glaciers, covers {{superficial.pct_till|f1}}\% of Great Britain, alluvium {{superficial.pct_alv|f1}}\%, peat {{superficial.pct_peat|f1}}\% and glacial sand and gravel {{superficial.pct_gsg|f1}}\%. The interactive page can lay these deposits over the bedrock.
+
+\subsection{The world}
+
+On the Macrostrat map {{world_era_share.PC|f1}}\% of the dated, ice-free land is Precambrian, {{world_era_share.PZ|f1}}\% Palaeozoic, {{world_era_share.MZ|f1}}\% Mesozoic and {{world_era_share.CZ|f1}}\% Cenozoic (Figure~\ref{fig:world}). Ice covers {{world.ice_km2|int}} km\textsuperscript{2} of the mapped land, including {{greenland_ice_pct|f1}}\% of Greenland. Precambrian rocks make up {{shields.Fennoscandia (Norway, Sweden, Finland)|f1}}\% of Norway, Sweden and Finland, {{shields.Canada|f1}}\% of Canada, {{shields.India|f1}}\% of India, {{shields.Brazil|f1}}\% of Brazil, {{shields.Africa|f1}}\% of Africa and {{shields.Australia|f1}}\% of Australia, but only {{shields.China|f1}}\% of China and {{shields.United States|f1}}\% of the United States. For the United Kingdom the Macrostrat map gives {{shields.United Kingdom (Macrostrat)|f1}}\%, close to the {{oldest.precambrian_pct_gb|f1}}\% of Great Britain on the BGS map. Volcanic rocks younger than 2.6 million years cover {{young_volcanic.quaternary_km2|int}} km\textsuperscript{2} ({{young_volcanic.quaternary_pct_land|f2}}\% of the dated land); the largest areas are in the United States, Saudi Arabia, Ethiopia, Kenya and Mexico.
+
+The world shares should be read with care. Unlike the BGS and GSI bedrock maps, several of Macrostrat's sources map young unconsolidated sediments as units in their own right, so the Cenozoic share includes great sheets of Quaternary and Neogene sediment. Units that span long ranges are placed by the middle of the range. And the six sources differ greatly in detail.
+
+\begin{figure}[tbp]\centering
+\includegraphics[width=0.85\textwidth]{fig_world.png}
+\caption{The world in the international period colours (Macrostrat, zoom 4, Web Mercator, clipped to land), and the share of each region's dated, ice-free land that is Precambrian.}\label{fig:world}
+\end{figure}
+
+{{TABLE_SOURCES}}
+
+\section{Discussion}
+
+The 1969 map's colours carry information as well as nostalgia. Its makers gave related rocks related colours (the Jurassic in yellows and browns, the Triassic and Permian in reds and oranges, the Lower Palaeozoic in lilacs, the metamorphic rocks in pale pinks and yellows) and gave the economically important groups distinctive ones: the grey Coal Measures, the blue Magnesian Limestone and Carboniferous Limestone, the bright green Wealden. Keyed to today's units, the palette still reads well, and on a modern web map with hill shading it makes the structure of the islands easy to see: the bands of the English scarplands, the Pennine anticline flanked by its coalfields, the Highland Boundary and Great Glen, and the limestone heart of Ireland.
+
+The numbers confirm a textbook picture with some precision. England's layer cake is remarkably regular along the classic transects, with rank correlations above 0.9 in magnitude; the industrial towns sit on the Coal Measures at more than three times the rate their area would predict; and most of Britain's surface is not bedrock at all but the debris of the ice ages. The world comparison puts Britain in context: its Precambrian share is close to Europe's, far below the shields of Scandinavia and Canada, and its Carboniferous share is unusual by world standards.
+
+\section{Limitations}
+
+These are small-scale maps. At 1:625,000 and 1:500,000, outcrops narrower than a few hundred metres are merged or left out, and boundaries are smoothed; at 1:5 million and smaller the world map is coarser still, and Macrostrat's sources meet along visible seams. The grids add their own small error at boundaries (about 175 m in Britain and 5 km in the world). A unit's age is its stratigraphic range, not the age of every rock in it, and broad ranges are reduced to a single period by their midpoints. BGS and GSI use different time scales and different ways of naming units. The rock types and the mapping of today's units to the 1969 classes are my own judgements; some units, such as the Warwickshire Group or the mixed Carboniferous successions of Scotland, do not fit the 1969 classes neatly. Superficial deposits are mapped for Great Britain and Northern Ireland but not for the Republic of Ireland here. Towns are represented by points, and standing on a rock is not the same as being built on its resources.
+
+\section{Conclusion}
+
+A palette made sixty years ago for a printed sheet works well on open digital data. The interactive map lets anyone see the rock beneath any place in the British Isles in the colours of the 1969 survey or the international scheme, explore it through time, and compare it with the rest of the world. The measurements made on the same grids show a Great Britain dominated by Carboniferous rocks, a Highland Scotland of Neoproterozoic schists, an Ireland built on Carboniferous limestone, a regular south-eastward tilt from the Lake District to London, coalfield towns that sit on their coal, and a country more than half buried by the ice ages' leavings.
+
+\section*{Data and code availability}
+
+The code, the derived grids and unit tables, and the summary tables are at \url{https://github.com/Tristan-Hotham/rocks-beneath} and archived with this note at \url{https://doi.org/10.5281/zenodo.23734962}. The interactive page is at \url{https://tristan-hotham.github.io/rocks-beneath/}. Derived data are released under CC BY 4.0 and contain British Geological Survey materials \textcopyright{} UKRI 2026 (Open Government Licence), Irish Public Sector Data (Geological Survey Ireland) licensed under CC BY 4.0, UK public sector information (Geological Survey of Northern Ireland) licensed under the Open Government Licence v3.0, Macrostrat data (CC BY 4.0), OS data \textcopyright{} Crown copyright and database right 2026 (Open Government Licence v3.0) and GeoNames data (CC BY 4.0). The 1969 map itself is not reproduced; only colours sampled from its index are used. Code: MIT licence.
+
+\section*{AI statement}
+
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\section*{References}
+\small
+\begin{description}\setlength{\itemsep}{2pt}
+\item British Geological Survey (2026) BGS Geology 625k (DiGMapGB-625): bedrock, superficial deposits, faults and dykes. Retrieved through the BGS OGC API Features service, \url{https://ogcapi.bgs.ac.uk/}. Open Government Licence v3.
+\item British Geological Survey (n.d.) Bedrock Geology UK North: Archaean and Palaeoproterozoic. Earthwise, \url{https://earthwise.bgs.ac.uk/index.php/Bedrock_Geology_UK_North:_Archaean_and_Palaeoproterozoic}.
+\item Cohen, K.M., Finney, S.C., Gibbard, P.L. and Fan, J.-X. (2013, updated) The ICS International Chronostratigraphic Chart. \textit{Episodes} 36. \url{https://stratigraphy.org/chart}.
+\item GeoNames (2026) cities15000. \url{https://www.geonames.org/}. CC BY 4.0.
+\item Geological Survey Ireland and Geological Survey of Northern Ireland (2024) Bedrock Geology 1:500,000 datasets (IE\_GSI\_GSNI\_Bedrock\_Geology\_Datasets\_500K\_IE32\_ITM). \url{https://www.gsi.ie/}. CC BY 4.0 (GSI) and Open Government Licence v3.0 (GSNI).
+\item Geological Survey of Great Britain (1969) Geological Map of the British Islands, 5th edition. K. C. Dunham, Director.
+\item Mazzoleni, A. (n.d.) Scale2x. \url{https://www.scale2x.it/}.
+\item Natural Earth (2026) 1:10m land and 1:50m admin 0 countries. \url{https://www.naturalearthdata.com/}. Public domain.
+\item Ordnance Survey (2026) OS Open Names. \url{https://www.ordnancesurvey.co.uk/}. Open Government Licence v3.0.
+\item Peters, S.E., Husson, J.M. and Czaplewski, J. (2018) Macrostrat: a platform for geological data integration and deep-time Earth crust research. \textit{Geochemistry, Geophysics, Geosystems} 19. \url{https://macrostrat.org/}.
+{{REFS_SOURCES}}
+\item Tilezen / Mapzen (n.d.) Terrain Tiles on AWS (terrarium encoding). \url{https://registry.opendata.aws/terrain-tiles/}.
+\end{description}
+
+\normalsize
+\vspace{1em}
+{{TABLE_PALETTE}}
+
+\end{document}

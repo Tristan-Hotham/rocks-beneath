@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Rocks Beneath</title>
+<meta name="description" content="An interactive geological map of the British Isles and the world, coloured in the style of the 1969 Geological Map of the British Islands: what lies beneath your town, how old it is, and how the layers tilt.">
+<meta property="og:title" content="The rocks beneath: an interactive geological map of the British Isles and the world">
+<meta property="og:description" content="Every rock unit of the British Geological Survey's 1:625,000 map and Ireland's 1:500,000 map, with the world from Macrostrat. From {{oldest.max_age_ma|int}} million-year-old gneiss in the Hebrides to the young shelly sands of East Anglia.">
+<meta property="og:image" content="https://tristan-hotham.github.io/rocks-beneath/header.png">
+<meta property="og:url" content="https://tristan-hotham.github.io/rocks-beneath/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Survey paper: warm map paper, Keuper red and Magnesian Limestone blue, both sampled from the 1969 index. */
+:root{
+  --bg:#F6F2E8; --panel:#ECE6D7; --fg:#22201C; --muted:#68625A; --rule:#DDD5C3; --card:#FCFAF4; --border:#CDC3AE;
+  --red:#B8432A; --blue:#04609A; --gold:#B58A12; --green:#3E7B57; --sea:#E3E6E3;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#171614; --panel:#22201C; --fg:#EFEAE0; --muted:#A79F93; --rule:#35322C; --card:#1E1C19; --border:#4A453D;
+  --red:#EE7F5E; --blue:#62B4E6; --gold:#E2BE55; --green:#7CC39A; --sea:#2A2A28; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171614; --panel:#22201C; --fg:#EFEAE0; --muted:#A79F93; --rule:#35322C; --card:#1E1C19; --border:#4A453D;
+  --red:#EE7F5E; --blue:#62B4E6; --gold:#E2BE55; --green:#7CC39A; --sea:#2A2A28; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2)}
+a{color:inherit;text-decoration-color:var(--red);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--red);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+.strata{display:flex;height:14px;margin:0 0 18px;border-radius:2px;overflow:hidden}
+.strata i{flex:1}
+h1{font:900 clamp(48px,12vw,104px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 span{color:var(--red)}
+.dek{font-size:21px;line-height:1.42;margin:14px 0 0;max-width:50ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:56px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--red);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(26px,5.4vw,38px)/1 var(--display)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:290px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.controls label.l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;max-width:100%;flex-wrap:wrap}
+.seg .btn{border:0;border-radius:0;border-right:1px solid var(--border)}
+.seg .btn:last-child{border-right:0}
+select{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 8px;min-height:36px;max-width:100%}
+.searchbox{position:relative;flex:1 1 240px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:920px){.mapgrid{grid-template-columns:1fr}}
+#lmap{height:780px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:920px){#lmap{height:640px}}
+@media (max-width:600px){#lmap{height:540px}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+@media (max-width:600px){.leaflet-control-attribution{font-size:10px;line-height:1.25}}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted);max-width:92%}
+.leaflet-control-attribution a{color:var(--fg)}
+.geo{image-rendering:pixelated}
+.city{font:500 11px/1 var(--mono);color:#1d1b18;white-space:nowrap;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff;pointer-events:none}
+.city.r1{font-size:10px;font-weight:400}.city.r3{font-size:12px;font-weight:600}
+.city i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#1d1b18;margin-right:4px;vertical-align:1px}
+.lyrBtn{background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:252px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(560px,calc(100vh - 120px));overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{display:grid;grid-template-columns:1fr;gap:4px 8px;align-items:center;margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:3px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;border-top:1px solid var(--rule);padding-top:8px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.lyrPanel .note{color:var(--muted);font-size:10.5px;line-height:1.35}
+.pin{width:20px;height:20px;border:3px solid #111;border-radius:50%;background:transparent;box-shadow:0 0 0 2px #fff}
+.coalpt{width:9px;height:9px;border-radius:50%;background:#111;border:2px solid #fff}
+.side{background:var(--card);border:1px solid var(--border);padding:14px 14px 10px}
+.side h4{font:500 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+#legend{max-height:330px;overflow:auto;margin:0 0 6px;padding-right:4px}
+#legend .li{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:center;font:400 12px/1.25 var(--mono);padding:3px 4px;cursor:pointer;border:1px solid transparent;border-radius:2px}
+#legend .li:hover{background:var(--panel)}
+#legend .li.on{border-color:var(--fg)}
+#legend .li.off{opacity:.38}
+#legend .li i{width:22px;height:15px;border:1px solid rgba(0,0,0,.25);display:block}
+#legend .li span{color:var(--muted);font-size:11px}
+#legend .grp{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:8px 0 3px}
+#hov{font:400 12px/1.4 var(--mono);color:var(--muted);min-height:34px;border-top:1px solid var(--rule);padding-top:6px;margin-top:6px}
+.timebox{background:var(--card);border:1px solid var(--border);border-top:0;padding:10px 12px 12px}
+#tbar{width:100%;display:block;touch-action:none;cursor:pointer}
+.trow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;font:400 12.5px/1.3 var(--mono)}
+.trow input[type=range]{flex:1 1 220px;accent-color:var(--red);min-width:0}
+#tread{flex:1 1 100%;color:var(--fg)}
+.card2{background:var(--card);border:1px solid var(--border);border-top:6px solid var(--red);padding:14px 16px 10px;margin:14px 0 0}
+.card2 .big{font:800 clamp(21px,4.2vw,27px)/1.15 var(--display);margin:4px 0 8px;text-wrap:balance}
+.card2 .pn{font:400 12px/1.45 var(--mono);color:var(--muted);margin:0 0 6px}
+.card2 .sw{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.3)}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:10px 0}
+.kv div{background:var(--bg);padding:7px 9px;font:400 11.5px/1.3 var(--mono);color:var(--muted)}
+.kv b{display:block;font:700 15px/1.2 var(--display);color:var(--fg)}
+.live{font:400 12px/1.45 var(--mono);color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:8px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--red);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.t{width:100%;border-collapse:collapse;font:400 13px/1.35 var(--mono)}
+table.t th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 8px 6px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right;white-space:nowrap}
+table.t td small{color:var(--muted);display:block}
+table.t .sw{display:inline-block;width:26px;height:16px;border:1px solid rgba(0,0,0,.25);vertical-align:-3px}
+.tablewrap{overflow-x:auto}
+@media (max-width:600px){table.t .wide{display:none}}
+.go{font:500 12px/1 var(--mono);background:none;border:1px solid var(--border);border-radius:3px;padding:7px 9px;cursor:pointer;color:var(--fg);margin:0 6px 6px 0}
+.go:hover{background:var(--panel)}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--red);border-color:var(--red);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+.loading{font:400 12px/1.4 var(--mono);color:var(--muted)}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Geology</span><span>British Isles and the world</span></div>
+<header class="hero">
+  <div class="strata" id="strata" aria-hidden="true"></div>
+  <h1>The rocks <span>beneath</span></h1>
+  <p class="dek">An interactive geological map of the British Isles and the world, coloured in the manner of the 1969 Geological Map of the British Islands. What lies under your town, how old is it, and why do England's layers tilt down towards London?</p>
+</header>
+<div class="byline">Dr Tristan Hotham, Independent researcher · October 2026 · Data: British Geological Survey (OGL v3); Geological Survey Ireland (CC BY 4.0); Macrostrat (CC BY 4.0)</div>
+
+<div class="stats">
+  <div><b style="color:var(--red)">{{oldest.max_age_ma|int}}</b><span>million years: the oldest age in the Lewisian gneiss of the Outer Hebrides and the north west Highlands</span></div>
+  <div><b>{{uk_top.period_pct|f1}}%</b><span>of Great Britain's land is Carboniferous rock, more than any other period</span></div>
+  <div><b style="color:var(--blue)">{{superficial.gb_pct|f1}}%</b><span>of Great Britain is blanketed by younger loose deposits; till alone covers {{superficial.pct_till|f1}}%</span></div>
+  <div><b>{{world_era_share.PC|f1}}%</b><span>of the world's dated land is Precambrian, older than 539 million years</span></div>
+</div>
+
+<p class="lede">In 1969 the Geological Survey published the fifth edition of its Geological Map of the British Islands: one sheet, every rock in two islands, and a key of about forty colours that generations of students learnt by heart. Chalk a soft grey green, the Coal Measures grey, the Carboniferous Limestone sky blue, the Keuper red, the old Highland schists in pale pinks and yellows. I have borrowed those colours, and only the colours, and put them on today's open digital maps.</p>
+<p>The heart of the page is Britain and Ireland: {{uk_area_km2.isles|int}} square kilometres of bedrock from the British Geological Survey's 1:625,000 map and Geological Survey Ireland's 1:500,000 map, every unit clickable, with the ice-age deposits that hide much of it on a layer of their own. Around it lies the world, from Macrostrat's compilation of regional maps, in {{world.units|int}} map units. Switch to the international period colours, to rock types or to a smooth scale of age, drag the time slider, or press play and watch the islands build themselves, oldest rock first.</p>
+
+<h2><span class="n">01 · The map</span>What lies beneath</h2>
+<div class="figure bleed">
+  <div class="controls">
+    <label class="l">View</label>
+    <div class="seg" role="group" aria-label="View" id="viewBtns"><button class="btn" data-v="uk" aria-pressed="true">British Isles</button><button class="btn" data-v="world" aria-pressed="false">The world</button></div>
+    <label class="l">Colours</label>
+    <div class="seg" role="group" aria-label="Colours" id="palBtns"><button class="btn" data-p="c69" aria-pressed="true">1969 survey</button><button class="btn" data-p="ics" aria-pressed="false">Periods (ICS)</button><button class="btn" data-p="rock" aria-pressed="false">Rock type</button><button class="btn" data-p="age" aria-pressed="false">Age</button></div>
+  </div>
+  <div class="controls">
+    <div class="searchbox">
+      <input type="search" id="q" placeholder="What's under your town? Type a place" aria-label="Find a place" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sug">
+      <ul class="suggest" id="sug" role="listbox"></ul>
+    </div>
+    <button class="btn" id="geo">Use my location</button>
+    <span class="loading" id="loadMsg"></span>
+  </div>
+  <div class="mapgrid">
+    <div>
+      <div id="lmap" role="region" aria-label="Geological map"></div>
+      <div class="timebox">
+        <svg id="tbar" viewBox="0 0 800 74" height="74" aria-label="Geological time bar: tap a period to show only its rocks"></svg>
+        <div class="trow">
+          <button class="btn" id="play" aria-label="Play: build the map from the oldest rock to the youngest">▶ Play</button>
+          <select id="tmode" aria-label="Time filter"><option value="all">All ages</option><option value="older">Older than</option><option value="younger">Younger than</option></select>
+          <input type="range" id="tslider" min="0" max="1000" step="1" value="0" aria-label="Age in millions of years, older to the left">
+          <div id="tread"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="side">
+        <h4 id="legT">Key</h4>
+        <div id="legend"></div>
+        <div id="hov">Hover over the map to read a rock; click or tap for its card.</div>
+      </div>
+      <div class="card2" id="card" hidden></div>
+    </div>
+  </div>
+  <div class="src">Bedrock: BGS Geology 625k (DiGMapGB-625) for Great Britain, Northern Ireland and the Isle of Man; Geological Survey Ireland 1:500,000 for the Republic of Ireland. World: Macrostrat's generalised world map (zoom 4 tiles), built from regional maps of very different detail. Colours: "1969 survey" uses swatches sampled from the index of the 1969 map; the world takes the 1969 colour of each unit's period and rock type. Map layers (top right): base maps, hill shading, names, faults and dykes, ice-age deposits.</div>
+</div>
+
+<p>A word on what you are looking at. Bedrock is the solid rock under the soil and under the loose sands, gravels and clays the ice ages left behind. Each colour is a map unit: a body of rock the surveyors grouped by age and type. Ages are the range the unit spans, as the source gives it, so a unit "354 to 290 million years old" may hold rocks from anywhere in that span. At this scale the maps are generalised: lines are drawn to about a fifth of a kilometre in Britain, and to several kilometres in the world view.</p>
+
+<h2><span class="n">02 · The layer cake</span>Why England tilts towards London</h2>
+<p>Walk from the Lake District to London and you walk forwards through time. On the line from the summit of Scafell Pike to Charing Cross the first rock is {{transect.lakes_london.start|raw}}, about {{transect.lakes_london.start_max_ma|int}} million years old; the last is the {{transect.lakes_london.end|raw}}, the London Clay and its neighbours, about {{transect.lakes_london.end_max_ma|int}} million years old. In between come the Carboniferous rocks of Lancashire, the red Triassic of Cheshire and the Midlands, the Jurassic limestones of the Cotswold edge, and the Chalk of the Chilterns.</p>
+<div class="figure">
+  <div class="fig-h">The ages of the rocks along the line</div>
+  <div class="fig-sub" id="trSub"></div>
+  <div class="controls"><div class="seg" role="group" aria-label="Transect" id="trBtns"><button class="btn" data-t="lakes_london" aria-pressed="true">Scafell Pike to London</button><button class="btn" data-t="anglesey_london" aria-pressed="false">Holyhead to London</button></div></div>
+  <div class="chart" id="trChart"></div>
+  <div class="src">Every kilometre along a straight line on the map, the oldest age of the bedrock unit there (log scale), coloured with the 1969 palette. Rank correlation between distance and age: {{transect.lakes_london.rho|f2}} from Scafell Pike and {{transect.anglesey_london.rho|f2}} from Holyhead.</div>
+</div>
+<p>The reason is that the layers of England, laid down one on top of another, have been tilted gently down to the south east and planed off. Their edges come to the surface in bands, each younger than the one to its north west. Across all of England and Wales the rank correlation between how far south east a point lies and the age of the rock beneath it is {{layer_cake_rho_ew|f2}} ({{layer_cake_rho_england_sed|f2}} for England's sedimentary rocks alone). Wales, the Lake District and the Highlands break the pattern with older, harder, crumpled rocks, which is why they are the high ground.</p>
+
+<h2><span class="n">03 · Shares</span>What Britain is made of</h2>
+<div class="figure">
+  <div class="fig-h">Share of the land by geological period</div>
+  <div class="fig-sub">Great Britain, the island of Ireland and the world's dated land. Tap a bar to show that period on the map.</div>
+  <div class="controls"><div class="seg" role="group" aria-label="Measure" id="shBtns"><button class="btn" data-s="period" aria-pressed="true">By period</button><button class="btn" data-s="rock" aria-pressed="false">By rock type</button></div></div>
+  <div class="chart" id="shChart"></div>
+  <div class="src">Areas measured on the page's grids with each pixel weighted by its true area. Periods are put on each unit by the middle of its age range. The world column counts the dated, ice-free land of the Macrostrat map, which shows young sediments that the British maps treat as superficial.</div>
+</div>
+<p>The Carboniferous covers more of Great Britain than any other period: {{uk_top.period_pct|f1}}% of the land, from the limestone dales of the Pennines to the coalfields. It covers {{uk_carb_ireland_roi_pct|f1}}% of the Republic of Ireland, where the pale blue of the Carboniferous Limestone floods the middle of the country on the 1969 map. In Scotland the largest share is Neoproterozoic ({{uk_period_share.scotland.NP|f1}}%), the Moine and Dalradian schists of the Highlands; in Wales it is the Silurian ({{uk_period_share.wales.S|f1}}%); in England the Carboniferous ({{uk_period_share.england.C|f1}}%) just leads the Cretaceous ({{uk_period_share.england.K|f1}}%).</p>
+<p>By rock type, mudstones, siltstones and shales cover {{uk_rock_share.gb.md|f1}}% of Great Britain, sandstones {{uk_rock_share.gb.ss|f1}}% and metamorphic rocks {{uk_rock_share.gb.mm|f1}}%. Where people live is another matter: of the people in Great Britain's towns of 15,000 or more, {{towns_by_period_pop_pct.Pg|f1}}% live on Palaeogene rocks (mostly London) and {{towns_by_period_pop_pct.C|f1}}% on Carboniferous ones.</p>
+
+<h2><span class="n">04 · Oldest and youngest</span>From three billion years to yesterday</h2>
+<p>The oldest rocks in the British Isles are the Lewisian gneisses of the Outer Hebrides and the far north west of Scotland. The BGS map dates them only as "Archaean to Proterozoic"; the oldest of them, in the Outer Hebrides, formed as igneous rocks between about {{oldest.max_age_ma|int}} and 2,800 million years ago and were later crushed and reheated deep in the crust. They cover {{oldest.lewisian_km2|int}} km² on this map, {{oldest.lewisian_pct_gb|f2}}% of Great Britain, and {{oldest.outer_hebrides_pct_of_lewisian|f1}}% of that lies in the Outer Hebrides.</p>
+<p>The youngest bedrock is in Norfolk and Suffolk: the shelly sands and gravels the BGS maps as {{youngest_bedrock.0.name|raw}}, {{youngest_bedrock.0.km2|int}} km², laid down in the last few million years. The youngest volcanic rocks are the Palaeogene lavas and intrusions of Skye, Mull, Rum, Arran and Antrim, around 60 million years old, which cover {{palaeogene_igneous_km2.isles|int}} km² of the British Isles, more of it in Northern Ireland ({{palaeogene_igneous_km2.ni|int}} km²) than in Great Britain ({{palaeogene_igneous_km2.gb|int}} km²).</p>
+<p><button class="go" data-fly="58.2,-6.6,8">Show me Lewis</button><button class="go" data-fly="52.45,1.35,9">Show me the East Anglian sands</button><button class="go" data-fly="57.25,-6.2,9">Show me Skye</button><button class="go" data-fly="55.1,-6.4,9">Show me Antrim</button></p>
+
+<h2><span class="n">05 · Chalk and coal</span>White cliffs and black towns</h2>
+<p>Chalk, the bright white limestone built from the shells of microscopic algae in a Cretaceous sea, covers {{chalk.gb_km2|int}} km² of Great Britain ({{chalk.gb_pct|f1}}%) and {{chalk.england_pct|f1}}% of England. On the map every one of the famous white cliffs I checked falls on the White Chalk Subgroup: Dover, Beachy Head, the Seven Sisters, Old Harry, Durdle Door and Flamborough Head. In Northern Ireland the Chalk survives under the Antrim lavas and peeps out in a thin white rim ({{chalk.ni_km2|int}} km²).</p>
+<p>The Coal Measures, the grey of the 1969 map, cover {{coal.gb_km2|int}} km², {{coal.gb_pct|f1}}% of Great Britain. Yet {{coal.os_towns_on_cm|int}} of the {{coal.os_towns|int}} cities and towns in OS Open Names ({{coal.os_towns_on_cm_pct|f1}}%) stand on them, {{coal.ratio_towns_to_land|f1}} times what their area alone would give, and so do {{coal.gn_pop_on_cm_pct|f1}}% of the people in Britain's towns of 15,000 or more. The industrial towns grew where the coal was: Sheffield, Leeds, Bradford, Swansea, Newcastle, Wolverhampton, Stoke-on-Trent, Wigan.</p>
+<p><button class="go" id="coalBtn">Show the coalfield towns on the map</button><button class="go" data-fly="51.0,0.9,8" data-pal="c69">Show me the chalk of Kent and Sussex</button></p>
+
+<h2><span class="n">06 · The ice-age blanket</span>Under the boulder clay</h2>
+<p>Most of what lies at the surface is not bedrock at all. The ice sheets and their meltwater, the rivers and the bogs, have spread a cover of loose deposits over {{superficial.gb_pct|f1}}% of Great Britain: {{superficial.scotland_pct|f1}}% of Scotland, {{superficial.england_pct|f1}}% of England and {{superficial.wales_pct|f1}}% of Wales. Till, the stony clay dumped by glaciers and once called boulder clay, covers {{superficial.pct_till|f1}}% on its own. Turn on "Ice-age deposits" in the map layers to lay them over the bedrock.</p>
+<div class="figure">
+  <div class="fig-h">Share of Great Britain's land under each kind of superficial deposit</div>
+  <div class="chart" id="supChart"></div>
+  <div class="src">BGS Geology 625k superficial deposits. The map leaves {{superficial.gb_notmapped_km2|int}} km² of Great Britain unmapped for these deposits; shares are of the mapped land. The same BGS map covers Northern Ireland, which the map layer shows too; the map used for the Republic of Ireland has bedrock only.</div>
+</div>
+
+<h2><span class="n">07 · The world</span>Shields, sediments and fresh lava</h2>
+<p>Switch the map to "The world" and the same colours spread over every continent. On the Macrostrat map {{world_era_share.PC|f1}}% of the dated, ice-free land is Precambrian, {{world_era_share.PZ|f1}}% Palaeozoic, {{world_era_share.MZ|f1}}% Mesozoic and {{world_era_share.CZ|f1}}% Cenozoic. The old rock gathers in shields, the worn-down cores of the continents: the Baltic Shield of Scandinavia and Finland, the Canadian Shield around Hudson Bay, and the old cratons of Africa, Brazil, India and Western Australia.</p>
+<div class="figure">
+  <div class="fig-h">How much of each region is Precambrian</div>
+  <div class="chart" id="shieldChart"></div>
+  <div class="src">Share of each region's dated, ice-free land on Precambrian map units. Macrostrat world map at zoom 4; country outlines from Natural Earth.</div>
+</div>
+<p>The youngest volcanic rocks, from the last 2.6 million years, cover {{young_volcanic.quaternary_km2|int}} km² of the map ({{young_volcanic.quaternary_pct_land|f2}}% of the dated land). The biggest areas are in the United States, the lava fields of Saudi Arabia, Ethiopia and Kenya along the East African Rift, and Mexico; Iceland, the size of Ireland, has {{young_volcanic.top_quaternary.8.1|int}} km².</p>
+<div class="figure">
+  <div class="fig-h">Where else has rocks the same age as yours?</div>
+  <p class="fig-sub" style="margin-bottom:0">Click a rock on the map, or search a place, then press "Where else in the world?" on its card. The world map lights up every unit whose age range overlaps it.</p>
+</div>
+
+<h2><span class="n">08 · The colours</span>The 1969 palette</h2>
+<p>The colours below were sampled from the index swatches of the 1969 map and keyed to today's BGS and GSI units by group and age. Where the 1969 map named a rock group (Chalk, Lias, Oolite, Wealden, Coal Measures, Millstone Grit, Old Red Sandstone, Moine, Dalradian, Lewisian), the matching modern units take its colour; elsewhere a unit takes the colour of its period, or of its kind of igneous rock.</p>
+<div class="tablewrap"><table class="t" id="palTable"></table></div>
+
+<div class="note" id="method">
+  <h3>How I did this</h3>
+  <p><b>Britain and Ireland.</b> I took every bedrock polygon of the British Geological Survey's Geology 625k (DiGMapGB-625) map and of Geological Survey Ireland's 1:500,000 bedrock map, gave each map unit an age range in millions of years, a period, a rock type and a 1969 colour class, and drew them onto a grid in the web map's own projection (zoom 9, about 175 m on the ground). BGS covers Great Britain, the Isle of Man and Northern Ireland; GSI is used for the Republic of Ireland. BGS ages come from the map's own fields, on an older time scale (the Carboniferous begins at 354 million years rather than today's 359); GSI ages come from its age brackets with today's period boundaries. Where BGS gives only "Archaean" as the oldest age, I use 3,200 million years, the oldest protolith age of the Lewisian gneisses reported by BGS. Superficial deposits come from the same BGS map.</p>
+  <p><b>The world.</b> Macrostrat's generalised "carto" vector tiles at zoom 4, drawn at about 4.9 km per pixel at the equator, kept to Natural Earth's land. Macrostrat stitches together regional maps of very different detail: the geological maps of North America, Europe (1:5 million), Africa (1:10 million), Australia (1:2.5 million) and the Arctic, and a generalised geology of the world for the rest (sources below). When you zoom in on the world view, the page asks Macrostrat for its live, more detailed tiles if your browser can reach them.</p>
+  <p><b>Measuring.</b> Areas are counted on the grids with each pixel weighted by its true area. A unit's period is the period containing the middle of its age range (Precambrian units older than 1,000 million years by their oldest age). The time slider uses the oldest age of each unit for "older than" (the rock had begun to form by then) and the youngest for "younger than". Towns are placed by their OS Open Names or GeoNames point.</p>
+  <p><b>What loads live.</b> The geology, hill shading, place names, faults and charts are all bundled with the page. The base maps (Esri and OpenStreetMap), the Esri labels and relief tiles, the fonts and the Leaflet map library load from the internet. In the world view, Macrostrat's detailed live tiles (drawn with the Leaflet.VectorGrid library) and the extra detail on a clicked spot come from Macrostrat's servers when they can be reached; if not, the page says so and keeps the bundled map.</p>
+  <p><b>Limits.</b> These are small-scale maps: lines are generalised, small outcrops are merged, and the world map mixes sources of different detail and vintage, with seams where they meet. A unit's age is its stratigraphic range, not the age of every rock in it. The rock types are my own grouping of the surveys' descriptions. The colours are a homage to the 1969 map and its index, not a reproduction of the map, and some of today's units do not fit its classes neatly.</p>
+</div>
+<details><summary>World map sources (Macrostrat)</summary><div class="tablewrap"><table class="t" id="srcTable"></table></div></details>
+<div class="cta">
+  <a class="p" href="https://github.com/Tristan-Hotham/rocks-beneath">Data and code</a>
+  <a href="https://doi.org/10.5281/zenodo.23734962">Paper (Zenodo)</a>
+  <a href="https://blog.tristanhotham.com/2026/10/28/rocks-beneath/">Blog post</a>
+  <a href="https://blog.tristanhotham.com/">Blog</a>
+</div>
+<footer>
+  <p>Dr Tristan Hotham, Independent researcher. ORCID 0000-0003-4931-9349. Cite as: Hotham, T. (2026) The rocks beneath: an interactive geological map of the British Isles and the world. https://doi.org/10.5281/zenodo.23734962</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+  <p>Contains British Geological Survey materials © UKRI 2026: BGS Geology 625k (DiGMapGB-625), British Geological Survey, Open Government Licence. Contains Irish Public Sector Data (Geological Survey Ireland) licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence. Contains UK public sector information (Geological Survey of Northern Ireland) licensed under the UK Open Government Licence v3.0. World geology: Macrostrat (macrostrat.org), CC BY 4.0, from the source maps listed above. Places: OS Open Names, contains OS data © Crown copyright and database right 2026 (Open Government Licence v3.0); GeoNames (CC BY 4.0). Relief: AWS Terrain Tiles (Mapzen terrarium). Land: Natural Earth (public domain). Colours sampled from the index of the Geological Map of the British Islands, 5th edition (1969); the map itself is not reproduced. Base maps: Esri and OpenStreetMap contributors (live). Map library: Leaflet.</p>
+  <p>Data files: CC BY 4.0, with the attributions above. Text and figures: CC BY 4.0. Code: MIT. Other studies: <a href="https://tristan-hotham.github.io/sea-level/">Drowned and rising</a>, <a href="https://tristan-hotham.github.io/sun-and-rain-uk/">Sun and rain</a>, <a href="https://blog.tristanhotham.com/">all posts</a>.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const PAL = /*PAL*/;
+const GRIDS = /*GRIDS*/;
+const UKU = /*UNITS_UK*/;
+const LABELS = /*LABELS*/;
+const COAL = /*COAL*/;
+const TRANS = /*TRANSECTS*/;
+const SOURCES = /*SOURCES*/;
+const AGEHIST = /*AGEHIST*/;
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const fmt = n => n == null || isNaN(n) ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const fmtMa = v => v == null || isNaN(v) ? "unknown" : v >= 100 ? fmt(v) : v >= 10 ? (Math.round(v * 10) / 10).toLocaleString("en-GB") : v >= 1 ? (Math.round(v * 100) / 100).toString() : v > 0 ? (Math.round(v * 1000) / 1000).toString() : "0";
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const $ = id => document.getElementById(id);
+const tip = $("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h) { node.style.cursor = "pointer"; const s = ev => showTip(h, ev.clientX, ev.clientY - 4); node.addEventListener("pointerenter", s); node.addEventListener("pointermove", s); node.addEventListener("pointerleave", hideTip); }
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+$("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); if (window.lmap) setBase(); };
+const hex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+const PER = PAL.periods, PK = PER.map(p => p[0]), PNAME = Object.fromEntries(PER.map(p => [p[0], p[1]]));
+const C69 = PAL.c69, ROCK = PAL.rock, SUP = PAL.sup;
+const ICE_COL = [236, 241, 244], XX_COL = hex(C69[C69.length - 1][2]);
+
+/* hero strata: the 1969 sedimentary colours, youngest at the left */
+(() => { const s = $("strata"); C69.filter(c => c[3] === "sed").forEach(c => { const i = document.createElement("i"); i.style.background = c[2]; s.appendChild(i); }); })();
+
+/* ===== age scale used by the time bar and the slider ===== */
+const TMAX = 4000, TB = 539;   // Phanerozoic on a square-root scale over three quarters of the bar, Precambrian on a log scale over the rest
+const tPos = ma => { ma = Math.max(0, Math.min(TMAX, ma)); return ma <= TB ? .75 * Math.sqrt(ma / TB) : .75 + .25 * Math.log(ma / TB) / Math.log(TMAX / TB); };   // 0 today, 1 oldest
+const tAt = f => f <= .75 ? TB * Math.pow(f / .75, 2) : TB * Math.exp((f - .75) / .25 * Math.log(TMAX / TB));
+const AGE_STOPS = [[0.5, "#FFF6C2"], [5, "#FCE08A"], [30, "#F9B95A"], [100, "#EE8A3A"], [250, "#D9573A"], [450, "#B23B5A"], [800, "#7E3B7E"], [1600, "#4D3A84"], [3200, "#232050"]];
+function ageCol(ma) {
+  if (ma == null || isNaN(ma)) return XX_COL;
+  const x = Math.log10(Math.max(0.5, ma));
+  for (let k = 1; k < AGE_STOPS.length; k++) {
+    const a = Math.log10(AGE_STOPS[k - 1][0]), b = Math.log10(AGE_STOPS[k][0]);
+    if (x <= b || k === AGE_STOPS.length - 1) { const f = Math.max(0, Math.min(1, (x - a) / (b - a))), c0 = hex(AGE_STOPS[k - 1][1]), c1 = hex(AGE_STOPS[k][1]); return c0.map((v, i) => Math.round(v + (c1[i] - v) * f)); }
+  }
+}
+const periodOfAge = ma => { for (const p of PER) if (ma >= p[3] && ma <= p[2]) return p[0]; return "A"; };
+
+/* ===== state ===== */
+const S = { view: "uk", pal: "c69", tmode: "all", t: 3000, iso: null, per: null, same: null, sel: null };
+const DS = {};   // datasets: uk, world
+function unitsFor(v) { return v === "uk" ? UKU : DS.world.units; }
+
+/* ===== colour tables ===== */
+function baseCol(U, i, pal) {
+  if (U.i && U.i[i]) return ICE_COL;
+  if (pal === "c69") return hex(C69[U.c[i]][2]);
+  if (pal === "ics") return U.p[i] >= 0 ? hex(PER[U.p[i]][4]) : XX_COL;
+  if (pal === "rock") return hex(ROCK[U.r[i]][2]);
+  return ageCol(U.x[i]);
+}
+function keyOf(U, i, pal) {
+  if (U.i && U.i[i]) return "ice";
+  if (pal === "c69") return C69[U.c[i]][0];
+  if (pal === "ics" || pal === "age") return U.p[i] >= 0 ? PK[U.p[i]] : "none";
+  return ROCK[U.r[i]][0];
+}
+function visible(U, i) {
+  const x = U.x[i], m = U.m[i];
+  if (S.tmode === "older" && !(x != null && x >= S.t)) return false;
+  if (S.tmode === "younger" && !(m != null && m <= S.t)) return false;
+  if (S.per && (U.p[i] < 0 || PK[U.p[i]] !== S.per)) return false;
+  if (S.iso && keyOf(U, i, S.pal) !== S.iso) return false;
+  if (S.same && !(x != null && m != null && x >= S.same[1] && m <= S.same[0])) return false;
+  return true;
+}
+function buildLut(v) {
+  const U = unitsFor(v), n = U.n.length, L = new Uint8ClampedArray((n + 1) * 4), dark = isDark();
+  for (let i = 0; i < n; i++) {
+    const c = baseCol(U, i, S.pal), o = (i + 1) * 4;
+    if (visible(U, i)) { L[o] = c[0]; L[o + 1] = c[1]; L[o + 2] = c[2]; L[o + 3] = 255; }
+    else { L[o] = dark ? 70 : 214; L[o + 1] = dark ? 68 : 209; L[o + 2] = dark ? 64 : 199; L[o + 3] = 120; }
+  }
+  return L;
+}
+const SUPLUT = SUP.map(s => hex(s[2]));
+
+/* ===== raster datasets: chunks of 512 px at the native zoom, an overview at native - 2 ===== */
+async function decodePNG(url) {
+  const r = await fetch(url); if (!r.ok) throw new Error(url);
+  const blob = await r.blob();
+  let src; try { src = await createImageBitmap(blob, { colorSpaceConversion: "none", premultiplyAlpha: "none" }); }
+  catch (e) { src = await new Promise((ok, no) => { const im = new Image(); im.onload = () => ok(im); im.onerror = no; im.src = URL.createObjectURL(blob); }); }
+  const c = document.createElement("canvas"); c.width = src.width; c.height = src.height; const x = c.getContext("2d", { willReadFrequently: true });
+  x.drawImage(src, 0, 0); return { w: src.width, h: src.height, d: x.getImageData(0, 0, src.width, src.height).data };
+}
+function makeDS(id, g) {
+  const ds = { id, nz: g.nz, ovz: g.nz - 2, g, cache: new Map(), have: new Set(g.chunks.map(c => c[0] + "_" + c[1])), ov: null, lut: null };
+  ds.chunk = (tx, ty) => {
+    const k = tx + "_" + ty;
+    if (!ds.have.has(k)) return Promise.resolve(null);
+    if (ds.cache.has(k)) return ds.cache.get(k);
+    const p = Promise.all([decodePNG(g.dir + g.pre + k + ".png"), decodePNG(g.dir + "h_" + k + ".jpg").catch(() => null)]).then(([u, h]) => {
+      const n = 512 * 512, key = new Uint32Array(n), hill = new Uint8Array(256 * 256).fill(255);
+      for (let i = 0; i < n; i++) key[i] = u.d[i * 4] | (u.d[i * 4 + 1] << 8) | (id === "uk" ? u.d[i * 4 + 2] << 16 : 0);
+      if (h) for (let i = 0; i < 256 * 256; i++) hill[i] = h.d[i * 4];
+      return { key, hill };
+    }).catch(() => null);
+    ds.cache.set(k, p); return p;
+  };
+  ds.overview = () => ds.ovP || (ds.ovP = Promise.all([decodePNG(g.dir + "overview.png"), decodePNG(g.dir + "overview_h.jpg").catch(() => null)]).then(([u, h]) => {
+    const n = u.w * u.h, key = new Uint32Array(n), hill = new Uint8Array(n).fill(255);
+    for (let i = 0; i < n; i++) key[i] = u.d[i * 4] | (u.d[i * 4 + 1] << 8) | (id === "uk" ? u.d[i * 4 + 2] << 16 : 0);
+    if (h) for (let i = 0; i < n; i++) hill[i] = h.d[i * 4];
+    ds.ov = { w: u.w, h: u.h, ox: g.ox / 4, oy: g.oy / 4, key, hill }; return ds.ov;
+  }));
+  return ds;
+}
+DS.uk = makeDS("uk", GRIDS.uk);
+DS.world = makeDS("world", GRIDS.world);
+
+/* scale2x (EPX): doubles a block of map-unit keys, rounding off stair steps without inventing new units */
+function scale2x(a, n) {
+  const m = n * 2, o = new Uint32Array(m * m);
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    const P = a[y * n + x], A = y > 0 ? a[(y - 1) * n + x] : P, D = y < n - 1 ? a[(y + 1) * n + x] : P, C = x > 0 ? a[y * n + x - 1] : P, B = x < n - 1 ? a[y * n + x + 1] : P;
+    const i = 2 * y * m + 2 * x;
+    o[i] = (C === A && C !== D && A !== B) ? A : P; o[i + 1] = (A === B && A !== C && B !== D) ? B : P;
+    o[i + m] = (D === C && D !== B && C !== A) ? C : P; o[i + m + 1] = (B === D && B !== A && D !== C) ? D : P;
+  }
+  return o;
+}
+/* the keys and hill values behind one 256 px display tile */
+async function tileData(ds, c) {
+  const z = c.z, K = new Uint32Array(65536), Hh = new Uint8Array(65536).fill(255);
+  if (z <= ds.ovz) {
+    const ov = await ds.overview(), s = Math.pow(2, ds.ovz - z);
+    for (let py = 0; py < 256; py++) {
+      const sy = Math.floor((c.y * 256 + py + .5) * s) - ov.oy; if (sy < 0 || sy >= ov.h) continue;
+      for (let px = 0; px < 256; px++) { const sx = Math.floor((c.x * 256 + px + .5) * s) - ov.ox; if (sx < 0 || sx >= ov.w) continue; const j = sy * ov.w + sx; K[py * 256 + px] = ov.key[j]; Hh[py * 256 + px] = ov.hill[j]; }
+    }
+    return { K, H: Hh };
+  }
+  const nz = ds.nz;
+  if (z <= nz) {
+    const s = Math.pow(2, nz - z), x0 = c.x * 256 * s, y0 = c.y * 256 * s;
+    const cx0 = Math.floor(x0 / 512), cx1 = Math.floor((x0 + 256 * s - 1) / 512), cy0 = Math.floor(y0 / 512), cy1 = Math.floor((y0 + 256 * s - 1) / 512);
+    const ch = {}; const jobs = [];
+    for (let ty = cy0; ty <= cy1; ty++) for (let tx = cx0; tx <= cx1; tx++) jobs.push(ds.chunk(tx, ty).then(d => { ch[tx + "_" + ty] = d; }));
+    await Promise.all(jobs);
+    for (let py = 0; py < 256; py++) {
+      const gy = Math.floor((c.y * 256 + py + .5) * s), ty = Math.floor(gy / 512), ly = gy - ty * 512;
+      for (let px = 0; px < 256; px++) {
+        const gx = Math.floor((c.x * 256 + px + .5) * s), tx = Math.floor(gx / 512), d = ch[tx + "_" + ty]; if (!d) continue;
+        const lx = gx - tx * 512; K[py * 256 + px] = d.key[ly * 512 + lx]; Hh[py * 256 + px] = d.hill[(ly >> 1) * 256 + (lx >> 1)];
+      }
+    }
+    return { K, H: Hh };
+  }
+  // zoomed in beyond the native grid: gather the block with a one-pixel border, smooth with scale2x, then sample
+  const f = Math.pow(2, z - nz), n = 256 / f, sx0 = c.x * n - 1, sy0 = c.y * n - 1, nb = n + 2;
+  const tx = Math.floor((c.x * n) / 512), ty = Math.floor((c.y * n) / 512);
+  const need = new Set(); for (const yy of [sy0, sy0 + nb - 1]) for (const xx of [sx0, sx0 + nb - 1]) need.add(Math.floor(xx / 512) + "_" + Math.floor(yy / 512));
+  const ch = {}; await Promise.all([...need].map(k => { const [a, b] = k.split("_").map(Number); return ds.chunk(a, b).then(d => { ch[k] = d; }); }));
+  if (!ch[tx + "_" + ty]) return { K, H: Hh };
+  let blk = new Uint32Array(nb * nb);
+  for (let y = 0; y < nb; y++) for (let x = 0; x < nb; x++) {
+    const gx = sx0 + x, gy = sy0 + y, k = Math.floor(gx / 512) + "_" + Math.floor(gy / 512), d = ch[k];
+    blk[y * nb + x] = d ? d.key[(gy - Math.floor(gy / 512) * 512) * 512 + gx - Math.floor(gx / 512) * 512] : 0;
+  }
+  let m = nb, k = 0; const kmax = Math.min(Math.log2(f), 3);
+  while (k < kmax) { blk = scale2x(blk, m); m *= 2; k++; }
+  const sc = Math.pow(2, k), d0 = ch[tx + "_" + ty];
+  for (let py = 0; py < 256; py++) {
+    const v = Math.floor(((py + .5) / f + 1) * sc);
+    const hy = (c.y * 256 + py + .5) / f / 2 - .5;            // hill grid is half the native resolution
+    for (let px = 0; px < 256; px++) {
+      const u = Math.floor(((px + .5) / f + 1) * sc); K[py * 256 + px] = blk[v * m + u];
+      const hx = (c.x * 256 + px + .5) / f / 2 - .5, ix = Math.floor(hx), iy = Math.floor(hy), fx = hx - ix, fy = hy - iy;
+      const lx = ix - tx * 256, ly = iy - ty * 256;
+      const g = (a, b) => d0.hill[Math.max(0, Math.min(255, b)) * 256 + Math.max(0, Math.min(255, a))];
+      Hh[py * 256 + px] = (g(lx, ly) * (1 - fx) + g(lx + 1, ly) * fx) * (1 - fy) + (g(lx, ly + 1) * (1 - fx) + g(lx + 1, ly + 1) * fx) * fy;
+    }
+  }
+  return { K, H: Hh };
+}
+function paintTile(cv) {
+  const t = cv._td; if (!t) return;
+  const ds = DS[cv._v], L = ds.lut; if (!L) return;
+  const x = cv.getContext("2d"), im = x.createImageData(256, 256), d = im.data;
+  const k = LY.hills ? Math.min(1, LY.hillK / 100) : 0, dark = isDark(), sup = cv._v === "uk" && LY.sup, sa = LY.supK / 100;
+  for (let i = 0; i < 65536; i++) {
+    const key = t.K[i], u = key & 0xffff; if (!u) continue;
+    const o = u * 4; if (o >= L.length) continue;
+    let r = L[o], g = L[o + 1], b = L[o + 2], a = L[o + 3];
+    const s = key >>> 16;
+    if (sup && s && a === 255) { const c = SUPLUT[s - 1]; r = r + (c[0] - r) * sa; g = g + (c[1] - g) * sa; b = b + (c[2] - b) * sa; }
+    if (k) { const h = t.H[i] / 255, f = dark ? 1 - k * (1 - h) * .7 : 1 - k * (1 - h) * .9; r *= f; g *= f; b *= f; }
+    const q = i * 4; d[q] = r; d[q + 1] = g; d[q + 2] = b; d[q + 3] = a;
+  }
+  x.putImageData(im, 0, 0);
+}
+const GeoLayer = L.GridLayer.extend({
+  createTile(c, done) {
+    const cv = document.createElement("canvas"); cv.width = cv.height = 256; cv.className = "geo"; cv._v = this.options.v;
+    tileData(DS[this.options.v], c).then(td => { cv._td = td; paintTile(cv); done(null, cv); }).catch(e => done(e, cv));
+    return cv;
+  }
+});
+function repaint() {
+  for (const v of ["uk", "world"]) DS[v].lut = (v === "uk" || DS.world.units) ? buildLut(v) : null;
+  for (const lay of [geoUK, geoW]) if (lay && lay._map) for (const k in lay._tiles) paintTile(lay._tiles[k].el);
+  if (window.liveL && liveL._map) liveL.redraw();
+}
+let rq = 0; const repaintSoon = () => { cancelAnimationFrame(rq); rq = requestAnimationFrame(repaint); };
+
+/* ===== the map ===== */
+const lmap = L.map("lmap", { zoomSnap: .25, zoomDelta: .5, minZoom: 2, maxZoom: 13, scrollWheelZoom: false, worldCopyJump: false, maxBounds: [[-85, -200], [85, 200]] });
+window.lmap = lmap;
+lmap.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+const UKB = L.latLngBounds([49.8, -10.8], [60.9, 2.0]);
+lmap.fitBounds(UKB, { padding: [2, 2] });
+["geo", "lines", "labels", "names"].forEach((n, i) => { lmap.createPane(n); lmap.getPane(n).style.zIndex = 380 + i * 30; lmap.getPane(n).style.pointerEvents = "none"; });
+const ATT_UK = 'Contains British Geological Survey materials © UKRI 2026 (OGL) | Geological Survey Ireland (CC BY 4.0) | OS Open Names, GeoNames';
+const ATT_W = 'Geology: <a href="https://macrostrat.org">Macrostrat</a> (CC BY 4.0) | GeoNames | Natural Earth';
+const geoUK = new GeoLayer({ v: "uk", pane: "geo", maxNativeZoom: 13, attribution: ATT_UK, bounds: L.latLngBounds([49.5, -11.5], [61.2, 2.5]), keepBuffer: 3 });
+const geoW = new GeoLayer({ v: "world", pane: "geo", attribution: ATT_W, noWrap: true, keepBuffer: 2 });
+
+/* map layers */
+const LY = { base: "grey", hills: true, hillK: 55, names: true, nameLvl: 1, labels: false, labelK: 70, faults: false, dykes: false, sup: false, supK: 80, geo: 88, live: true, esriHill: false };
+const LYDEF = { ...LY };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("rb_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("rb_layers", JSON.stringify(LY)); } catch (e) {} };
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ESRI_ATT = 'Tiles &copy; Esri and its data partners';
+let baseL = null, refL = null, esriHillL = null, nameL = L.layerGroup(), lineL = null, lineData = {}, coalL = null, pinM = null;
+function setBase() {
+  [baseL, refL, esriHillL].forEach(l => { if (l) lmap.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const urls = { grey: `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`, osm: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    topo: ESRI + "World_Topo_Map/MapServer/tile/{z}/{y}/{x}", sat: ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" };
+  baseL = LY.base === "none" ? null : L.tileLayer(urls[LY.base], { maxZoom: 19, maxNativeZoom: LY.base === "osm" ? 19 : 16, attribution: LY.base === "osm" ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' : ESRI_ATT });
+  if (baseL) baseL.addTo(lmap);
+  refL = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 19, maxNativeZoom: 16, pane: "labels" });
+  esriHillL = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, opacity: .55 });
+  applyLayers();
+}
+function applyLayers() {
+  const g = S.view === "uk" ? geoUK : geoW, other = S.view === "uk" ? geoW : geoUK;
+  if (other._map) lmap.removeLayer(other);
+  if (!g._map) g.addTo(lmap);
+  g.setOpacity(LY.geo / 100);
+  if (LY.labels) { refL.addTo(lmap); refL.setOpacity(LY.labelK / 100); } else if (refL) lmap.removeLayer(refL);
+  if (LY.esriHill) { esriHillL.addTo(lmap); esriHillL.bringToFront(); } else if (esriHillL) lmap.removeLayer(esriHillL);
+  if (LY.names) nameL.addTo(lmap); else lmap.removeLayer(nameL);
+  drawLines(); placeNames(); liveTiles(); repaintSoon();
+  const q = id => document.getElementById(id);
+  if (q("lyDykes")) { q("lyDykes").disabled = S.view !== "uk"; q("lySup").disabled = S.view !== "uk"; q("lyLive").disabled = S.view !== "world"; }
+}
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false" aria-controls="lyrPanel">Map layers</button>
+<div class="lyrPanel" id="lyrPanel" hidden>
+ <div class="row"><label for="lyBase">Base map</label><select id="lyBase"><option value="grey">Plain grey (Esri)</option><option value="osm">OpenStreetMap</option><option value="topo">Topographic (Esri)</option><option value="sat">Satellite (Esri)</option><option value="none">None</option></select></div>
+ <div class="row"><label style="font-weight:600">Geology</label><div class="sub"><span>opacity</span><input type="range" id="lyGeo" min="20" max="100" step="5" aria-label="Geology opacity"></div></div>
+ <div class="row"><label><input type="checkbox" id="lyHills"> Hill shading</label><div class="sub"><span>strength</span><input type="range" id="lyHillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" id="lyNames"> Place names</label><div class="sub"><span>how many</span><select id="lyNameLvl" aria-label="How many place names"><option value="0">Cities only</option><option value="1">Cities and towns</option><option value="2">Down to villages</option></select></div></div>
+ <div class="row"><label><input type="checkbox" id="lyLabels"> Map labels and roads (Esri)</label><div class="sub"><span>strength</span><input type="range" id="lyLabelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="hd">Geology extras</div>
+ <div class="row"><label><input type="checkbox" id="lyFaults"> Faults</label></div>
+ <div class="row"><label><input type="checkbox" id="lyDykes"> Dykes (British Isles)</label></div>
+ <div class="row"><label><input type="checkbox" id="lySup"> Ice-age deposits (UK)</label><div class="sub"><span>strength</span><input type="range" id="lySupK" min="20" max="100" step="5" aria-label="Superficial deposit strength"></div></div>
+ <div class="row"><label><input type="checkbox" id="lyEsriHill"> Esri relief tiles over the map</label></div>
+ <div class="row"><label><input type="checkbox" id="lyLive"> Detailed live tiles (world, zoom 6+)</label><div class="note" id="liveNote">Loaded from Macrostrat when you zoom in; the bundled world map stays underneath.</div></div>
+ <button class="reset" id="lyReset">Reset layers</button>
+</div>`;
+    return d; } });
+  lmap.addControl(new Ctl());
+  const q = id => document.getElementById(id), btn = lmap.getContainer().querySelector(".lyrBtn"), pan = q("lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => { q("lyBase").value = LY.base; q("lyGeo").value = LY.geo; q("lyHills").checked = LY.hills; q("lyHillK").value = LY.hillK; q("lyNames").checked = LY.names; q("lyNameLvl").value = LY.nameLvl;
+    q("lyLabels").checked = LY.labels; q("lyLabelK").value = LY.labelK; q("lyFaults").checked = LY.faults; q("lyDykes").checked = LY.dykes; q("lySup").checked = LY.sup; q("lySupK").value = LY.supK; q("lyEsriHill").checked = LY.esriHill; q("lyLive").checked = LY.live; };
+  const on = (id, ev, f, rebase) => q(id).addEventListener(ev, e => { f(e.target); saveLY(); rebase ? setBase() : applyLayers(); if (id === "lySup" || id === "lySupK") legend(); });
+  on("lyBase", "change", t => LY.base = t.value, true);
+  on("lyGeo", "input", t => LY.geo = +t.value);
+  on("lyHills", "change", t => LY.hills = t.checked); on("lyHillK", "input", t => { LY.hillK = +t.value; LY.hills = q("lyHills").checked = true; });
+  on("lyNames", "change", t => LY.names = t.checked); on("lyNameLvl", "change", t => { LY.nameLvl = +t.value; LY.names = q("lyNames").checked = true; });
+  on("lyLabels", "change", t => LY.labels = t.checked); on("lyLabelK", "input", t => { LY.labelK = +t.value; LY.labels = q("lyLabels").checked = true; });
+  on("lyFaults", "change", t => LY.faults = t.checked); on("lyDykes", "change", t => LY.dykes = t.checked);
+  on("lySup", "change", t => LY.sup = t.checked); on("lySupK", "input", t => { LY.supK = +t.value; LY.sup = q("lySup").checked = true; });
+  on("lyEsriHill", "change", t => LY.esriHill = t.checked); on("lyLive", "change", t => LY.live = t.checked);
+  q("lyReset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setBase(); legend(); };
+  sync();
+})();
+
+/* faults and dykes: canvas lines, loaded the first time they are wanted */
+const lineRenderer = L.canvas({ pane: "lines", padding: .3 });
+function drawLines() {
+  if (lineL) { lmap.removeLayer(lineL); lineL = null; }
+  const want = LY.faults || (LY.dykes && S.view === "uk"); if (!want) return;
+  const f = S.view === "uk" ? "data/uk_lines.json" : "data/world_lines.json";
+  if (!lineData[f]) { lineData[f] = "loading"; fetch(f).then(r => r.json()).then(j => { lineData[f] = j; drawLines(); }).catch(() => { lineData[f] = []; }); return; }
+  if (lineData[f] === "loading") return;
+  const dark = isDark(), group = [];
+  for (const ln of lineData[f]) {
+    const kind = ln[0]; if (kind === 2 ? !LY.dykes : !LY.faults) continue;
+    const pts = []; for (let k = 1; k < ln.length; k += 2) pts.push([ln[k], ln[k + 1]]);
+    group.push(L.polyline(pts, { renderer: lineRenderer, interactive: false, color: kind === 2 ? (dark ? "#f2a2d6" : "#7A1E5A") : (dark ? "#f4efe6" : "#1b1a17"), weight: kind === 1 ? 1.3 : .8, opacity: kind === 2 ? .8 : .6, dashArray: kind === 1 ? "6 3" : null }));
+  }
+  lineL = L.layerGroup(group).addTo(lmap);
+}
+
+/* our own place names, with collision avoidance */
+let WPL = null, GBPL = null;
+function loadWorldPlaces() { return WPL ? Promise.resolve(WPL) : (window._wpP || (window._wpP = fetch("data/places_world.json").then(r => r.json()).then(j => (WPL = j)))); }
+function loadGBPlaces() { return GBPL ? Promise.resolve(GBPL) : (window._gbP || (window._gbP = fetch("data/places_gb.json").then(r => r.json()).then(j => (GBPL = j)))); }
+function placeNames() {
+  nameL.clearLayers(); if (!LY.names) return;
+  const z = lmap.getZoom(), bb = lmap.getBounds().pad(.05), lvl = LY.nameLvl;
+  let cand = [];
+  if (S.view === "uk") {
+    const minR = lvl === 0 ? (z >= 8 ? 2 : 3) : lvl === 1 ? (z >= 7.5 ? 2 : 3) : (z >= 9.5 ? 1 : z >= 7.5 ? 2 : 3);
+    for (const p of LABELS) if (p[3] >= minR) cand.push({ nm: p[0], la: p[1], lo: p[2], r: p[3] });
+    if (lvl === 2 && z >= 9.5) { if (GBPL) { for (const p of GBPL) if (p[4] === 1) cand.push({ nm: p[0], la: p[2], lo: p[3], r: 1 }); } else loadGBPlaces().then(placeNames); }
+    if (z < 6.5) cand = cand.filter(c => c.r >= 3 && /^(London|Birmingham|Manchester|Glasgow|Edinburgh|Cardiff|Belfast|Dublin|Cork|Newcastle upon Tyne|Leeds|Bristol|Aberdeen|Inverness|Plymouth|Norwich|Galway|Limerick)$/.test(c.nm));
+  } else {
+    if (!WPL) { loadWorldPlaces().then(placeNames); return; }
+    const minPop = [[3, 6000], [4, 2500], [5, 900], [6, 300], [7, 120], [8, 50], [99, 15]].find(([zz]) => z < zz + (lvl === 2 ? 1.5 : lvl === 0 ? -1 : 0))[1] * (lvl === 0 ? 2 : 1);
+    for (const p of WPL.places) if (p[4] >= minPop) cand.push({ nm: p[0], la: p[2], lo: p[3], r: p[4] >= 1000 ? 3 : 2 });
+  }
+  const vis = cand.filter(c => bb.contains([c.la, c.lo])).sort((a, b) => b.r - a.r);
+  const boxes = []; let n = 0;
+  for (const c of vis) {
+    const pt = lmap.latLngToContainerPoint([c.la, c.lo]), fs = c.r >= 3 ? 7.2 : c.r === 2 ? 6.6 : 6.1;
+    const bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.nm.length * fs, pt.y + 7];
+    if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue;
+    boxes.push(bx); L.marker([c.la, c.lo], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "city r" + c.r, html: `<i></i>${esc(c.nm)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(nameL);
+    if (++n >= 280) break;
+  }
+}
+lmap.on("zoomend moveend", placeNames);
+
+/* live Macrostrat tiles: a progressive enhancement for the world view when zoomed in */
+let liveL = null, liveState = "off";
+function liveStyle(p) {
+  const top = +p.best_age_top, bot = +p.best_age_bottom, dated = !isNaN(bot);
+  const per = dated ? (bot >= 1000 ? periodOfAge(bot - 1e-6) : periodOfAge((bot + (isNaN(top) ? 0 : top)) / 2)) : null;
+  const rock = rockOf(p.lith, p.name), U = { x: [dated ? bot : null], m: [isNaN(top) ? null : top], p: [per ? PK.indexOf(per) : -1], r: [RKEYS.indexOf(rock)], c: [C69K.indexOf(c69Of(per, rock, (p.lith || "") + " " + (p.name || "")))], i: [0] };
+  const vis = visible(U, 0), c = baseCol(U, 0, S.pal);
+  return { fill: true, fillColor: `rgb(${c[0]},${c[1]},${c[2]})`, fillOpacity: vis ? .92 : .25, stroke: false, weight: 0 };
+}
+const RKEYS = ROCK.map(r => r[0]), C69K = C69.map(c => c[0]);
+function rockOf(lith, name) {
+  let t = String(lith || "").toUpperCase(); const nm = String(name || "").toUpperCase();
+  const mj = t.match(/MAJOR:\{([^}]*)\}/); if (mj) t = mj[1];
+  if (/SEDIMENTARY AND(\/OR)? VOLCANIC/.test(t)) return "sd";
+  if (/^PLUTONIC|INTRUSIVE|GRANIT/.test(nm)) return "ii";
+  if (/^VOLCANIC/.test(nm)) return "vo";
+  if (/^METAMORPHIC/.test(nm)) return "mm";
+  if (/COAL|LIGNITE/.test(t)) return "co";
+  if (/GNEISS|SCHIST|QUARTZITE|MARBLE|SLATE|PHYLLITE|AMPHIBOLITE|MIGMATIT|METAMORPHIC|METASEDIMENT|GRANULITE/.test(t)) return "mm";
+  if (/LAVA|TUFF|VOLCANIC|BASALT|ANDESITE|RHYOLITE|TRACHYTE|DACITE|IGNIMBRITE|PYROCLASTIC/.test(t)) return "vo";
+  if (/GRANITE|GRANODIORITE|GABBRO|DIORITE|TONALITE|PORPHYRY|SERPENTINITE|PLUTONIC|INTRUSIVE|DOLERITE|SYENITE/.test(t)) return "ii";
+  if (/^CHALK/.test(t)) return "ch";
+  const first = (t.trim().split(/[ ,;&]+/)[0] || "");
+  if (/^(LIMESTONE|DOLOSTONE|DOLOMITE|CARBONATE|MARL)$/.test(first)) return "ls";
+  if (/^(SANDSTONE|CONGLOMERATE|BRECCIA|WACKE|GREYWACKE|ARKOSE)$/.test(first)) return "ss";
+  if (/^(MUDSTONE|SILTSTONE|SHALE|CLAYSTONE|ARGILLITE)$/.test(first)) return "md";
+  if (/^(CLAY|SAND|GRAVEL|SILT|ALLUVIUM|PEAT|TILL)$/.test(first)) return "sf";
+  if (/CARBONATE/.test(nm)) return "ls";
+  if (/CLASTIC/.test(nm)) return "ss";
+  if (/UNCONSOLIDATED/.test(nm)) return "sf";
+  if (/SEDIMENTARY/.test(t + nm)) return "sd";
+  return "ot";
+}
+function c69Of(per, rock, text) {
+  const t = text.toUpperCase();
+  if (!per) return "XX";
+  if (rock === "vo") return ({ Q: "VT", N: "VT", Pg: "VT", K: "VC", J: "VC", T: "VC", P: "VC", C: "VC", D: "VD", S: "VL", O: "VL", Cm: "VL" })[per] || "VP";
+  if (rock === "ii") return /MAFIC|GABBRO|DOLERITE|BASIC|ULTRAMAFIC|SERPENTIN|DIABASE|PERIDOTITE/.test(t) ? "IB" : "IA";
+  if (rock === "mm") return ["A", "PP"].includes(per) ? "LW" : ["MP", "NP"].includes(per) ? "MO" : "MX";
+  if (per === "Q" || per === "N") return "NQ"; if (per === "Pg") return "PG";
+  if (per === "K") return rock === "ch" || rock === "ls" ? "CH" : rock === "md" ? "UG" : "LG";
+  if (per === "J") return rock === "md" ? "LI" : "OL";
+  if (per === "T") return rock === "md" ? "KE" : "BU";
+  if (per === "P") return rock === "ls" ? "ML" : "PE";
+  if (per === "C") return rock === "co" ? "CM" : rock === "ls" ? "CL" : "MG";
+  return ({ D: "OR2", S: "SI", O: "OD", Cm: "CA", NP: "TO", MP: "TO", PP: "TO", A: "TO" })[per] || "XX";
+}
+function liveTiles() {
+  const want = S.view === "world" && LY.live && lmap.getZoom() >= 6;
+  if (!want) { if (liveL && liveL._map) lmap.removeLayer(liveL); return; }
+  if (liveState === "off") {
+    liveState = "loading";
+    const s = document.createElement("script"); s.src = "https://unpkg.com/leaflet.vectorgrid@1.3.0/dist/Leaflet.VectorGrid.bundled.min.js";
+    s.onload = () => { liveState = L.vectorGrid ? "ready" : "failed"; liveTiles(); };
+    s.onerror = () => { liveState = "failed"; $("liveNote").textContent = "The live tile library could not be loaded, so the bundled world map is shown."; };
+    document.head.appendChild(s); return;
+  }
+  if (liveState !== "ready") return;
+  if (!liveL) {
+    liveL = L.vectorGrid.protobuf("https://tiles.macrostrat.org/carto/{z}/{x}/{y}", { pane: "geo", maxNativeZoom: 13, minZoom: 6, interactive: false, rendererFactory: L.canvas.tile,
+      vectorTileLayerStyles: { units: p => liveStyle(p), lines: () => ({ stroke: false, fill: false, weight: 0, opacity: 0 }) }, attribution: "Live tiles: Macrostrat" });
+    let fails = 0, oks = 0;
+    liveL.on("tileerror", () => { fails++; if (fails > 6 && !oks) $("liveNote").textContent = "Macrostrat's live tiles did not load here, so the bundled world map is shown."; });
+    liveL.on("tileload", () => { oks++; $("liveNote").textContent = "Showing Macrostrat's live tiles at this zoom."; });
+  }
+  if (!liveL._map) liveL.addTo(lmap);
+  liveL.setOpacity(LY.geo / 100);
+}
+lmap.on("zoomend", () => liveTiles());
+
+/* ===== views and palettes ===== */
+async function ensureWorld() {
+  if (DS.world.units) return;
+  $("loadMsg").textContent = "Loading the world map...";
+  DS.world.units = await (await fetch("data/units_world_page.json")).json();
+  $("loadMsg").textContent = "";
+}
+async function setView(v, fit = true) {
+  S.view = v; document.querySelectorAll("#viewBtns .btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v));
+  if (v === "world") await ensureWorld();
+  if (fit) { if (v === "uk") lmap.fitBounds(UKB, { padding: [6, 6] }); else lmap.setView([25, 10], lmap.getSize().x < 700 ? 2 : 2.5); }
+  S.iso = null; applyLayers(); legend(); timeBar();
+}
+document.querySelectorAll("#viewBtns .btn").forEach(b => b.onclick = () => setView(b.dataset.v));
+document.querySelectorAll("#palBtns .btn").forEach(b => b.onclick = () => { S.pal = b.dataset.p; S.iso = null; document.querySelectorAll("#palBtns .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); legend(); repaintSoon(); if (S.selCard) S.selCard(); });
+
+/* ===== legend ===== */
+function shareFor(key) {
+  if (S.view === "uk") {
+    if (S.pal === "c69") return R.uk_1969_share.isles[key]; if (S.pal === "rock") return R.uk_rock_share.isles[key]; return R.uk_period_share.isles[key];
+  }
+  if (S.pal === "rock") return R.world_rock_share[key]; if (S.pal === "c69") return null; return R.world_period_share[key];
+}
+function legend() {
+  const box = $("legend"); box.innerHTML = "";
+  const titles = { c69: "Key: the 1969 survey colours", ics: "Key: geological periods (ICS colours)", rock: "Key: rock type", age: "Key: age of the rock (oldest age of each unit)" };
+  $("legT").textContent = titles[S.pal] + (S.iso ? " · tap again to clear" : " · tap to isolate");
+  const item = (key, label, col, share, grp) => {
+    const d = document.createElement("div"); d.className = "li" + (S.iso === key ? " on" : S.iso ? " off" : ""); d.setAttribute("role", "button"); d.tabIndex = 0;
+    d.innerHTML = `<i style="background:${col}"></i><div>${esc(label)}</div><span>${share == null || share < .05 ? "" : share.toFixed(1) + "%"}</span>`;
+    const go = () => { S.iso = S.iso === key ? null : key; legend(); repaintSoon(); };
+    d.onclick = go; d.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } };
+    box.appendChild(d);
+  };
+  const grp = t => { const g = document.createElement("div"); g.className = "grp"; g.textContent = t; box.appendChild(g); };
+  if (S.pal === "c69") {
+    let last = "";
+    for (const c of C69) { if (c[0] === "XX") continue; if (c[3] !== last) { grp({ sed: "Sedimentary rocks, youngest first", meta: "Metamorphic rocks", ign: "Igneous rocks", other: "" }[c[3]]); last = c[3]; } item(c[0], c[1], c[2], shareFor(c[0])); }
+  } else if (S.pal === "ics") {
+    for (const p of PER) item(p[0], `${p[1]} (${fmtMa(p[2])} to ${fmtMa(p[3])} Ma)`, p[4], shareFor(p[0]));
+  } else if (S.pal === "rock") {
+    for (const r of ROCK) if (S.view === "world" || r[0] !== "sd") item(r[0], r[1], r[2], shareFor(r[0]));
+  } else {
+    const g = document.createElement("div");
+    g.innerHTML = `<div style="height:16px;border:1px solid var(--border);background:linear-gradient(90deg,${[0.5, 5, 30, 100, 250, 450, 800, 1600, 3200].map(a => { const c = ageCol(a); return `rgb(${c})`; }).join(",")})"></div><div style="display:flex;justify-content:space-between;font:400 11px var(--mono);color:var(--muted);margin:4px 0 8px"><span>today</span><span>30</span><span>250</span><span>800</span><span>3,200 Ma</span></div><div class="grp">Tap a period to isolate it</div>`;
+    box.appendChild(g);
+    for (const p of PER) item(p[0], `${p[1]}`, `rgb(${ageCol(Math.sqrt(Math.max(.5, p[3]) * p[2]))})`, shareFor(p[0]));
+  }
+  if (S.view === "world") { const c = document.createElement("div"); c.className = "li"; c.style.cursor = "default"; c.innerHTML = `<i style="background:rgb(${ICE_COL})"></i><div>Ice sheets</div><span></span>`; box.appendChild(c); }
+  if (S.view === "uk" && LY.sup) { grp("Ice-age deposits (layer on)"); for (const s of SUP) { const d = document.createElement("div"); d.className = "li"; d.style.cursor = "default"; d.innerHTML = `<i style="background:${s[2]}"></i><div>${esc(s[1])}</div><span>${R.superficial["pct_" + s[0]] ? R.superficial["pct_" + s[0]].toFixed(1) + "%" : ""}</span>`; box.appendChild(d); } }
+  const n = document.createElement("div"); n.className = "fig-sub"; n.style.margin = "8px 0 0";
+  n.textContent = S.view === "uk" ? "Shares are of the land of the British Isles on this map." : (S.pal === "c69" ? "World units take the 1969 colour of their period and rock type." : "Shares are of the world's dated, ice-free land on this map.");
+  box.appendChild(n);
+}
+
+/* ===== time bar and slider ===== */
+const tbar = $("tbar"), slider = $("tslider");
+function timeBar() {
+  tbar.innerHTML = ""; const W = Math.max(300, Math.round(tbar.clientWidth || 800)), sm = W < 560, x0 = 4, x1 = W - 4, X = ma => x1 - tPos(ma) * (x1 - x0);
+  tbar.setAttribute("viewBox", `0 0 ${W} 74`);
+  const ink = getComputedStyle(document.documentElement).getPropertyValue("--fg").trim();
+  for (const p of PER) {
+    const a = X(p[2]), b = X(p[3]);
+    const r = el("rect", { x: a, y: 18, width: Math.max(1, b - a), height: 26, fill: S.pal === "c69" || S.pal === "ics" ? p[4] : `rgb(${ageCol(Math.sqrt(Math.max(.5, p[3]) * p[2]))})`, stroke: S.per === p[0] ? ink : "none", "stroke-width": 2, opacity: S.per && S.per !== p[0] ? .35 : 1 }, tbar);
+    r.style.cursor = "pointer";
+    r.addEventListener("click", ev => { ev.stopPropagation(); S.per = S.per === p[0] ? null : p[0]; timeBar(); repaintSoon(); readTime(); });
+    hover(r, `<b>${p[1]}</b><br>${fmtMa(p[2])} to ${fmtMa(p[3])} million years ago<br>Tap to show only its rocks`);
+    if (b - a > (p[0].length > 1 ? 24 : 16)) { const t = lbl(tbar, (a + b) / 2, 35, p[0], "lab s", "middle"); t.style.pointerEvents = "none"; t.setAttribute("fill", "#1d1b18"); }
+  }
+  for (const t of sm ? [3000, 539, 252, 66, 0] : [3000, 1000, 539, 252, 66, 10, 0]) { const x = X(t); el("line", { x1: x, x2: x, y1: 44, y2: 50, stroke: ink }, tbar); lbl(tbar, x, 62, t === 0 ? "today" : fmt(t), "lab s m", t === 0 ? "end" : "middle"); }
+  lbl(tbar, x0, 12, "older", "lab s m"); lbl(tbar, x1, 12, sm ? "Ma · younger" : "million years ago · younger", "lab s m", "end");
+  if (S.tmode !== "all") { const x = X(S.t); el("line", { x1: x, x2: x, y1: 14, y2: 48, stroke: ink, "stroke-width": 2.5 }, tbar); el("path", { d: `M${x - 6},14 L${x + 6},14 L${x},21 Z`, fill: ink }, tbar); }
+}
+new ResizeObserver(() => timeBar()).observe(tbar);
+function readTime() {
+  const t = S.t, p = periodOfAge(t);
+  let s = S.tmode === "all" ? "Showing rocks of every age." : S.tmode === "older" ? `Rocks that had begun to form by ${fmtMa(t)} million years ago (${PNAME[p]}).` : `Rocks still forming after ${fmtMa(t)} million years ago (${PNAME[p]}).`;
+  if (S.per) s += ` Only ${PNAME[S.per]} rocks are lit; tap the bar again to clear.`;
+  $("tread").textContent = s;
+}
+slider.addEventListener("input", () => { S.t = tAt(1 - slider.value / 1000); if (S.tmode === "all") { S.tmode = "older"; $("tmode").value = "older"; } timeBar(); readTime(); repaintSoon(); });
+$("tmode").onchange = e => { S.tmode = e.target.value; timeBar(); readTime(); repaintSoon(); };
+tbar.addEventListener("click", ev => { const r = tbar.getBoundingClientRect(), f = 1 - (ev.clientX - r.left - 4) / (r.width - 8); S.t = tAt(Math.max(0, Math.min(1, f))); slider.value = Math.round((1 - tPos(S.t)) * 1000); if (S.tmode === "all") { S.tmode = "older"; $("tmode").value = "older"; } timeBar(); readTime(); repaintSoon(); });
+let playing = null;
+$("play").onclick = () => {
+  if (playing) { cancelAnimationFrame(playing); playing = null; $("play").textContent = "▶ Play"; return; }
+  S.tmode = "older"; $("tmode").value = "older"; let f = tPos(3000); const t0 = performance.now(); $("play").textContent = "❚❚ Pause";
+  const step = now => { f = tPos(3000) * (1 - (now - t0) / 14000); if (f <= 0) { f = 0; } S.t = tAt(f); slider.value = Math.round((1 - f) * 1000); timeBar(); readTime(); repaint();
+    if (f > 0) playing = requestAnimationFrame(step); else { playing = null; $("play").textContent = "▶ Play"; } };
+  playing = requestAnimationFrame(step);
+};
+slider.value = Math.round((1 - tPos(3000)) * 1000);
+
+/* ===== reading a point ===== */
+async function unitAt(v, lat, lon) {
+  const ds = DS[v], n = 256 * Math.pow(2, ds.nz);
+  const x = (lon + 180) / 360 * n, la = lat * Math.PI / 180, y = (1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n;
+  const tx = Math.floor(x / 512), ty = Math.floor(y / 512), d = await ds.chunk(tx, ty);
+  if (!d) return null;
+  const key = d.key[(Math.floor(y) - ty * 512) * 512 + Math.floor(x) - tx * 512];
+  return key & 0xffff ? { u: (key & 0xffff) - 1, s: key >>> 16 } : null;
+}
+function unitAtCached(v, lat, lon) {
+  const ds = DS[v], n = 256 * Math.pow(2, ds.nz);
+  const x = (lon + 180) / 360 * n, la = lat * Math.PI / 180, y = (1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n;
+  const tx = Math.floor(x / 512), ty = Math.floor(y / 512), p = ds.cache.get(tx + "_" + ty);
+  if (!p || !p._v) return null; const key = p._v.key[(Math.floor(y) - ty * 512) * 512 + Math.floor(x) - tx * 512];
+  return key & 0xffff ? { u: (key & 0xffff) - 1, s: key >>> 16 } : null;
+}
+for (const v of ["uk", "world"]) { const f = DS[v].chunk; DS[v].chunk = (a, b) => { const p = f(a, b); if (p && !p._hooked) { p._hooked = 1; p.then(d => { p._v = d; }); } return p; }; }
+function ageWords(x, m) {
+  if (x == null) return "The source gives no age for this unit.";
+  const mid = (x + (m || 0)) / 2;
+  const rd = v => v >= 1000 ? (Math.round(v / 100) / 10).toLocaleString("en-GB") + " billion" : v >= 10 ? fmt(v) + " million" : fmtMa(v) + " million";
+  return x === m ? `About ${rd(x)} years old.` : `Between ${rd(m)} and ${rd(x)} years old.`;
+}
+function swatch(U, i) { const c = baseCol(U, i, S.pal); return `<span class="sw" style="background:rgb(${c})"></span>`; }
+async function readPoint(lat, lon, name, how) {
+  const card = $("card"); card.hidden = false;
+  if (pinM) lmap.removeLayer(pinM);
+  pinM = L.marker([lat, lon], { icon: L.divIcon({ className: "pin", iconSize: [20, 20], iconAnchor: [10, 10] }), interactive: false, keyboard: false }).addTo(lmap);
+  let v = S.view, hit = null;
+  if (v === "uk") { hit = await unitAt("uk", lat, lon); if (!hit && !UKB.contains([lat, lon])) { v = "world"; } }
+  if (v === "world" || !hit) { await ensureWorld(); const h2 = await unitAt("world", lat, lon); if (!hit) { hit = h2; v = "world"; } }
+  const title = name ? `What's under ${esc(name)}?` : "This spot";
+  if (!hit) { card.innerHTML = `<div class="pn">${esc(lat.toFixed(3))}, ${esc(lon.toFixed(3))}</div><div class="big">${title}</div><p class="pn">No rock is mapped here: it is sea, a lake, or outside the maps.</p>`; S.selCard = null; return; }
+  const U = unitsFor(v), i = hit.u, per = U.p[i] >= 0 ? PK[U.p[i]] : null;
+  const ctx = per ? (v === "uk" ? PAL.ctx_uk : PAL.ctx_world)[per] : "";
+  S.sel = { v, i, lat, lon, name };
+  const render = () => {
+    const rockN = ROCK[U.r[i]][1], c69 = C69[U.c[i]][1];
+    let h = `<div class="pn">${how ? esc(how) + " · " : ""}${lat.toFixed(3)}, ${lon.toFixed(3)} · ${v === "uk" ? (UKU.s[i] ? "Geological Survey Ireland 1:500k" : "BGS Geology 625k") : "Macrostrat world map"}</div>`;
+    h += `<div class="big">${title}</div>`;
+    h += `<p style="margin:0 0 6px">${swatch(U, i)}<b>${esc(U.n[i] || "Unnamed unit")}</b>${v === "uk" && UKU.g[i] && UKU.g[i] !== U.n[i] ? `, ${esc(UKU.g[i])}` : ""}</p>`;
+    h += `<p class="pn" style="color:var(--fg)">${esc(U.l[i] || "")}</p>`;
+    h += `<div class="kv"><div><b>${U.x[i] == null ? "?" : fmtMa(U.m[i]) + " to " + fmtMa(U.x[i])}</b>million years old</div><div><b>${per ? esc(PNAME[per]) : "Undated"}</b>period</div><div><b>${esc(rockN)}</b>rock type</div><div><b>${esc(c69)}</b>1969 colour class</div></div>`;
+    h += `<p style="font-size:15.5px;margin:0 0 8px">${ageWords(U.x[i], U.m[i])}${ctx ? ` In the ${esc(PNAME[per])}, ${esc(ctx)}.` : ""}</p>`;
+    if (v === "uk" && hit.s) h += `<p class="pn">Mapped at the surface above this bedrock: <b style="color:var(--fg)">${esc(SUP[hit.s - 1][1])}</b>.</p>`;
+    if (v === "uk") h += `<p class="pn">Age as given by the source: ${esc(UKU.a[i])}.</p>`;
+    else h += `<p class="pn">Age as given by the source: ${esc(U.a[i] || (U.b[i] + (U.t[i] && U.t[i] !== U.b[i] ? " to " + U.t[i] : "")))}. Source map: ${esc(SOURCES[U.f[i]] ? SOURCES[U.f[i]].short_name : "")}.</p>`;
+    if (U.x[i] != null) h += `<button class="go" id="sameBtn">Where else in the world?</button>`;
+    if (S.same) h += `<button class="go" id="sameClr">Clear the age filter</button>`;
+    if (v === "world") h += `<div class="live" id="liveCard">Asking Macrostrat for more detail...</div>`;
+    card.innerHTML = h;
+    const sb = $("sameBtn"); if (sb) sb.onclick = async () => { S.same = [U.x[i], U.m[i] || 0]; await setView("world"); legend(); repaintSoon(); render(); sameShare(); };
+    const sc = $("sameClr"); if (sc) sc.onclick = () => { S.same = null; repaintSoon(); render(); };
+  };
+  S.selCard = render; render();
+  if (v === "world") liveDetail(lat, lon);
+}
+async function sameShare() {
+  await ensureWorld(); const ov = await DS.world.overview(), U = DS.world.units, n = 2048;
+  let a = 0, t = 0;
+  for (let y = 0; y < ov.h; y++) { const la = Math.atan(Math.sinh(Math.PI * (1 - 2 * (y + .5) / n))), w = Math.cos(la) ** 2; for (let x = 0; x < ov.w; x++) { const u = ov.key[y * ov.w + x] & 0xffff; if (!u || U.i[u - 1] || U.x[u - 1] == null) continue; t += w; if (U.x[u - 1] >= S.same[1] && (U.m[u - 1] || 0) <= S.same[0]) a += w; } }
+  const p = document.createElement("p"); p.className = "pn"; p.style.color = "var(--fg)";
+  p.textContent = `Rocks whose age range overlaps ${fmtMa(S.same[1])} to ${fmtMa(S.same[0])} million years cover about ${(a / t * 100).toFixed(1)}% of the world's dated land on this map. They are lit; everything else is faded.`;
+  $("card").appendChild(p);
+}
+async function liveDetail(lat, lon) {
+  const box = $("liveCard"); if (!box) return;
+  const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 7000);
+  try {
+    const r = await fetch(`https://macrostrat.org/api/v2/geologic_units/map?lat=${lat.toFixed(4)}&lng=${lon.toFixed(4)}&scale=medium`, { signal: ctl.signal });
+    const j = await r.json(); clearTimeout(to);
+    const d = j && j.success && j.success.data && j.success.data[0];
+    if (!d) { box.textContent = "Macrostrat has no more detail for this spot."; return; }
+    const parts = [];
+    if (d.name) parts.push(`<b style="color:var(--fg)">${esc(d.name)}</b>`);
+    if (d.strat_name) parts.push(esc(d.strat_name));
+    if (d.lith) parts.push(esc(d.lith));
+    if (d.b_int_name || d.t_int_name) parts.push(esc([d.b_int_name, d.t_int_name].filter(Boolean).join(" to ")));
+    if (d.b_age != null && d.t_age != null) parts.push(`${fmtMa(+d.t_age)} to ${fmtMa(+d.b_age)} million years`);
+    if (d.descrip) parts.push(esc(String(d.descrip).slice(0, 260)));
+    const ref = d.ref && (d.ref.ref_title || d.ref.name);
+    box.innerHTML = `<b>Live detail from Macrostrat (medium scale):</b> ${parts.join(" · ")}${ref ? `<br>Source: ${esc(ref)}` : ""}`;
+  } catch (e) { box.textContent = "Live detail from Macrostrat did not load (you may be offline); the card above uses the bundled world map."; }
+}
+lmap.on("click", ev => readPoint(ev.latlng.lat, ev.latlng.lng, null, "map"));
+lmap.on("mousemove", ev => {
+  const h = unitAtCached(S.view, ev.latlng.lat, ev.latlng.lng);
+  if (!h) { $("hov").textContent = "Hover over the map to read a rock; click or tap for its card."; return; }
+  const U = unitsFor(S.view); if (!U) return; const i = h.u;
+  $("hov").innerHTML = `${swatch(U, i)}<b style="color:var(--fg)">${esc(U.n[i] || "Unnamed unit")}</b><br>${U.x[i] == null ? "undated" : fmtMa(U.m[i]) + " to " + fmtMa(U.x[i]) + " Ma"} · ${esc(ROCK[U.r[i]][1].toLowerCase())}${S.view === "uk" && h.s && LY.sup ? " · under " + esc(SUP[h.s - 1][1].toLowerCase()) : ""}`;
+});
+
+/* ===== search ===== */
+const qi = $("q"), sug = $("sug"); let sugItems = [], sugIdx = -1;
+qi.addEventListener("focus", () => { loadGBPlaces(); loadWorldPlaces(); });
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+qi.addEventListener("input", async () => {
+  const t = norm(qi.value.trim()); if (t.length < 2) { showSug([]); return; }
+  await Promise.all([loadGBPlaces(), loadWorldPlaces()]);
+  const out = [];
+  for (const p of GBPL) if (norm(p[0]).startsWith(t)) { out.push({ name: p[0], sub: p[1] + ", " + ["", "village", "town", "city"][p[4]], lat: p[2], lon: p[3], w: p[4] * 1000 }); if (out.length > 60) break; }
+  for (const p of WPL.places) if (norm(p[0]).startsWith(t)) { const cc = p[1].slice(0, 2); if (cc === "GB" && p[1] !== "GB-NIR") continue; out.push({ name: p[0], sub: (p[1] === "GB-NIR" ? "Northern Ireland" : WPL.countries[cc] || cc) + ", " + fmt(p[4] * 1000) + " people", lat: p[2], lon: p[3], w: p[4] }); if (out.length > 120) break; }
+  out.sort((a, b) => (norm(b.name) === t) - (norm(a.name) === t) || b.w - a.w);
+  showSug(out.slice(0, 12));
+});
+function showSug(items) { sugItems = items; sugIdx = -1; sug.innerHTML = items.map((p, k) => `<li role="option" data-k="${k}">${esc(p.name)} <span>${esc(p.sub)}</span></li>`).join(""); sug.style.display = items.length ? "block" : "none"; qi.setAttribute("aria-expanded", items.length > 0); }
+sug.addEventListener("pointerdown", e => { const li = e.target.closest("li"); if (li) { e.preventDefault(); pick(sugItems[+li.dataset.k]); } });
+qi.addEventListener("keydown", e => {
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (!sugItems.length) return; sugIdx = (sugIdx + (e.key === "ArrowDown" ? 1 : -1) + sugItems.length) % sugItems.length; [...sug.children].forEach((c, k) => c.setAttribute("aria-selected", k === sugIdx)); }
+  else if (e.key === "Enter") { e.preventDefault(); if (sugItems.length) pick(sugItems[Math.max(0, sugIdx)]); }
+  else if (e.key === "Escape") showSug([]);
+});
+qi.addEventListener("blur", () => setTimeout(() => showSug([]), 150));
+async function pick(p) {
+  showSug([]); qi.value = p.name;
+  const inUK = UKB.contains([p.lat, p.lon]) && (await unitAt("uk", p.lat, p.lon));
+  if (inUK && S.view !== "uk") await setView("uk", false); if (!inUK && S.view !== "world") await setView("world", false);
+  lmap.setView([p.lat, p.lon], inUK ? 10 : 7);
+  readPoint(p.lat, p.lon, p.name, "search");
+}
+$("geo").onclick = () => { if (!navigator.geolocation) return; navigator.geolocation.getCurrentPosition(pos => { const { latitude: la, longitude: lo } = pos.coords; pick({ name: "your location", lat: la, lon: lo }); }, () => { $("loadMsg").textContent = "Location not available."; }); };
+
+/* ===== story buttons ===== */
+document.querySelectorAll("[data-fly]").forEach(b => b.onclick = async () => { const [la, lo, z] = b.dataset.fly.split(",").map(Number); if (S.view !== "uk") await setView("uk", false); lmap.setView([la, lo], z); $("lmap").scrollIntoView({ behavior: "smooth", block: "center" }); readPoint(la, lo, null, "story"); });
+$("coalBtn").onclick = async () => {
+  if (coalL) { lmap.removeLayer(coalL); coalL = null; $("coalBtn").textContent = "Show the coalfield towns on the map"; return; }
+  if (S.view !== "uk") await setView("uk", false);
+  S.pal = "c69"; S.iso = "CM"; document.querySelectorAll("#palBtns .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.p === "c69")); legend(); repaintSoon();
+  coalL = L.layerGroup(COAL.map(c => L.marker([c[1], c[2]], { icon: L.divIcon({ className: "coalpt", iconSize: [9, 9], iconAnchor: [4.5, 4.5] }), title: c[0] }).bindTooltip(c[0]))).addTo(lmap);
+  lmap.fitBounds([[50.9, -5.0], [56.3, 0.2]]); $("coalBtn").textContent = "Hide the coalfield towns"; $("lmap").scrollIntoView({ behavior: "smooth", block: "center" });
+};
+
+/* ===== charts ===== */
+const UKcol = i => C69[UKU.c[i]][2];
+let TRK = "lakes_london";
+document.querySelectorAll("#trBtns .btn").forEach(b => b.onclick = () => { TRK = b.dataset.t; document.querySelectorAll("#trBtns .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); redraws.forEach(f => f()); });
+resp($("trChart"), (w, sm) => {
+  const T = TRANS[TRK], H = sm ? 300 : 340, m = { l: 52, r: 12, t: 16, b: 36 }, svg = el("svg", { viewBox: `0 0 ${w} ${H}` }, $("trChart"));
+  const km = T[T.length - 1][0], X = v => m.l + v / km * (w - m.l - m.r);
+  const ages = [1, 10, 30, 100, 300, 1000, 3000], lo = Math.log10(20), hi = Math.log10(3300), Y = a => m.t + (1 - (Math.log10(Math.max(20, a)) - lo) / (hi - lo)) * (H - m.t - m.b);
+  for (const a of [30, 100, 300, 1000, 3000]) { el("line", { x1: m.l, x2: w - m.r, y1: Y(a), y2: Y(a), stroke: "var(--rule)" }, svg); lbl(svg, m.l - 6, Y(a) + 4, fmt(a), "lab s m", "end"); }
+  lbl(svg, 4, m.t - 4, "million years (oldest age)", "lab s m");
+  const dk = km / T.length;
+  for (const [d, u] of T) { const i = u - 1, x = UKU.x[i]; if (x == null) continue; const r = el("rect", { x: X(d), y: Y(x), width: Math.max(1.2, X(d + dk) - X(d) + .4), height: H - m.b - Y(x), fill: UKcol(i) }, svg);
+    hover(r, `<b>${esc(UKU.n[i])}</b><br>${fmt(d)} km along · ${fmtMa(UKU.m[i])} to ${fmtMa(UKU.x[i])} Ma<br>${esc(PNAME[PK[UKU.p[i]]] || "")}`); }
+  for (const k of [0, 100, 200, 300]) if (k <= km) { lbl(svg, X(k), H - m.b + 16, k + " km", "lab s m", k === 0 ? "start" : "middle"); }
+  const names = TRK === "lakes_london" ? ["Scafell Pike", "London"] : ["Holyhead", "London"];
+  lbl(svg, X(0), H - 4, names[0], "lab s b"); lbl(svg, X(km), H - 4, names[1], "lab s b", "end");
+  const R0 = R.transect[TRK];
+  $("trSub").textContent = `${fmt(R0.km)} km, one sample a kilometre. Rank correlation of distance with age: ${R0.rho.toFixed(2).replace("-", "−")}. Hover for each rock.`;
+});
+let SHM = "period";
+document.querySelectorAll("#shBtns .btn").forEach(b => b.onclick = () => { SHM = b.dataset.s; document.querySelectorAll("#shBtns .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); redraws.forEach(f => f()); });
+resp($("shChart"), (w, sm) => {
+  const cols = [["Great Britain", SHM === "period" ? R.uk_period_share.gb : R.uk_rock_share.gb], ["Ireland (island)", SHM === "period" ? R.uk_period_share.ireland : R.uk_rock_share.ireland], ["World (dated land)", SHM === "period" ? R.world_period_share : R.world_rock_share]];
+  const keys = SHM === "period" ? PER.map(p => [p[0], p[1], p[4]]) : ROCK.map(r => [r[0], r[1], r[2]]);
+  const rowH = 22, lw = sm ? 112 : 190, H = 30 + keys.length * rowH, svg = el("svg", { viewBox: `0 0 ${w} ${H}` }, $("shChart"));
+  const cw = (w - lw) / 3, mx = Math.max(...cols.flatMap(c => keys.map(k => c[1][k[0]] || 0)));
+  cols.forEach((c, j) => lbl(svg, lw + j * cw, 14, sm ? c[0].replace(" (island)", "").replace(" (dated land)", "") : c[0], "lab s b"));
+  keys.forEach((k, r) => {
+    const y = 24 + r * rowH;
+    el("rect", { x: 0, y: y + 4, width: 12, height: 12, fill: k[2] }, svg); lbl(svg, 18, y + 14, sm ? k[1].split(/[ ,(]/)[0] : k[1], "lab s");
+    cols.forEach((c, j) => { const v = c[1][k[0]] || 0, bw = v / mx * (cw - 46); const rr = el("rect", { x: lw + j * cw, y: y + 3, width: Math.max(v > 0 ? 1 : 0, bw), height: rowH - 7, fill: k[2], stroke: "rgba(0,0,0,.15)" }, svg);
+      if (v >= .05) lbl(svg, lw + j * cw + bw + 4, y + 14, v.toFixed(1) + "%", "lab s m");
+      hover(rr, `<b>${esc(k[1])}</b><br>${esc(c[0])}: ${v.toFixed(1)}%`);
+      if (SHM === "period") rr.addEventListener("click", () => { S.per = k[0]; timeBar(); readTime(); repaintSoon(); $("lmap").scrollIntoView({ behavior: "smooth", block: "center" }); }); });
+  });
+});
+resp($("supChart"), (w, sm) => {
+  const ks = SUP.map(s => [s[0], s[1], s[2], R.superficial["pct_" + s[0]]]).sort((a, b) => b[3] - a[3]);
+  const rowH = 22, lw = sm ? 150 : 250, H = ks.length * rowH + 6, svg = el("svg", { viewBox: `0 0 ${w} ${H}` }, $("supChart")), mx = ks[0][3];
+  ks.forEach((k, r) => { const y = r * rowH, bw = k[3] / mx * (w - lw - 50); lbl(svg, 0, y + 15, k[1], "lab s"); el("rect", { x: lw, y: y + 4, width: Math.max(1, bw), height: rowH - 7, fill: k[2], stroke: "rgba(0,0,0,.2)" }, svg); lbl(svg, lw + bw + 5, y + 15, k[3].toFixed(1) + "%", "lab s m"); });
+});
+resp($("shieldChart"), (w, sm) => {
+  const ks = Object.entries(R.shields).sort((a, b) => b[1] - a[1]);
+  const rowH = 24, lw = sm ? 170 : 290, H = ks.length * rowH + 6, svg = el("svg", { viewBox: `0 0 ${w} ${H}` }, $("shieldChart"));
+  ks.forEach(([k, v], r) => { const y = r * rowH, bw = v / 100 * (w - lw - 50); lbl(svg, 0, y + 16, sm ? k.replace(" (Norway, Sweden, Finland)", "").replace(" (Macrostrat)", "") : k, "lab s"); el("rect", { x: lw, y: y + 4, width: w - lw - 50, height: rowH - 8, fill: "var(--panel)" }, svg); el("rect", { x: lw, y: y + 4, width: bw, height: rowH - 8, fill: "#EEB0A3", stroke: "#B8432A" }, svg); lbl(svg, lw + bw + 5, y + 16, v.toFixed(1) + "%", "lab s m"); });
+});
+(() => {
+  const t = $("palTable"); const rows = [`<tr><th>Colour</th><th>1969 class <small>and the largest of today's units given its colour</small></th><th class="num">Great Britain</th><th class="num wide">Ireland</th></tr>`];
+  for (const c of C69) { if (c[0] === "XX") continue; rows.push(`<tr class="go2" data-k="${c[0]}" style="cursor:pointer"><td><span class="sw" style="background:${c[2]}"></span> <small style="display:inline">${c[2]}</small></td><td>${esc(c[1])}<small>${esc((R.c69_examples[c[0]] || []).join("; "))}</small></td><td class="num">${R.uk_1969_share.gb[c[0]].toFixed(1)}%</td><td class="num wide">${R.uk_1969_share.ireland[c[0]].toFixed(1)}%</td></tr>`); }
+  t.innerHTML = rows.join("");
+  t.querySelectorAll("tr[data-k]").forEach(r => r.onclick = async () => { if (S.view !== "uk") await setView("uk"); S.pal = "c69"; document.querySelectorAll("#palBtns .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.p === "c69")); S.iso = r.dataset.k; legend(); repaintSoon(); $("lmap").scrollIntoView({ behavior: "smooth", block: "center" }); });
+  $("srcTable").innerHTML = `<tr><th>Source map</th><th class="num">Share of mapped land</th></tr>` + SOURCES.slice().sort((a, b) => b.pct_of_mapped_land - a.pct_of_mapped_land).map(s => `<tr><td>${esc(s.title)}<small>${esc(s.authors)} (${esc(s.year)}). ${esc(s.publisher)}</small></td><td class="num">${(+s.pct_of_mapped_land).toFixed(1)}%</td></tr>`).join("");
+})();
+
+/* ===== start ===== */
+setBase(); legend(); timeBar(); readTime();
+lmap.on("click", () => lmap.scrollWheelZoom.enable());
+</script>
+</body>
+</html>
