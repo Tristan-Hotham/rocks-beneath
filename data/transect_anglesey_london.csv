@@ -1,0 +1,367 @@
+km,lat,lon,unit_id,unit,period,max_age_ma,min_age_ma,class_1969,rock_type
+0.0,53.3128,-4.6328,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+1.0,53.3079,-4.6205,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+2.0,53.3029,-4.6081,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+3.0,53.298,-4.5958,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+4.0,53.293,-4.5834,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+5.0,53.2881,-4.5711,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+6.0,53.2831,-4.5588,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+7.0,53.2782,-4.5464,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+8.0,53.2732,-4.5341,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+9.0,53.2683,-4.5217,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+10.0,53.2633,-4.5094,93,Ordovician Rocks (Undifferentiated),O,495.0,443.0,OD,md
+11.0,53.2584,-4.497,93,Ordovician Rocks (Undifferentiated),O,495.0,443.0,OD,md
+12.0,53.2534,-4.4847,84,"Unnamed Igneous Intrusion, Neoproterozoic",NP,1000.0,545.0,IA,ii
+13.0,53.2485,-4.4724,84,"Unnamed Igneous Intrusion, Neoproterozoic",NP,1000.0,545.0,IA,ii
+14.0,53.2436,-4.46,84,"Unnamed Igneous Intrusion, Neoproterozoic",NP,1000.0,545.0,IA,ii
+15.0,53.2386,-4.4477,131,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,MX,mm
+16.0,53.2337,-4.4353,131,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,MX,mm
+17.0,53.2287,-4.423,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+18.0,53.2238,-4.4107,102,"Unnamed Extrusive Rocks, Cambrian",Cm,545.0,495.0,VL,vo
+19.0,53.2188,-4.3983,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+20.0,53.2139,-4.386,165,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,mm
+21.0,53.2089,-4.3736,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+22.0,53.204,-4.3613,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+23.0,53.199,-4.3489,135,Warwickshire Group,C,313.5,256.0,CM,co
+24.0,53.1941,-4.3366,131,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,MX,mm
+25.0,53.1891,-4.3243,131,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,MX,mm
+26.0,53.1842,-4.3119,131,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,MX,mm
+27.0,53.1793,-4.2996,125,"Unnamed Metamorphic Rocks, Neoproterozoic",NP,1000.0,545.0,HB,mm
+28.0,53.1743,-4.2872,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+29.0,53.1694,-4.2749,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+30.0,53.1644,-4.2625,135,Warwickshire Group,C,313.5,256.0,CM,co
+31.0,53.1595,-4.2502,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+32.0,53.1545,-4.2379,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+33.0,53.1496,-4.2255,91,Llanvirn Rocks (Undifferentiated),O,470.0,464.0,OD,md
+34.0,53.1446,-4.2132,213,Lower Cambrian Rocks (Undifferentiated),Cm,545.0,518.0,CA,ss
+35.0,53.1397,-4.2008,213,Lower Cambrian Rocks (Undifferentiated),Cm,545.0,518.0,CA,ss
+36.1,53.1347,-4.1885,178,"Unnamed Extrusive Rocks, Neoproterozoic",NP,1000.0,545.0,VP,vo
+37.1,53.1298,-4.1761,178,"Unnamed Extrusive Rocks, Neoproterozoic",NP,1000.0,545.0,VP,vo
+38.1,53.1248,-4.1638,213,Lower Cambrian Rocks (Undifferentiated),Cm,545.0,518.0,CA,ss
+39.1,53.1199,-4.1515,145,Lower Cambrian Rocks (Undifferentiated),Cm,545.0,518.0,CA,md
+40.1,53.1149,-4.1391,112,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,md
+41.1,53.11,-4.1268,112,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,md
+42.1,53.1051,-4.1144,197,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,ss
+43.1,53.1001,-4.1021,112,"Upper Cambrian, including Tremadoc",Cm,505.0,485.0,CA,md
+44.1,53.0952,-4.0897,91,Llanvirn Rocks (Undifferentiated),O,470.0,464.0,OD,md
+45.1,53.0902,-4.0774,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+46.1,53.0853,-4.0651,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+47.1,53.0803,-4.0527,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+48.1,53.0754,-4.0404,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+49.1,53.0704,-4.028,31,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IB,ii
+50.1,53.0655,-4.0157,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+51.1,53.0605,-4.0033,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+52.1,53.0556,-3.991,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+53.1,53.0506,-3.9787,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+54.1,53.0457,-3.9663,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+55.1,53.0408,-3.954,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+56.1,53.0358,-3.9416,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+57.1,53.0309,-3.9293,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+58.1,53.0259,-3.9169,91,Llanvirn Rocks (Undifferentiated),O,470.0,464.0,OD,md
+59.1,53.021,-3.9046,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+60.1,53.016,-3.8923,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+61.1,53.0111,-3.8799,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+62.1,53.0061,-3.8676,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+63.1,53.0012,-3.8552,91,Llanvirn Rocks (Undifferentiated),O,470.0,464.0,OD,md
+64.1,52.9962,-3.8429,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+65.1,52.9913,-3.8305,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+66.1,52.9863,-3.8182,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+67.1,52.9814,-3.8059,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+68.1,52.9765,-3.7935,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+69.1,52.9715,-3.7812,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+70.1,52.9666,-3.7688,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+71.1,52.9616,-3.7565,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+72.1,52.9567,-3.7441,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+73.1,52.9517,-3.7318,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+74.1,52.9468,-3.7195,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+75.1,52.9418,-3.7071,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+76.1,52.9369,-3.6948,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+77.1,52.9319,-3.6824,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+78.1,52.927,-3.6701,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+79.1,52.922,-3.6577,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+80.1,52.9171,-3.6454,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+81.1,52.9122,-3.6331,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+82.1,52.9072,-3.6207,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+83.1,52.9023,-3.6084,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+84.1,52.8973,-3.596,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+85.1,52.8924,-3.5837,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+86.1,52.8874,-3.5713,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+87.1,52.8825,-3.559,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+88.1,52.8775,-3.5467,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+89.1,52.8726,-3.5343,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+90.1,52.8676,-3.522,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+91.1,52.8627,-3.5096,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+92.1,52.8577,-3.4973,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+93.1,52.8528,-3.4849,39,Llandovery Rocks (Undifferentiated),S,443.0,428.0,SI,md
+94.1,52.8479,-3.4726,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+95.1,52.8429,-3.4603,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+96.1,52.838,-3.4479,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+97.1,52.833,-3.4356,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+98.1,52.8281,-3.4232,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+99.1,52.8231,-3.4109,38,"Unnamed Igneous Intrusion, Ordovician to Silurian",O,495.0,417.0,IA,ii
+100.1,52.8182,-3.3985,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+101.1,52.8132,-3.3862,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+102.1,52.8083,-3.3739,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+103.1,52.8033,-3.3615,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+104.1,52.7984,-3.3492,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+105.1,52.7934,-3.3368,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+106.1,52.7885,-3.3245,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+107.2,52.7835,-3.3121,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+108.2,52.7786,-3.2998,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+109.2,52.7737,-3.2875,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+110.2,52.7687,-3.2751,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+111.2,52.7638,-3.2628,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+112.2,52.7588,-3.2504,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+113.2,52.7539,-3.2381,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+114.2,52.7489,-3.2257,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+115.2,52.744,-3.2134,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+116.2,52.739,-3.2011,105,Ashgill Rocks (Undifferentiated),O,449.0,443.0,OD,md
+117.2,52.7341,-3.1887,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+118.2,52.7291,-3.1764,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+119.2,52.7242,-3.164,39,Llandovery Rocks (Undifferentiated),S,443.0,428.0,SI,md
+120.2,52.7192,-3.1517,39,Llandovery Rocks (Undifferentiated),S,443.0,428.0,SI,md
+121.2,52.7143,-3.1393,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+122.2,52.7094,-3.127,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+123.2,52.7044,-3.1147,39,Llandovery Rocks (Undifferentiated),S,443.0,428.0,SI,md
+124.2,52.6995,-3.1023,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+125.2,52.6945,-3.09,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+126.2,52.6896,-3.0776,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+127.2,52.6846,-3.0653,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+128.2,52.6797,-3.0529,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+129.2,52.6747,-3.0406,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+130.2,52.6698,-3.0283,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+131.2,52.6648,-3.0159,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+132.2,52.6599,-3.0036,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+133.2,52.6549,-2.9912,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+134.2,52.65,-2.9789,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+135.2,52.6451,-2.9666,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+136.2,52.6401,-2.9542,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+137.2,52.6352,-2.9419,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+138.2,52.6302,-2.9295,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+139.2,52.6253,-2.9172,91,Llanvirn Rocks (Undifferentiated),O,470.0,464.0,OD,md
+140.2,52.6203,-2.9048,158,Tremadoc Rocks (Undifferentiated),O,495.0,485.0,OD,md
+141.2,52.6154,-2.8925,158,Tremadoc Rocks (Undifferentiated),O,495.0,485.0,OD,md
+142.2,52.6104,-2.8802,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+143.2,52.6055,-2.8678,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+144.2,52.6005,-2.8555,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+145.2,52.5956,-2.8431,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+146.2,52.5906,-2.8308,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+147.2,52.5857,-2.8184,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+148.2,52.5808,-2.8061,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+149.2,52.5758,-2.7938,60,"Unnamed Metasedimentary Rocks, Neoproterozoic",NP,1000.0,545.0,TO,md
+150.2,52.5709,-2.7814,135,Warwickshire Group,C,313.5,256.0,CM,co
+151.2,52.5659,-2.7691,135,Warwickshire Group,C,313.5,256.0,CM,co
+152.2,52.561,-2.7567,145,Lower Cambrian Rocks (Undifferentiated),Cm,545.0,518.0,CA,md
+153.2,52.556,-2.7444,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+154.2,52.5511,-2.732,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+155.2,52.5461,-2.7197,158,Tremadoc Rocks (Undifferentiated),O,495.0,485.0,OD,md
+156.2,52.5412,-2.7074,39,Llandovery Rocks (Undifferentiated),S,443.0,428.0,SI,md
+157.2,52.5362,-2.695,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+158.2,52.5313,-2.6827,120,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,md
+159.2,52.5263,-2.6703,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+160.2,52.5214,-2.658,83,Ludlow Rocks (Undifferentiated),S,423.0,419.0,SI,md
+161.2,52.5164,-2.6456,127,Pridoli Rocks (Undifferentiated),S,419.0,417.0,SI,md
+162.2,52.5115,-2.6333,127,Pridoli Rocks (Undifferentiated),S,419.0,417.0,SI,md
+163.2,52.5066,-2.621,127,Pridoli Rocks (Undifferentiated),S,419.0,417.0,SI,md
+164.2,52.5016,-2.6086,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+165.2,52.4967,-2.5963,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+166.2,52.4917,-2.5839,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+167.2,52.4868,-2.5716,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+168.2,52.4818,-2.5592,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+169.2,52.4769,-2.5469,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+170.2,52.4719,-2.5346,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+171.2,52.467,-2.5222,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+172.2,52.462,-2.5099,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+173.2,52.4571,-2.4975,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+174.2,52.4521,-2.4852,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+175.2,52.4472,-2.4728,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+176.2,52.4423,-2.4605,123,Lower Devonian Rocks (Undifferentiated),D,417.0,391.0,OR1,md
+177.3,52.4373,-2.4482,40,"Unnamed Igneous Intrusion, Carboniferous to Permian",C,354.0,248.2,IB,ii
+178.3,52.4324,-2.4358,40,"Unnamed Igneous Intrusion, Carboniferous to Permian",C,354.0,248.2,IB,ii
+179.3,52.4274,-2.4235,135,Warwickshire Group,C,313.5,256.0,CM,co
+180.3,52.4225,-2.4111,135,Warwickshire Group,C,313.5,256.0,CM,co
+181.3,52.4175,-2.3988,135,Warwickshire Group,C,313.5,256.0,CM,co
+182.3,52.4126,-2.3864,49,Warwickshire Group,C,313.5,256.0,CM,md
+183.3,52.4076,-2.3741,49,Warwickshire Group,C,313.5,256.0,CM,md
+184.3,52.4027,-2.3618,49,Warwickshire Group,C,313.5,256.0,CM,md
+185.3,52.3977,-2.3494,49,Warwickshire Group,C,313.5,256.0,CM,md
+186.3,52.3928,-2.3371,49,Warwickshire Group,C,313.5,256.0,CM,md
+187.3,52.3878,-2.3247,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+188.3,52.3829,-2.3124,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+189.3,52.378,-2.3,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+190.3,52.373,-2.2877,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+191.3,52.3681,-2.2754,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+192.3,52.3631,-2.263,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+193.3,52.3582,-2.2507,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+194.3,52.3532,-2.2383,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+195.3,52.3483,-2.226,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+196.3,52.3433,-2.2136,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+197.3,52.3384,-2.2013,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+198.3,52.3334,-2.189,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+199.3,52.3285,-2.1766,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+200.3,52.3235,-2.1643,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+201.3,52.3186,-2.1519,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+202.3,52.3137,-2.1396,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+203.3,52.3087,-2.1272,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+204.3,52.3038,-2.1149,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+205.3,52.2988,-2.1026,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+206.3,52.2939,-2.0902,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+207.3,52.2889,-2.0779,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+208.3,52.284,-2.0655,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+209.3,52.279,-2.0532,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+210.3,52.2741,-2.0408,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+211.3,52.2691,-2.0285,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+212.3,52.2642,-2.0162,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+213.3,52.2592,-2.0038,52,Lias Group,J,209.6,176.5,LI,md
+214.3,52.2543,-1.9915,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+215.3,52.2494,-1.9791,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+216.3,52.2444,-1.9668,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+217.3,52.2395,-1.9544,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+218.3,52.2345,-1.9421,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+219.3,52.2296,-1.9298,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+220.3,52.2246,-1.9174,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+221.3,52.2197,-1.9051,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+222.3,52.2147,-1.8927,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+223.3,52.2098,-1.8804,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+224.3,52.2048,-1.868,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+225.3,52.1999,-1.8557,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+226.3,52.1949,-1.8434,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+227.3,52.19,-1.831,52,Lias Group,J,209.6,176.5,LI,md
+228.3,52.185,-1.8187,52,Lias Group,J,209.6,176.5,LI,md
+229.3,52.1801,-1.8063,52,Lias Group,J,209.6,176.5,LI,md
+230.3,52.1752,-1.794,52,Lias Group,J,209.6,176.5,LI,md
+231.3,52.1702,-1.7816,52,Lias Group,J,209.6,176.5,LI,md
+232.3,52.1653,-1.7693,52,Lias Group,J,209.6,176.5,LI,md
+233.3,52.1603,-1.757,52,Lias Group,J,209.6,176.5,LI,md
+234.3,52.1554,-1.7446,52,Lias Group,J,209.6,176.5,LI,md
+235.3,52.1504,-1.7323,52,Lias Group,J,209.6,176.5,LI,md
+236.3,52.1455,-1.7199,52,Lias Group,J,209.6,176.5,LI,md
+237.3,52.1405,-1.7076,52,Lias Group,J,209.6,176.5,LI,md
+238.3,52.1356,-1.6952,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+239.3,52.1306,-1.6829,52,Lias Group,J,209.6,176.5,LI,md
+240.3,52.1257,-1.6706,52,Lias Group,J,209.6,176.5,LI,md
+241.3,52.1207,-1.6582,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+242.3,52.1158,-1.6459,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+243.3,52.1109,-1.6335,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+244.3,52.1059,-1.6212,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+245.3,52.101,-1.6088,52,Lias Group,J,209.6,176.5,LI,md
+246.3,52.096,-1.5965,52,Lias Group,J,209.6,176.5,LI,md
+247.3,52.0911,-1.5842,52,Lias Group,J,209.6,176.5,LI,md
+248.4,52.0861,-1.5718,52,Lias Group,J,209.6,176.5,LI,md
+249.4,52.0812,-1.5595,52,Lias Group,J,209.6,176.5,LI,md
+250.4,52.0762,-1.5471,52,Lias Group,J,209.6,176.5,LI,md
+251.4,52.0713,-1.5348,52,Lias Group,J,209.6,176.5,LI,md
+252.4,52.0663,-1.5224,52,Lias Group,J,209.6,176.5,LI,md
+253.4,52.0614,-1.5101,52,Lias Group,J,209.6,176.5,LI,md
+254.4,52.0564,-1.4978,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+255.4,52.0515,-1.4854,29,Great Oolite Group,J,169.2,164.4,OL,ss
+256.4,52.0466,-1.4731,52,Lias Group,J,209.6,176.5,LI,md
+257.4,52.0416,-1.4607,52,Lias Group,J,209.6,176.5,LI,md
+258.4,52.0367,-1.4484,52,Lias Group,J,209.6,176.5,LI,md
+259.4,52.0317,-1.4361,52,Lias Group,J,209.6,176.5,LI,md
+260.4,52.0268,-1.4237,52,Lias Group,J,209.6,176.5,LI,md
+261.4,52.0218,-1.4114,52,Lias Group,J,209.6,176.5,LI,md
+262.4,52.0169,-1.399,52,Lias Group,J,209.6,176.5,LI,md
+263.4,52.0119,-1.3867,52,Lias Group,J,209.6,176.5,LI,md
+264.4,52.007,-1.3743,52,Lias Group,J,209.6,176.5,LI,md
+265.4,52.002,-1.362,52,Lias Group,J,209.6,176.5,LI,md
+266.4,51.9971,-1.3497,52,Lias Group,J,209.6,176.5,LI,md
+267.4,51.9921,-1.3373,52,Lias Group,J,209.6,176.5,LI,md
+268.4,51.9872,-1.325,52,Lias Group,J,209.6,176.5,LI,md
+269.4,51.9823,-1.3126,52,Lias Group,J,209.6,176.5,LI,md
+270.4,51.9773,-1.3003,52,Lias Group,J,209.6,176.5,LI,md
+271.4,51.9724,-1.2879,52,Lias Group,J,209.6,176.5,LI,md
+272.4,51.9674,-1.2756,52,Lias Group,J,209.6,176.5,LI,md
+273.4,51.9625,-1.2633,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+274.4,51.9575,-1.2509,29,Great Oolite Group,J,169.2,164.4,OL,ss
+275.4,51.9526,-1.2386,29,Great Oolite Group,J,169.2,164.4,OL,ss
+276.4,51.9476,-1.2262,29,Great Oolite Group,J,169.2,164.4,OL,ss
+277.4,51.9427,-1.2139,29,Great Oolite Group,J,169.2,164.4,OL,ss
+278.4,51.9377,-1.2015,29,Great Oolite Group,J,169.2,164.4,OL,ss
+279.4,51.9328,-1.1892,29,Great Oolite Group,J,169.2,164.4,OL,ss
+280.4,51.9278,-1.1769,29,Great Oolite Group,J,169.2,164.4,OL,ss
+281.4,51.9229,-1.1645,29,Great Oolite Group,J,169.2,164.4,OL,ss
+282.4,51.918,-1.1522,29,Great Oolite Group,J,169.2,164.4,OL,ss
+283.4,51.913,-1.1398,29,Great Oolite Group,J,169.2,164.4,OL,ss
+284.4,51.9081,-1.1275,29,Great Oolite Group,J,169.2,164.4,OL,ss
+285.4,51.9031,-1.1151,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+286.4,51.8982,-1.1028,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+287.4,51.8932,-1.0905,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+288.4,51.8883,-1.0781,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+289.4,51.8833,-1.0658,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+290.4,51.8784,-1.0534,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+291.4,51.8734,-1.0411,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+292.4,51.8685,-1.0287,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+293.4,51.8635,-1.0164,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+294.4,51.8586,-1.0041,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+295.4,51.8536,-0.9917,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+296.4,51.8487,-0.9794,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+297.4,51.8438,-0.967,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+298.4,51.8388,-0.9547,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+299.4,51.8339,-0.9423,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+300.4,51.8289,-0.93,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+301.4,51.824,-0.9177,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+302.4,51.819,-0.9053,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+303.4,51.8141,-0.893,36,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",J,159.4,145.6,OU,md
+304.4,51.8091,-0.8806,96,Portland Group,J,145.6,142.0,OU,ls
+305.4,51.8042,-0.8683,26,Wealden Group,K,142.0,121.0,WE,ss
+306.4,51.7992,-0.8559,140,Purbeck Limestone Group,K,145.6,136.5,OU,ls
+307.4,51.7943,-0.8436,140,Purbeck Limestone Group,K,145.6,136.5,OU,ls
+308.4,51.7893,-0.8313,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+309.4,51.7844,-0.8189,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+310.4,51.7795,-0.8066,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+311.4,51.7745,-0.7942,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+312.4,51.7696,-0.7819,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+313.4,51.7646,-0.7695,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+314.4,51.7597,-0.7572,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+315.4,51.7547,-0.7449,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+316.4,51.7498,-0.7325,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+317.4,51.7448,-0.7202,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+318.4,51.7399,-0.7078,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+319.5,51.7349,-0.6955,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+320.5,51.73,-0.6831,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+321.5,51.725,-0.6708,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+322.5,51.7201,-0.6585,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+323.5,51.7152,-0.6461,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+324.5,51.7102,-0.6338,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+325.5,51.7053,-0.6214,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+326.5,51.7003,-0.6091,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+327.5,51.6954,-0.5967,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+328.5,51.6904,-0.5844,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+329.5,51.6855,-0.5721,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+330.5,51.6805,-0.5597,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+331.5,51.6756,-0.5474,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+332.5,51.6706,-0.535,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+333.5,51.6657,-0.5227,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+334.5,51.6607,-0.5103,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+335.5,51.6558,-0.498,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+336.5,51.6509,-0.4857,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+337.5,51.6459,-0.4733,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+338.5,51.641,-0.461,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+339.5,51.636,-0.4486,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+340.5,51.6311,-0.4363,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+341.5,51.6261,-0.4239,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+342.5,51.6212,-0.4116,80,Thames Group,Pg,54.8,33.7,PG,sf
+343.5,51.6162,-0.3993,80,Thames Group,Pg,54.8,33.7,PG,sf
+344.5,51.6113,-0.3869,80,Thames Group,Pg,54.8,33.7,PG,sf
+345.5,51.6063,-0.3746,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+346.5,51.6014,-0.3622,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+347.5,51.5964,-0.3499,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+348.5,51.5915,-0.3375,80,Thames Group,Pg,54.8,33.7,PG,sf
+349.5,51.5866,-0.3252,80,Thames Group,Pg,54.8,33.7,PG,sf
+350.5,51.5816,-0.3129,80,Thames Group,Pg,54.8,33.7,PG,sf
+351.5,51.5767,-0.3005,80,Thames Group,Pg,54.8,33.7,PG,sf
+352.5,51.5717,-0.2882,80,Thames Group,Pg,54.8,33.7,PG,sf
+353.5,51.5668,-0.2758,80,Thames Group,Pg,54.8,33.7,PG,sf
+354.5,51.5618,-0.2635,80,Thames Group,Pg,54.8,33.7,PG,sf
+355.5,51.5569,-0.2511,80,Thames Group,Pg,54.8,33.7,PG,sf
+356.5,51.5519,-0.2388,80,Thames Group,Pg,54.8,33.7,PG,sf
+357.5,51.547,-0.2265,80,Thames Group,Pg,54.8,33.7,PG,sf
+358.5,51.542,-0.2141,80,Thames Group,Pg,54.8,33.7,PG,sf
+359.5,51.5371,-0.2018,80,Thames Group,Pg,54.8,33.7,PG,sf
+360.5,51.5321,-0.1894,80,Thames Group,Pg,54.8,33.7,PG,sf
+361.5,51.5272,-0.1771,80,Thames Group,Pg,54.8,33.7,PG,sf
+362.5,51.5222,-0.1647,80,Thames Group,Pg,54.8,33.7,PG,sf
+363.5,51.5173,-0.1524,80,Thames Group,Pg,54.8,33.7,PG,sf
+364.5,51.5124,-0.1401,80,Thames Group,Pg,54.8,33.7,PG,sf
+365.5,51.5074,-0.1277,80,Thames Group,Pg,54.8,33.7,PG,sf

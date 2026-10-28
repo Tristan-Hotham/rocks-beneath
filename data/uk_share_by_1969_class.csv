@@ -1,0 +1,39 @@
+class,label,colour,pct_gb,pct_ireland,pct_isles
+NQ,Pleistocene (marine) and Pliocene,#E59055,1.57,0.0,1.15
+PG,Oligocene and Eocene (Palaeogene),#C79E93,4.59,0.71,3.55
+CH,Chalk,#C9CB96,8.31,0.19,6.14
+UG,Upper Greensand and Gault,#428468,0.99,0.0,0.73
+LG,Lower Greensand,#CBB74D,0.77,0.0,0.57
+WE,Wealden,#50962B,1.95,0.0,1.43
+OU,Upper Oolite (Upper Jurassic clays and limestones),#B4A231,4.63,0.0,3.39
+OL,Lower Oolite (Middle Jurassic),#E9C833,2.89,0.0,2.12
+LI,Lias and Rhaetic,#C04B27,3.73,0.07,2.75
+KE,Keuper Marl and Sandstone (Mercia Mudstone),#E36140,4.99,0.23,3.72
+BU,Bunter Sandstone (Sherwood Sandstone),#E99946,3.39,0.5,2.62
+PE,Permian Marl and Permo-Triassic Sandstone,#DA8E15,1.52,0.05,1.14
+ML,Magnesian Limestone,#048ED7,0.61,0.03,0.46
+CM,Coal Measures,#ADAEAF,5.11,0.45,3.86
+MG,Millstone Grit and Culm,#EEDFAA,3.82,6.7,4.57
+CL,Carboniferous Limestone,#A7DCF5,6.99,41.91,16.25
+OR3,Upper Old Red Sandstone,#ECCFC7,1.86,10.9,4.26
+OR2,Middle Old Red Sandstone,#EBA372,2.37,2.18,2.31
+OR1,Lower Old Red Sandstone,#D99A75,3.75,0.62,2.91
+SI,Silurian,#C4B7D9,7.2,8.05,7.42
+OD,Ordovician,#ECDEE8,3.84,5.99,4.56
+CA,Cambrian,#AA9BCA,0.67,0.88,0.72
+TO,"Torridonian, Charnian and Longmyndian",#DD9A72,0.95,0.0,0.7
+DU,Upper Dalradian,#DED68E,4.82,7.09,5.41
+DL,Lower Dalradian,#F5DCE7,2.97,1.76,2.64
+MO,Moine,#FCE192,4.91,0.12,3.63
+LW,Lewisian,#EEB0A3,1.89,0.0,1.38
+MX,Other metamorphic rocks,#F8DBE3,0.39,0.49,0.42
+HB,Hornblende schist and amphibolite,#B0CE83,0.03,0.06,0.04
+GG,Granite gneiss,#F59338,0.0,0.2,0.05
+VT,Volcanic rocks: Tertiary (Palaeogene),#F68794,0.81,4.1,1.68
+VC,Volcanic rocks: Permian and Carboniferous,#F98597,0.78,0.17,0.62
+VD,Volcanic rocks: Devonian,#F2CBC5,1.05,0.06,0.79
+VL,Volcanic rocks: Lower Palaeozoic,#F3C7C8,0.61,0.92,0.69
+VP,Volcanic rocks: Precambrian,#B2CE69,0.22,0.0,0.16
+IB,"Basic intrusions (dolerite, gabbro, serpentine)",#67935D,1.4,0.66,1.2
+IA,"Acid intrusions (granite, diorite, felsite)",#F36D09,3.62,4.92,3.96
+XX,Not classified,#C8C4BC,0.0,0.0,0.0

@@ -1,0 +1,327 @@
+id,source,name,class_1969,period,rock_type,km2_british_isles
+115,BGS,White Chalk Subgroup,CH,K,ch,17105.3
+287,GSI,Marine shelf facies; Limestone & calcareous shale,CL,C,ls,14782.4
+44,BGS,Triassic Rocks (Undifferentiated),KE,T,md,11504.2
+52,BGS,Lias Group,LI,J,md,8695.6
+273,GSI,"Continental redbed facies; Sandstone, conglomerate & siltstone (in places extends into the Carboniferous)",OR3,D,ss,8030.8
+71,BGS,Triassic Rocks (Undifferentiated),BU,T,ss,7861.9
+80,BGS,Thames Group,PG,Pg,sf,6627.5
+8,BGS,Southern Highland Group,DU,NP,mm,5663.3
+290,GSI,"Fluvio-deltaic & basinal marine (Turbiditic); Shale, sandstone, siltstone & coal",MG,C,md,5598.0
+107,BGS,Millstone Grit Group,MG,C,md,5483.2
+42,BGS,Argyll Group,DU,NP,mm,5385.6
+119,BGS,"Unnamed Extrusive Rocks, Palaeogene",VT,Pg,vo,5273.1
+6,BGS,"Unnamed Igneous Intrusion, Late Silurian to Early Devonian",IA,D,ii,5002.4
+47,BGS,Kellaways Formation and Oxford Clay Formation (Undifferentiated),OU,J,md,4961.4
+319,GSI,"Marine basinal facies (Tobercolleen & Lucan Fms, ""Calp""); Dark-grey argillaceous & cherty limestone & shale",CL,C,ls,4915.3
+36,BGS,"West Walton Formation, Ampthill Clay Formation and Kimmeridge Clay Formation (Undifferentiated)",OU,J,md,4588.6
+10,BGS,Gala Group,SI,S,ss,4530.6
+111,BGS,Morar Group,MO,NP,mm,4207.6
+296,GSI,"Deep marine turbidite sequence; Mudstone, greywacke & conglomerate",SI,S,md,4144.6
+293,GSI,Waulsortian mudbank; Pale-grey massive limestone,CL,C,ls,4125.6
+156,BGS,Grampian Group,DL,NP,mm,4101.1
+266,GSI,"Marine shelf & ramp facies; Argillaceous dark-grey bioclastic limestone, subsidiary shale",CL,C,ls,4032.6
+73,BGS,Lewisian Complex,LW,A,mm,4025.7
+181,BGS,Middle Old Red Sandstone (Undifferentiated),OR2,D,ss,3854.8
+58,BGS,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),CM,C,co,3832.4
+29,BGS,Great Oolite Group,OL,J,ss,3652.5
+108,BGS,Neogene to Quaternary Rocks (Undifferentiated),NQ,N,sf,3601.8
+265,GSI,"Granite, granodiorite",IA,D,ii,3360.7
+65,BGS,Hawick Group,SI,S,ss,3219.7
+85,BGS,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),CM,C,co,3093.6
+198,BGS,Holsworthy Group,MG,C,md,2973.8
+89,BGS,Yoredale Group,CL,C,ls,2810.3
+127,BGS,Pridoli Rocks (Undifferentiated),SI,S,md,2564.7
+123,BGS,Lower Devonian Rocks (Undifferentiated),OR1,D,md,2509.1
+74,BGS,Yoredale Group,CL,C,ls,2504.7
+68,BGS,Wealden Group,WE,K,md,2436.8
+275,GSI,"Argyll Group; Psammitic & pelitic schist, marble, amphibolite, diamictite",DU,NP,mm,2403.9
+37,BGS,Dinantian Rocks (Undifferentiated),CL,C,ls,2401.7
+288,GSI,"Deep marine; Slate, schist & minor greywacke",OD,O,mm,2312.2
+50,BGS,Gault Formation and Upper Greensand Formation (Undifferentiated),UG,K,md,2292.2
+66,BGS,"Unnamed Extrusive Rocks, Silurian to Devonian",VD,D,vo,2199.0
+39,BGS,Llandovery Rocks (Undifferentiated),SI,S,md,2154.9
+105,BGS,Ashgill Rocks (Undifferentiated),OD,O,md,2144.3
+62,BGS,Grey Chalk Subgroup,CH,K,ch,2132.7
+26,BGS,Wealden Group,WE,K,ss,2079.7
+88,BGS,Arbuthnott-Garvock Group,OR1,D,ss,2075.1
+69,BGS,Tyrone Group,CL,C,co,2065.8
+76,BGS,Clackmannan Group,CL,C,ls,2051.9
+35,BGS,Inferior Oolite Group,OL,J,ls,2019.8
+12,BGS,Permian Rocks (Undifferentiated),PE,P,ss,1968.7
+7,BGS,Inverclyde Group,CL,C,ss,1959.9
+90,BGS,Bracklesham Group and Barton Group (Undifferentiated),PG,Pg,sf,1906.5
+83,BGS,Ludlow Rocks (Undifferentiated),SI,S,md,1835.6
+313,GSI,"Continental redbed facies; Sandstone, siltstone & mudstone",OR2,D,ss,1825.4
+43,BGS,Lower Greensand Group,LG,K,ss,1786.4
+70,BGS,Upper Devonian Rocks (Undifferentiated),OR3,D,md,1654.3
+136,BGS,Torridon Group,TO,NP,ss,1634.1
+150,BGS,South Wales Upper Coal Measures Formation,CM,C,co,1569.7
+193,BGS,Yoredale Group,CL,C,ls,1487.0
+22,BGS,Appin Group,DL,NP,mm,1477.2
+104,BGS,Caradoc Rocks (Undifferentiated),OD,O,md,1465.3
+55,BGS,Loch Eil Group,MO,NP,mm,1422.5
+56,BGS,Zechstein Group,ML,P,ls,1417.4
+146,BGS,Scottish Coal Measures Group,CM,C,co,1415.9
+48,BGS,"Unnamed Extrusive Rocks, Dinantian",VC,C,vo,1415.8
+144,BGS,Stratheden Group,OR3,D,ss,1362.3
+25,BGS,"Unnamed Igneous Intrusion, Carboniferous to Permian",IA,C,ii,1316.2
+230,BGS,Strathmore Group,OR1,D,ss,1295.5
+202,BGS,Llandovery Rocks (Undifferentiated),SI,S,ss,1275.5
+15,BGS,Lambeth Group,PG,Pg,sf,1229.5
+103,BGS,Lower Devonian Rocks (Undifferentiated),OR1,D,ss,1225.3
+192,BGS,Middle Devonian (Undifferentiated),OR2,D,md,1212.4
+143,BGS,Moine Supergroup,MO,NP,mm,1178.2
+120,BGS,Wenlock Rocks (Undifferentiated),SI,S,md,1156.5
+49,BGS,Warwickshire Group,CM,C,md,1151.3
+249,GSI,"Marine to fluvial; Greywacke, shale, sandstone & conglomerate",OD,O,ss,1141.4
+2,BGS,Kirkcolm Formation,OD,O,ss,1136.2
+38,BGS,"Unnamed Igneous Intrusion, Ordovician to Silurian",IA,O,ii,1050.4
+97,BGS,Strathclyde Group,CL,C,ls,1003.9
+31,BGS,"Unnamed Igneous Intrusion, Ordovician to Silurian",IB,O,ii,985.8
+93,BGS,Ordovician Rocks (Undifferentiated),OD,O,md,963.9
+121,BGS,Moine Supergroup,MO,NP,mm,955.7
+258,GSI,"Marine (Cork Group) (extends into the Visean); Mudstone, sandstone & thin limestone",CL,C,md,955.5
+133,BGS,Glenfinnan Group,MO,NP,mm,923.9
+189,BGS,Wenlock Rocks (Undifferentiated),SI,S,ss,920.5
+45,BGS,Ravenscar Group,OL,J,ss,912.1
+57,BGS,Corallian Group,OU,J,ls,903.6
+152,BGS,Bowland High Group and Craven Group (Undifferentiated),CL,C,md,881.1
+53,BGS,Permian Rocks (Undifferentiated),PE,P,md,873.0
+257,GSI,"Southern Highland Group; Pelitic & psammitic schist, phyllite & marble",DU,NP,mm,825.9
+159,BGS,Argyll Group,DU,NP,mm,810.8
+264,GSI,"Deep marine; Slate, shale, minor sandstone & siltstone",OD,O,mm,808.3
+298,GSI,Appin Group; Psammitic & pelitic schist & marble,DL,NP,mm,794.5
+91,BGS,Llanvirn Rocks (Undifferentiated),OD,O,md,784.4
+259,GSI,Argyll Group; Quartzite,DU,NP,mm,764.3
+3,BGS,Shinnel Formation and Glenlee Formation (Undifferentiated),OD,O,ss,761.6
+191,BGS,Portpatrick Formation and Glenwhargen Formation (Undifferentiated),OD,O,ss,759.1
+94,BGS,Lower Old Red Sandstone,OR1,D,ss,756.7
+151,BGS,Silurian Rocks (Undifferentiated),SI,S,md,752.0
+30,BGS,Border Group,CL,C,ss,718.6
+180,BGS,Glenfinnan Group,MO,NP,mm,704.8
+294,GSI,"Shallow marine (""Lower Limestone Shale""); Shale, sandstone & thin limestone",CL,C,md,671.3
+114,BGS,Upper Old Red Sandstone,OR3,D,ss,665.3
+86,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,656.8
+297,GSI,"Marginal marine (Mullaghmore, Downpatrick & Clogher Valley Fms); Sandstone, mudstone & evaporite",CL,C,ss,650.0
+28,BGS,Upper Devonian Rocks (Undifferentiated),OR3,D,ss,600.3
+233,BGS,Lough Neagh Clays Group,PG,Pg,co,597.5
+166,BGS,"Fault Zone Rocks, Unassigned",MX,,mm,593.5
+9,BGS,Stewartry Group,PE,P,ss,585.2
+1,BGS,"Unnamed Igneous Intrusion, Late Silurian to Early Devonian",IB,D,ii,578.3
+100,BGS,"Unnamed Igneous Intrusion, Palaeogene",IA,Pg,ii,557.6
+148,BGS,Lanark Group,OR1,S,ss,551.2
+246,GSI,Marine; Greywacke & shale,CA,Cm,ss,547.5
+137,BGS,Morar Group,MO,NP,mm,521.1
+250,GSI,"Shallow marine, (Cork Group, Old Head Sandstone Fm); Sandstone & mudstone",OR3,D,ss,518.5
+317,GSI,"Shallow marine & coastal plain (basal clastics); Sandstone, mudstone & conglomerate",CL,C,ss,508.4
+315,GSI,"Continental redbed facies; Sandstone, siltstone & mudstone (base of Dingle Group is in the Upper Silurian)",OR1,D,ss,507.0
+278,GSI,Grampian Group; Psammitic & pelitic schist,DL,NP,mm,501.4
+14,BGS,"Unnamed Igneous Intrusion, Palaeoproterozoic",IA,PP,ii,494.7
+147,BGS,Glenfinnan Group,MO,NP,mm,486.4
+19,BGS,"Unnamed Igneous Intrusion, Neoproterozoic",IB,NP,ii,484.2
+277,GSI,"Shallow & marginal marine (Navan Group); Dark-grey limestone, mudstone, sandstone, minor evaporite",CL,C,ls,478.3
+27,BGS,Appin Group,DL,NP,mm,455.8
+134,BGS,Leitrim Group,CL,C,ss,446.3
+321,GSI,"Marginal marine (Meenymore Formation); Mudstone, sandstone & evaporite",CL,C,md,441.7
+172,BGS,Arenig Rocks (Undifferentiated),OD,O,md,440.8
+135,BGS,Warwickshire Group,CM,C,co,421.4
+23,BGS,Sherwood Sandstone Group,BU,T,ss,412.3
+155,BGS,Ardvreck Group,CA,Cm,ss,403.9
+18,BGS,Thanet Sand Formation,PG,Pg,sf,403.5
+84,BGS,"Unnamed Igneous Intrusion, Neoproterozoic",IA,NP,ii,402.3
+21,BGS,Teign Valley Group,MG,C,md,391.5
+110,BGS,Southern Highland Group,DU,NP,vo,388.3
+33,BGS,"Unnamed Igneous Intrusion, Palaeogene",IB,Pg,ii,387.9
+13,BGS,Argyll Group,DU,NP,mm,385.7
+95,BGS,Solent Group,PG,Pg,sf,378.0
+170,BGS,Moine Supergroup,MO,NP,mm,373.3
+320,GSI,"Rhyolite, rhyolitic tuff & slate",VL,O,mm,371.4
+323,GSI,"Shallow marine & coastal plain (Basal Clastics); Sandstone, mudstone & conglomerate",CL,C,ss,367.9
+60,BGS,"Unnamed Metasedimentary Rocks, Neoproterozoic",TO,NP,md,364.7
+310,GSI,"Fluvio-deltaic & shallow marine; Shale, sandstone & siltstone with coal",CM,C,co,352.7
+79,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,345.7
+75,BGS,Moine Supergroup,MO,NP,mm,343.4
+118,BGS,Grampian Group,DL,NP,mm,334.6
+40,BGS,"Unnamed Igneous Intrusion, Carboniferous to Permian",IB,C,ii,330.9
+142,BGS,Pennine Upper Coal Measures Formation,CM,C,co,310.0
+165,BGS,"Upper Cambrian, including Tremadoc",CA,Cm,mm,305.3
+5,BGS,"Unnamed Extrusive Rocks, Neoproterozoic",VP,NP,vo,298.6
+307,GSI,"Deep marine; Greywacke, shale, sandstone & conglomerate",OD,O,ss,296.7
+243,BGS,Shanmullagh Formation,OR3,D,ss,291.9
+112,BGS,"Upper Cambrian, including Tremadoc",CA,Cm,md,291.3
+325,GSI,Slishwood Division; Quartzo-feldspathic paragneiss,MX,NP,mm,289.0
+78,BGS,Fintona Group,OR3,D,ss,286.5
+87,BGS,Leadhills Supergroup,OD,O,ss,282.2
+98,BGS,Appin Group,DL,NP,mm,280.0
+176,BGS,Southern Highland Group,DU,NP,mm,273.7
+54,BGS,Riccarton Group,SI,S,ss,268.9
+51,BGS,"Unnamed Igneous Intrusion, Carboniferous to Permian",IB,C,ii,265.9
+232,BGS,Middle Devonian (Undifferentiated),OR2,D,ss,262.8
+154,BGS,Bowland High Group and Craven Group (Undifferentiated),CL,C,ls,258.3
+149,BGS,Tappins Group,OD,O,ss,249.9
+228,BGS,Ordovician Rocks (Undifferentiated),OD,O,ss,244.5
+113,BGS,Mercia Mudstone Group,KE,T,md,221.3
+184,BGS,Reston Group,OR1,D,ss,220.6
+242,BGS,Kilskeery Group,CL,C,ss,216.7
+32,BGS,Crawford Group and Moffat Shale Group (Undifferentiated),OD,O,md,197.4
+117,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,178.0
+213,BGS,Lower Cambrian Rocks (Undifferentiated),CA,Cm,ss,178.0
+270,GSI,"""Moffat shale"" facies (Ordovician to Silurian); Shale & greywacke",OD,O,md,174.7
+276,GSI,Appin Group; Quartzite,DL,NP,mm,174.2
+160,BGS,Roe Valley Group,CL,C,ss,166.1
+211,BGS,Morar Group,MO,NP,mm,165.7
+203,BGS,Sleat Group,TO,NP,ss,163.2
+218,BGS,Appin Group and Argyll Group (Undifferentiated),DL,NP,mm,161.0
+194,BGS,Lewisian Complex,LW,A,mm,159.1
+291,GSI,"Gabbro, dolerite & diorite",IB,O,ii,158.6
+4,BGS,Hibernian Greensands Formation and Ulster White Limestone Formation (Undifferentiated),CH,K,ch,153.6
+46,BGS,Armagh Group,CL,C,ls,153.4
+173,BGS,Middle Cambrian,CA,Cm,md,152.7
+153,BGS,Silurian Rocks (Undifferentiated),SI,S,ls,150.8
+168,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,150.1
+241,BGS,Silurian Rocks (Undifferentiated),SI,S,ss,144.6
+244,GSI,"Basalt, trachyte, syenite & tuff",VC,C,vo,139.4
+124,BGS,"Unnamed Extrusive Rocks, Dinantian",VC,C,vo,137.5
+285,GSI,Marine; Slate,CA,Cm,mm,137.2
+158,BGS,Tremadoc Rocks (Undifferentiated),OD,O,md,135.9
+122,BGS,Dinantian Rocks (Undifferentiated),CL,C,ss,134.2
+302,GSI,"Basalt to andesite, tuff, slate & mudstone",VL,O,mm,131.4
+141,BGS,New Red Sandstone Supergroup,PE,T,ss,125.3
+96,BGS,Portland Group,OU,J,ls,123.7
+131,BGS,"Unnamed Metamorphic Rocks, Neoproterozoic",MX,NP,mm,116.2
+16,BGS,Lewisian Complex,LW,A,mm,114.7
+220,BGS,Loch Eil Group,MO,NP,mm,114.4
+116,BGS,Middle Jurassic Rocks (Undifferentiated),OL,J,md,114.1
+269,GSI,"Transgression to regression sequence (Killary Hbr to Joyces Country Succ.); Sandstone, conglomerate, greywacke, mudstone, tuff",SI,S,vo,108.4
+81,BGS,Devonian Rocks (Undifferentiated),OR2,D,ls,108.1
+63,BGS,"Unnamed Extrusive Rocks, Silurian to Devonian",VD,D,vo,107.8
+178,BGS,"Unnamed Extrusive Rocks, Neoproterozoic",VP,NP,vo,106.2
+139,BGS,Durness Group,CA,Cm,ls,101.7
+272,GSI,"Orthogneiss suite, mainly quartz diorite (Connemara)",GG,O,mm,97.4
+251,GSI,Inishkea Division (possibly Dalradian); Psammitic & pelitic schist,MX,NP,mm,95.8
+318,GSI,"Meta-dolerite, meta-gabbro",IB,NP,mm,93.7
+145,BGS,Lower Cambrian Rocks (Undifferentiated),CA,Cm,md,91.8
+20,BGS,"Unnamed Igneous Intrusion, Palaeoproterozoic",IB,PP,ii,91.6
+326,GSI,"Shallow marine (Croagh Patrick Succession); Sandstone, siltstone, conglomerate",SI,S,ss,88.3
+301,GSI,"Basalt to andesite, tuff & shale",VL,O,vo,86.3
+190,BGS,"Unnamed Igneous Intrusion, Cambrian to Ordovician",IB,O,ii,82.0
+199,BGS,Blackcraig Formation and Galdenoch Formation (Undifferentiated),OD,O,ss,81.1
+92,BGS,"Unnamed Extrusive Rocks, Devonian",VD,D,vo,80.2
+169,BGS,"Unnamed Igneous Intrusion, Ordovician to Silurian",IA,O,ii,76.9
+99,BGS,"Unnamed Extrusive Rocks, Silesian",VC,C,vo,72.0
+201,BGS,Upper Jurassic Rocks (Undifferentiated),OU,J,md,71.8
+61,BGS,Eocene to Miocene Rocks (Undifferentiated),PG,Pg,sf,69.5
+140,BGS,Purbeck Limestone Group,OU,K,ls,66.7
+185,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,66.4
+240,BGS,Owenkillew Sandstone Group,CL,C,ss,65.1
+221,BGS,"Unnamed Extrusive Rocks, Palaeoproterozoic",VP,PP,vo,63.5
+106,BGS,"Unnamed Igneous Intrusion, Ordovician to Silurian",IB,O,ii,62.1
+175,BGS,"Unnamed Extrusive Rocks, Permian",VC,P,vo,60.5
+24,BGS,"Unnamed Igneous Intrusion, Devonian",IB,D,ii,57.0
+225,BGS,Boundary Zone Complex,MX,NP,mm,56.8
+163,BGS,"Unnamed Igneous Intrusion, Palaeogene",IA,Pg,ii,55.6
+254,GSI,Marine; Quartzite & minor slate,CA,Cm,mm,55.3
+41,BGS,Omagh Sandstone Group,CL,C,ss,54.5
+271,GSI,"Granodiorite, tonalite, dacite, granite",IA,O,ii,53.0
+77,BGS,"Unnamed Extrusive Rocks, Carboniferous",VC,C,vo,51.7
+210,BGS,"Unnamed Igneous Intrusion, Devonian",IB,D,ii,51.5
+126,BGS,Argyll Group,DU,NP,ot,51.2
+255,GSI,Cross Point Gneiss; Granitic orthogneiss,GG,MP,mm,49.5
+188,BGS,Cambrian and Ordovician Rocks (Undifferentiated),VL,O,vo,49.2
+195,BGS,"Unnamed Extrusive Rocks, Ordovician",VL,O,vo,48.4
+217,BGS,Stoer Group,TO,NP,ss,47.7
+256,GSI,Greenore Point Group; Schistose amphibolite,HB,NP,mm,47.2
+34,BGS,"Unnamed Igneous Intrusion, Carboniferous to Permian",IA,C,ii,46.1
+305,GSI,"Granite, granophyre",IA,Pg,ii,46.0
+109,BGS,Old Red Sandstone Supergroup,OR2,D,ss,43.4
+222,BGS,Loch Maree Group,LW,A,mm,42.4
+286,GSI,Southern Highland Group; (Epidote-)amphibolitic schist & tuff,DU,NP,mm,41.7
+311,GSI,Rhyolite and rhyolitic tuff,VL,O,vo,41.4
+206,BGS,Devonian Rocks (Undifferentiated),HB,D,mm,41.3
+67,BGS,"Unnamed Extrusive Rocks, Devonian",VD,D,vo,39.7
+208,BGS,Moine Supergroup,MO,NP,mm,39.7
+17,BGS,"Unnamed Extrusive Rocks, Carboniferous",VC,C,vo,39.3
+292,GSI,Argyll Group; Amphibolite & amphibolitic schist,DU,NP,mm,39.1
+132,BGS,Pridoli Rocks (Undifferentiated),SI,S,ss,38.5
+253,GSI,Dolerite & gabbro,IB,Pg,ii,36.9
+226,BGS,Appin Group and Argyll Group (Undifferentiated),DL,NP,mm,36.4
+11,BGS,Neogene Rocks (Undifferentiated),NQ,N,sf,35.5
+179,BGS,Highland Border Complex,MX,O,mm,35.0
+196,BGS,Devonian Rocks (Undifferentiated),MX,D,mm,34.1
+237,BGS,Pennine Coal Measures Group,CM,C,co,33.7
+125,BGS,"Unnamed Metamorphic Rocks, Neoproterozoic",HB,NP,mm,32.0
+234,BGS,Upper Devonian Rocks (Undifferentiated),OR3,D,mm,31.5
+167,BGS,Dunnottar-Crawton Group,OR1,S,ss,30.5
+238,BGS,Strathy Complex,LW,A,mm,29.5
+283,GSI,Argyll Group; Paragneiss & migmatite,DU,NP,mm,29.0
+324,GSI,"Alluvial to playa (Louisburgh to Clare Island Succession); Sandstone, siltstone, conglomerate",SI,S,ss,28.8
+280,GSI,Appinite Suite,IB,D,ii,28.5
+239,BGS,Mesoproterozoic Rocks (Undifferentiated),MX,MP,mm,27.5
+186,BGS,"Unnamed Igneous Intrusion, Palaeogene",IB,Pg,ii,27.5
+282,GSI,"Basalt, andesite, basaltic & andesitic tuff",VD,D,vo,26.8
+236,BGS,"Unnamed Extrusive Rocks, Palaeogene",VT,Pg,vo,26.6
+183,BGS,"Unnamed Extrusive Rocks, Neoproterozoic",VP,NP,vo,26.3
+229,BGS,Queyfirth Group,DL,NP,mm,26.1
+72,BGS,"Unnamed Extrusive Rocks, Carboniferous",VC,C,vo,25.4
+316,GSI,"Kilmore Quay Group; Paragneiss, schist",MX,NP,mm,25.3
+102,BGS,"Unnamed Extrusive Rocks, Cambrian",VL,Cm,vo,25.2
+162,BGS,Argyll Group,DU,NP,mm,25.1
+212,BGS,Unst Phyllite Group,MX,O,mm,24.2
+64,BGS,Belfast Group,ML,P,ss,23.6
+245,GSI,"Continental redbed facies, lagoonal & shallow marine; Sandstone & mudstone with evaporite",KE,T,ss,23.5
+235,BGS,Stonehaven Group,OR1,S,ss,22.4
+174,BGS,"Unnamed Igneous Intrusion, Cambrian to Ordovician",IB,O,ii,22.3
+215,BGS,Glenfinnan Group,MO,NP,mm,22.0
+295,GSI,"Shallow marine (Dunquin Group, Dingle); Siltstone, sandstone, tuff, limestone",SI,S,vo,21.9
+231,BGS,"Unnamed Metamorphic Rocks, Pre-Caledonian to Caledonian",MX,A,mm,21.1
+101,BGS,Slievebane Group,CM,C,ss,18.4
+247,GSI,"Melange (Ordovician or Silurian); Greywacke, sandstone & conglomerate",OD,O,ss,18.3
+197,BGS,"Upper Cambrian, including Tremadoc",CA,Cm,ss,18.1
+128,BGS,Enler Group,PE,P,ss,18.0
+263,GSI,Mullet Gneiss; Granitic orthogneiss,GG,PP,mm,17.7
+267,GSI,Rhyolite & rhyolitic tuff,VD,D,vo,17.7
+289,GSI,Quartzite (in Croagh Patrick Succession),SI,S,mm,17.6
+260,GSI,"Continental redbed facies (Permo-Triassic, Wexford); Sandstone, conglomerate & siltstone",PE,T,ss,16.1
+59,BGS,"Unnamed Extrusive Rocks, Devonian",VD,D,vo,15.9
+187,BGS,Upper Cretaceous to Palaeogene Rocks (Undifferentiated),PG,Pg,ss,15.9
+281,GSI,"Serpentinite, Neoproterozoic (NE Ox Mts) & Lower Ordovician (Clew Bay, Carnew)",IB,NP,ii,15.6
+161,BGS,"Unnamed Extrusive Rocks, Cambrian",VL,Cm,vo,15.4
+279,GSI,Microgranite & porphyry,IA,D,ii,13.6
+214,BGS,"Unnamed Igneous Intrusion, Neoproterozoic",IB,NP,ii,13.5
+216,BGS,Cross Slieve Group,OR1,D,ss,13.2
+130,BGS,"Unnamed Igneous Intrusion, Devonian",IA,D,ii,12.1
+227,BGS,Southern Highland Group,DU,NP,mm,10.1
+164,BGS,"Unnamed Extrusive Rocks, Silurian",VL,S,vo,9.9
+207,BGS,"Unnamed Igneous Intrusion, Palaeoproterozoic",IB,PP,ii,9.9
+138,BGS,"Unnamed Igneous Intrusion, Late Silurian to Early Devonian",IA,D,ii,9.6
+309,GSI,"Continental redbed facies & shallow marine; Sandstone, conglomerate, magnesian limestone, marl, evaporite",PE,P,ss,9.3
+157,BGS,"Unnamed Extrusive Rocks, Permian",VC,P,vo,8.1
+200,BGS,"Unnamed Extrusive Rocks, Neoproterozoic",VP,NP,vo,6.4
+177,BGS,"Unnamed Extrusive Rocks, Silurian",VL,S,vo,5.8
+129,BGS,"Unnamed Igneous Intrusion, Late Silurian to Early Devonian",IB,D,ii,5.6
+308,GSI,"Rhyolitic tuff, basalt & andesite (in Dunquin Group)",VL,S,vo,5.3
+182,BGS,Appleby Group,PE,P,ss,4.9
+219,BGS,"Unnamed Igneous Intrusion, Neoproterozoic",IB,NP,ii,3.6
+204,BGS,Holywood Group,CL,C,ss,3.4
+312,GSI,Undifferentiated minor volcanic rocks,VT,Pg,vo,2.7
+262,GSI,Doolough Gneiss & Granite; Granitic orthogneiss & granite,GG,MP,mm,2.6
+252,GSI,Lower Basalt Formation; Olivine basalt lava,VT,Pg,vo,2.2
+224,BGS,Coal Measures Group,CM,C,co,2.0
+82,BGS,Loch Eil Group,MO,NP,mm,1.8
+223,BGS,Red Bay Formation,XX,,ss,1.5
+209,BGS,Southern Highland Group,DU,NP,mm,1.4
+248,GSI,"Shallow marine (Upper Cretaceous); Chalk, flint, glauconitic sandstone& chalk breccia",CH,K,ch,1.3
+303,GSI,Upper Basalt Formation; Olivine basalt lava,VT,Pg,vo,1.0
+274,GSI,Shallow marine (Lias); Mudstone & limestone,LI,J,md,0.8
+261,GSI,"Rhinns Complex (Inishtrahull); Syenitic orthogneiss, minor metagabbro",GG,PP,mm,0.8
+205,BGS,"Unnamed Extrusive Rocks, Permian",VC,P,vo,0.7
+171,BGS,Loch Eil Group,MO,NP,mm,0.6
+268,GSI,"Interbasaltic Formation; Laterite, bauxite & lithomarge",VT,Pg,vo,0.0
+284,GSI,Causeway Tholeiite Member; Columnar tholeiitic basalt lava,VT,Pg,vo,0.0
+299,GSI,"Fluvio-deltaic & minor marine (late Visean to Namurian: Ballycastle); Sandstone, mudstone, thin limestone & coal",CL,C,ss,0.0
+300,GSI,"Continental redbed facies (late Visean to early Westphalian); Sandstone, conglomerate & mudstone",MG,C,ss,0.0
+304,GSI,"Lacustrine; Clay, sand & lignite",PG,Pg,sf,0.0
+306,GSI,Rhyolite,VT,Pg,vo,0.0
+314,GSI,Tyrone Central Inlier; Quartzo-feldspathic paragneiss & schist,MX,NP,mm,0.0
+322,GSI,"Shallow water marine (Armagh Group); Limestone, limestone conglomerate, palaeokarst with red palaeosols",CL,C,ls,0.0

@@ -1,0 +1,12 @@
+rock_type,name,pct_gb,pct_england,pct_wales,pct_scotland,pct_ireland,pct_isles
+ss,Sandstone and conglomerate,20.9,15.84,16.01,30.5,22.83,21.44
+md,"Mudstone, siltstone and shale",28.87,40.69,60.68,1.12,14.7,25.17
+ls,Limestone and dolomite,7.51,10.13,3.95,4.14,34.02,14.53
+ch,Chalk,8.31,14.69,0.0,0.0,0.19,6.14
+co,Coal-bearing rocks,4.61,5.23,11.52,1.79,3.6,4.34
+sf,"Clay, sand and gravel (soft sediments)",6.16,10.86,0.14,0.01,0.0,4.51
+ii,Igneous intrusions,5.02,1.44,1.86,11.72,5.47,5.13
+vo,Volcanic rocks,3.63,1.04,3.68,7.88,4.82,3.94
+mm,Metamorphic rocks,14.97,0.08,2.16,42.78,14.38,14.79
+sd,"Sedimentary rocks, not divided",0.0,0.0,0.0,0.0,0.0,0.0
+ot,Other or unknown,0.02,0.0,0.0,0.06,0.0,0.02

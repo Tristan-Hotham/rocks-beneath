@@ -1,0 +1,17 @@
+period,name,pct_of_dated_land
+Q,Quaternary,12.66
+N,Neogene,13.17
+Pg,Palaeogene,12.43
+K,Cretaceous,13.16
+J,Jurassic,4.16
+T,Triassic,4.38
+P,Permian,2.16
+C,Carboniferous,4.54
+D,Devonian,3.88
+S,Silurian,0.66
+O,Ordovician,2.46
+Cm,Cambrian,2.55
+NP,Neoproterozoic,6.32
+MP,Mesoproterozoic,2.68
+PP,Palaeoproterozoic,7.21
+A,Archaean,7.59

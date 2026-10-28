@@ -1,0 +1,379 @@
+km,lat,lon,unit_id,unit,period,max_age_ma,min_age_ma,class_1969,rock_type
+0.0,54.4543,-3.2116,104,Caradoc Rocks (Undifferentiated),O,458.0,449.0,OD,md
+1.0,54.4466,-3.2036,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+2.0,54.439,-3.1957,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+3.0,54.4314,-3.1877,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+4.0,54.4238,-3.1797,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+5.0,54.4162,-3.1718,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+6.0,54.4086,-3.1638,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+7.0,54.401,-3.1558,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+8.0,54.3933,-3.1479,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+9.0,54.3857,-3.1399,79,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+10.0,54.3781,-3.1319,168,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+11.0,54.3705,-3.1239,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+12.0,54.3629,-3.116,86,"Unnamed Extrusive Rocks, Ordovician",O,495.0,443.0,VL,vo
+13.0,54.3553,-3.108,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+14.0,54.3477,-3.1,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+15.0,54.34,-3.0921,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+16.0,54.3324,-3.0841,189,Wenlock Rocks (Undifferentiated),S,428.0,423.0,SI,ss
+17.0,54.3248,-3.0761,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+18.0,54.3172,-3.0682,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+19.0,54.3096,-3.0602,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+20.0,54.302,-3.0522,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+21.0,54.2944,-3.0443,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+22.0,54.2867,-3.0363,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+23.0,54.2791,-3.0283,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+24.0,54.2715,-3.0204,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+25.0,54.2639,-3.0124,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+26.0,54.2563,-3.0044,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+27.0,54.2487,-2.9964,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+28.0,54.2411,-2.9885,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+29.0,54.2334,-2.9805,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+30.0,54.2258,-2.9725,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+31.0,54.2182,-2.9646,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+32.0,54.2106,-2.9566,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+33.0,54.203,-2.9486,151,Silurian Rocks (Undifferentiated),S,443.0,417.0,SI,md
+34.0,54.1954,-2.9407,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+35.0,54.1877,-2.9327,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+36.0,54.1801,-2.9247,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+37.0,54.1725,-2.9168,74,Yoredale Group,C,333.8,316.0,CL,ls
+48.0,54.0888,-2.8291,53,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,md
+49.0,54.0811,-2.8211,53,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,md
+50.0,54.0735,-2.8132,53,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,md
+51.0,54.0659,-2.8052,107,Millstone Grit Group,C,327.0,316.0,MG,md
+52.0,54.0583,-2.7972,107,Millstone Grit Group,C,327.0,316.0,MG,md
+53.0,54.0507,-2.7893,107,Millstone Grit Group,C,327.0,316.0,MG,md
+54.0,54.0431,-2.7813,107,Millstone Grit Group,C,327.0,316.0,MG,md
+55.0,54.0355,-2.7733,107,Millstone Grit Group,C,327.0,316.0,MG,md
+56.0,54.0278,-2.7654,107,Millstone Grit Group,C,327.0,316.0,MG,md
+57.0,54.0202,-2.7574,107,Millstone Grit Group,C,327.0,316.0,MG,md
+58.0,54.0126,-2.7494,107,Millstone Grit Group,C,327.0,316.0,MG,md
+59.0,54.005,-2.7414,107,Millstone Grit Group,C,327.0,316.0,MG,md
+60.0,53.9974,-2.7335,107,Millstone Grit Group,C,327.0,316.0,MG,md
+61.0,53.9898,-2.7255,107,Millstone Grit Group,C,327.0,316.0,MG,md
+62.0,53.9822,-2.7175,107,Millstone Grit Group,C,327.0,316.0,MG,md
+63.0,53.9745,-2.7096,107,Millstone Grit Group,C,327.0,316.0,MG,md
+64.0,53.9669,-2.7016,107,Millstone Grit Group,C,327.0,316.0,MG,md
+65.0,53.9593,-2.6936,107,Millstone Grit Group,C,327.0,316.0,MG,md
+66.0,53.9517,-2.6857,107,Millstone Grit Group,C,327.0,316.0,MG,md
+67.0,53.9441,-2.6777,107,Millstone Grit Group,C,327.0,316.0,MG,md
+68.0,53.9365,-2.6697,107,Millstone Grit Group,C,327.0,316.0,MG,md
+69.0,53.9289,-2.6618,107,Millstone Grit Group,C,327.0,316.0,MG,md
+70.0,53.9212,-2.6538,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+71.0,53.9136,-2.6458,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+72.0,53.906,-2.6379,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+73.0,53.8984,-2.6299,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+74.0,53.8908,-2.6219,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+75.0,53.8832,-2.6139,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+76.0,53.8756,-2.606,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+77.0,53.8679,-2.598,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+78.0,53.8603,-2.59,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+79.0,53.8527,-2.5821,154,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,ls
+80.0,53.8451,-2.5741,107,Millstone Grit Group,C,327.0,316.0,MG,md
+81.0,53.8375,-2.5661,107,Millstone Grit Group,C,327.0,316.0,MG,md
+82.0,53.8299,-2.5582,107,Millstone Grit Group,C,327.0,316.0,MG,md
+83.0,53.8222,-2.5502,107,Millstone Grit Group,C,327.0,316.0,MG,md
+84.0,53.8146,-2.5422,107,Millstone Grit Group,C,327.0,316.0,MG,md
+85.0,53.807,-2.5343,107,Millstone Grit Group,C,327.0,316.0,MG,md
+86.0,53.7994,-2.5263,107,Millstone Grit Group,C,327.0,316.0,MG,md
+87.0,53.7918,-2.5183,107,Millstone Grit Group,C,327.0,316.0,MG,md
+88.0,53.7842,-2.5104,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+89.0,53.7766,-2.5024,107,Millstone Grit Group,C,327.0,316.0,MG,md
+90.0,53.7689,-2.4944,107,Millstone Grit Group,C,327.0,316.0,MG,md
+91.0,53.7613,-2.4864,107,Millstone Grit Group,C,327.0,316.0,MG,md
+92.0,53.7537,-2.4785,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+93.1,53.7461,-2.4705,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+94.1,53.7385,-2.4625,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+95.1,53.7309,-2.4546,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+96.1,53.7233,-2.4466,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+97.1,53.7156,-2.4386,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+98.1,53.708,-2.4307,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+99.1,53.7004,-2.4227,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+100.1,53.6928,-2.4147,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+101.1,53.6852,-2.4068,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+102.1,53.6776,-2.3988,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+103.1,53.67,-2.3908,107,Millstone Grit Group,C,327.0,316.0,MG,md
+104.1,53.6623,-2.3829,107,Millstone Grit Group,C,327.0,316.0,MG,md
+105.1,53.6547,-2.3749,107,Millstone Grit Group,C,327.0,316.0,MG,md
+106.1,53.6471,-2.3669,107,Millstone Grit Group,C,327.0,316.0,MG,md
+107.1,53.6395,-2.359,107,Millstone Grit Group,C,327.0,316.0,MG,md
+108.1,53.6319,-2.351,107,Millstone Grit Group,C,327.0,316.0,MG,md
+109.1,53.6243,-2.343,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+110.1,53.6167,-2.335,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+111.1,53.609,-2.3271,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+112.1,53.6014,-2.3191,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+113.1,53.5938,-2.3111,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+114.1,53.5862,-2.3032,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+115.1,53.5786,-2.2952,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+116.1,53.571,-2.2872,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+117.1,53.5634,-2.2793,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+118.1,53.5557,-2.2713,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+119.1,53.5481,-2.2633,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+120.1,53.5405,-2.2554,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+121.1,53.5329,-2.2474,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+122.1,53.5253,-2.2394,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+123.1,53.5177,-2.2315,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+124.1,53.51,-2.2235,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+125.1,53.5024,-2.2155,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+126.1,53.4948,-2.2075,85,Pennine Middle Coal Measures Formation and South Wales Middle Coal Measures Formation (Undifferentiated),C,313.5,308.5,CM,co
+127.1,53.4872,-2.1996,142,Pennine Upper Coal Measures Formation,C,311.0,306.0,CM,co
+128.1,53.4796,-2.1916,142,Pennine Upper Coal Measures Formation,C,311.0,306.0,CM,co
+129.1,53.472,-2.1836,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+130.1,53.4644,-2.1757,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+131.1,53.4567,-2.1677,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+132.1,53.4491,-2.1597,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+133.1,53.4415,-2.1518,53,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,md
+134.1,53.4339,-2.1438,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+135.1,53.4263,-2.1358,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+136.1,53.4187,-2.1279,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+137.1,53.4111,-2.1199,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+138.1,53.4034,-2.1119,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+139.1,53.3958,-2.104,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+140.1,53.3882,-2.096,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+141.1,53.3806,-2.088,12,Permian Rocks (Undifferentiated),P,290.0,248.2,PE,ss
+142.1,53.373,-2.08,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+143.1,53.3654,-2.0721,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+144.1,53.3578,-2.0641,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+145.1,53.3501,-2.0561,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+146.1,53.3425,-2.0482,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+147.1,53.3349,-2.0402,107,Millstone Grit Group,C,327.0,316.0,MG,md
+148.1,53.3273,-2.0322,107,Millstone Grit Group,C,327.0,316.0,MG,md
+149.1,53.3197,-2.0243,107,Millstone Grit Group,C,327.0,316.0,MG,md
+150.1,53.3121,-2.0163,107,Millstone Grit Group,C,327.0,316.0,MG,md
+151.1,53.3045,-2.0083,107,Millstone Grit Group,C,327.0,316.0,MG,md
+152.1,53.2968,-2.0004,107,Millstone Grit Group,C,327.0,316.0,MG,md
+153.1,53.2892,-1.9924,107,Millstone Grit Group,C,327.0,316.0,MG,md
+154.1,53.2816,-1.9844,107,Millstone Grit Group,C,327.0,316.0,MG,md
+155.1,53.274,-1.9765,107,Millstone Grit Group,C,327.0,316.0,MG,md
+156.1,53.2664,-1.9685,107,Millstone Grit Group,C,327.0,316.0,MG,md
+157.1,53.2588,-1.9605,107,Millstone Grit Group,C,327.0,316.0,MG,md
+158.1,53.2512,-1.9525,107,Millstone Grit Group,C,327.0,316.0,MG,md
+159.1,53.2435,-1.9446,107,Millstone Grit Group,C,327.0,316.0,MG,md
+160.1,53.2359,-1.9366,107,Millstone Grit Group,C,327.0,316.0,MG,md
+161.1,53.2283,-1.9286,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+162.1,53.2207,-1.9207,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+163.1,53.2131,-1.9127,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+164.1,53.2055,-1.9047,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+165.1,53.1979,-1.8968,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+166.1,53.1902,-1.8888,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+167.1,53.1826,-1.8808,107,Millstone Grit Group,C,327.0,316.0,MG,md
+168.1,53.175,-1.8729,107,Millstone Grit Group,C,327.0,316.0,MG,md
+169.1,53.1674,-1.8649,107,Millstone Grit Group,C,327.0,316.0,MG,md
+170.1,53.1598,-1.8569,107,Millstone Grit Group,C,327.0,316.0,MG,md
+171.1,53.1522,-1.849,107,Millstone Grit Group,C,327.0,316.0,MG,md
+172.1,53.1445,-1.841,107,Millstone Grit Group,C,327.0,316.0,MG,md
+173.1,53.1369,-1.833,107,Millstone Grit Group,C,327.0,316.0,MG,md
+174.1,53.1293,-1.825,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+175.1,53.1217,-1.8171,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+176.1,53.1141,-1.8091,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+177.1,53.1065,-1.8011,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+178.1,53.0989,-1.7932,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+179.1,53.0912,-1.7852,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+180.1,53.0836,-1.7772,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+181.1,53.076,-1.7693,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+182.1,53.0684,-1.7613,37,Dinantian Rocks (Undifferentiated),C,354.0,327.0,CL,ls
+183.1,53.0608,-1.7533,154,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,ls
+184.1,53.0532,-1.7454,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+185.1,53.0456,-1.7374,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+186.1,53.0379,-1.7294,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+187.1,53.0303,-1.7215,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+188.1,53.0227,-1.7135,152,Bowland High Group and Craven Group (Undifferentiated),C,354.0,316.0,CL,md
+189.1,53.0151,-1.7055,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+190.1,53.0075,-1.6976,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+191.1,52.9999,-1.6896,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+192.1,52.9923,-1.6816,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+193.1,52.9846,-1.6736,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+194.1,52.977,-1.6657,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+195.1,52.9694,-1.6577,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+196.1,52.9618,-1.6497,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+197.1,52.9542,-1.6418,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+198.1,52.9466,-1.6338,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+199.1,52.939,-1.6258,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+200.1,52.9313,-1.6179,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+201.1,52.9237,-1.6099,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+202.1,52.9161,-1.6019,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+203.1,52.9085,-1.594,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+204.1,52.9009,-1.586,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+205.1,52.8933,-1.578,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+206.1,52.8857,-1.5701,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+207.1,52.878,-1.5621,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+208.1,52.8704,-1.5541,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+209.1,52.8628,-1.5461,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+210.1,52.8552,-1.5382,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+211.1,52.8476,-1.5302,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+212.1,52.84,-1.5222,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+213.1,52.8324,-1.5143,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+214.1,52.8247,-1.5063,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+215.1,52.8171,-1.4983,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+216.1,52.8095,-1.4904,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+217.1,52.8019,-1.4824,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+218.1,52.7943,-1.4744,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+219.1,52.7867,-1.4665,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+220.1,52.779,-1.4585,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+221.1,52.7714,-1.4505,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+222.1,52.7638,-1.4426,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+223.1,52.7562,-1.4346,58,Pennine Lower Coal Measures Formation and South Wales Lower Coal Measures Formation (Undifferentiated),C,316.0,313.5,CM,co
+224.1,52.7486,-1.4266,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+225.1,52.741,-1.4186,71,Triassic Rocks (Undifferentiated),T,248.2,205.7,BU,ss
+226.1,52.7334,-1.4107,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+227.1,52.7257,-1.4027,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+228.1,52.7181,-1.3947,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+229.1,52.7105,-1.3868,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+230.1,52.7029,-1.3788,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+231.1,52.6953,-1.3708,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+232.1,52.6877,-1.3629,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+233.1,52.6801,-1.3549,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+234.1,52.6724,-1.3469,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+235.1,52.6648,-1.339,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+236.1,52.6572,-1.331,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+237.1,52.6496,-1.323,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+238.1,52.642,-1.3151,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+239.1,52.6344,-1.3071,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+240.1,52.6268,-1.2991,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+241.1,52.6191,-1.2911,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+242.1,52.6115,-1.2832,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+243.1,52.6039,-1.2752,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+244.1,52.5963,-1.2672,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+245.1,52.5887,-1.2593,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+246.1,52.5811,-1.2513,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+247.1,52.5735,-1.2433,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+248.1,52.5658,-1.2354,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+249.1,52.5582,-1.2274,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+250.1,52.5506,-1.2194,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+251.1,52.543,-1.2115,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+252.1,52.5354,-1.2035,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+253.1,52.5278,-1.1955,44,Triassic Rocks (Undifferentiated),T,248.2,205.7,KE,md
+254.1,52.5202,-1.1876,52,Lias Group,J,209.6,176.5,LI,md
+255.1,52.5125,-1.1796,52,Lias Group,J,209.6,176.5,LI,md
+256.1,52.5049,-1.1716,52,Lias Group,J,209.6,176.5,LI,md
+257.1,52.4973,-1.1636,52,Lias Group,J,209.6,176.5,LI,md
+258.1,52.4897,-1.1557,52,Lias Group,J,209.6,176.5,LI,md
+259.1,52.4821,-1.1477,52,Lias Group,J,209.6,176.5,LI,md
+260.1,52.4745,-1.1397,52,Lias Group,J,209.6,176.5,LI,md
+261.1,52.4668,-1.1318,52,Lias Group,J,209.6,176.5,LI,md
+262.1,52.4592,-1.1238,52,Lias Group,J,209.6,176.5,LI,md
+263.1,52.4516,-1.1158,52,Lias Group,J,209.6,176.5,LI,md
+264.1,52.444,-1.1079,52,Lias Group,J,209.6,176.5,LI,md
+265.1,52.4364,-1.0999,52,Lias Group,J,209.6,176.5,LI,md
+266.1,52.4288,-1.0919,52,Lias Group,J,209.6,176.5,LI,md
+267.1,52.4212,-1.084,52,Lias Group,J,209.6,176.5,LI,md
+268.1,52.4135,-1.076,52,Lias Group,J,209.6,176.5,LI,md
+269.1,52.4059,-1.068,52,Lias Group,J,209.6,176.5,LI,md
+270.1,52.3983,-1.0601,52,Lias Group,J,209.6,176.5,LI,md
+271.1,52.3907,-1.0521,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+272.1,52.3831,-1.0441,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+273.1,52.3755,-1.0361,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+274.1,52.3679,-1.0282,52,Lias Group,J,209.6,176.5,LI,md
+275.1,52.3602,-1.0202,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+276.1,52.3526,-1.0122,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+277.2,52.345,-1.0043,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+278.2,52.3374,-0.9963,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+279.2,52.3298,-0.9883,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+280.2,52.3222,-0.9804,52,Lias Group,J,209.6,176.5,LI,md
+281.2,52.3146,-0.9724,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+282.2,52.3069,-0.9644,52,Lias Group,J,209.6,176.5,LI,md
+283.2,52.2993,-0.9565,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+284.2,52.2917,-0.9485,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+285.2,52.2841,-0.9405,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+286.2,52.2765,-0.9326,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+287.2,52.2689,-0.9246,52,Lias Group,J,209.6,176.5,LI,md
+288.2,52.2613,-0.9166,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+289.2,52.2536,-0.9087,52,Lias Group,J,209.6,176.5,LI,md
+290.2,52.246,-0.9007,35,Inferior Oolite Group,J,180.1,164.4,OL,ls
+291.2,52.2384,-0.8927,29,Great Oolite Group,J,169.2,164.4,OL,ss
+292.2,52.2308,-0.8847,52,Lias Group,J,209.6,176.5,LI,md
+293.2,52.2232,-0.8768,52,Lias Group,J,209.6,176.5,LI,md
+294.2,52.2156,-0.8688,52,Lias Group,J,209.6,176.5,LI,md
+295.2,52.208,-0.8608,29,Great Oolite Group,J,169.2,164.4,OL,ss
+296.2,52.2003,-0.8529,29,Great Oolite Group,J,169.2,164.4,OL,ss
+297.2,52.1927,-0.8449,52,Lias Group,J,209.6,176.5,LI,md
+298.2,52.1851,-0.8369,52,Lias Group,J,209.6,176.5,LI,md
+299.2,52.1775,-0.829,29,Great Oolite Group,J,169.2,164.4,OL,ss
+300.2,52.1699,-0.821,29,Great Oolite Group,J,169.2,164.4,OL,ss
+301.2,52.1623,-0.813,29,Great Oolite Group,J,169.2,164.4,OL,ss
+302.2,52.1547,-0.8051,29,Great Oolite Group,J,169.2,164.4,OL,ss
+303.2,52.147,-0.7971,29,Great Oolite Group,J,169.2,164.4,OL,ss
+304.2,52.1394,-0.7891,29,Great Oolite Group,J,169.2,164.4,OL,ss
+305.2,52.1318,-0.7812,29,Great Oolite Group,J,169.2,164.4,OL,ss
+306.2,52.1242,-0.7732,29,Great Oolite Group,J,169.2,164.4,OL,ss
+307.2,52.1166,-0.7652,29,Great Oolite Group,J,169.2,164.4,OL,ss
+308.2,52.109,-0.7572,29,Great Oolite Group,J,169.2,164.4,OL,ss
+309.2,52.1013,-0.7493,29,Great Oolite Group,J,169.2,164.4,OL,ss
+310.2,52.0937,-0.7413,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+311.2,52.0861,-0.7333,29,Great Oolite Group,J,169.2,164.4,OL,ss
+312.2,52.0785,-0.7254,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+313.2,52.0709,-0.7174,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+314.2,52.0633,-0.7094,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+315.2,52.0557,-0.7015,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+316.2,52.048,-0.6935,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+317.2,52.0404,-0.6855,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+318.2,52.0328,-0.6776,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+319.2,52.0252,-0.6696,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+320.2,52.0176,-0.6616,47,Kellaways Formation and Oxford Clay Formation (Undifferentiated),J,164.4,154.1,OU,md
+321.2,52.01,-0.6537,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+322.2,52.0024,-0.6457,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+323.2,51.9947,-0.6377,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+324.2,51.9871,-0.6297,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+325.2,51.9795,-0.6218,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+326.2,51.9719,-0.6138,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+327.2,51.9643,-0.6058,43,Lower Greensand Group,K,121.0,98.9,LG,ss
+328.2,51.9567,-0.5979,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+329.2,51.9491,-0.5899,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+330.2,51.9414,-0.5819,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+331.2,51.9338,-0.574,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+332.2,51.9262,-0.566,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+333.2,51.9186,-0.558,50,Gault Formation and Upper Greensand Formation (Undifferentiated),K,112.2,93.5,UG,md
+334.2,51.911,-0.5501,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+335.2,51.9034,-0.5421,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+336.2,51.8958,-0.5341,62,Grey Chalk Subgroup,K,98.9,93.5,CH,ch
+337.2,51.8881,-0.5262,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+338.2,51.8805,-0.5182,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+339.2,51.8729,-0.5102,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+340.2,51.8653,-0.5022,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+341.2,51.8577,-0.4943,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+342.2,51.8501,-0.4863,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+343.2,51.8425,-0.4783,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+344.2,51.8348,-0.4704,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+345.2,51.8272,-0.4624,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+346.2,51.8196,-0.4544,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+347.2,51.812,-0.4465,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+348.2,51.8044,-0.4385,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+349.2,51.7968,-0.4305,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+350.2,51.7892,-0.4226,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+351.2,51.7815,-0.4146,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+352.2,51.7739,-0.4066,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+353.2,51.7663,-0.3987,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+354.2,51.7587,-0.3907,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+355.2,51.7511,-0.3827,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+356.2,51.7435,-0.3747,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+357.2,51.7358,-0.3668,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+358.2,51.7282,-0.3588,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+359.2,51.7206,-0.3508,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+360.2,51.713,-0.3429,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+361.2,51.7054,-0.3349,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+362.2,51.6978,-0.3269,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+363.2,51.6902,-0.319,115,White Chalk Subgroup,K,98.9,65.0,CH,ch
+364.2,51.6825,-0.311,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+365.2,51.6749,-0.303,15,Lambeth Group,Pg,65.0,54.8,PG,sf
+366.2,51.6673,-0.2951,80,Thames Group,Pg,54.8,33.7,PG,sf
+367.2,51.6597,-0.2871,80,Thames Group,Pg,54.8,33.7,PG,sf
+368.2,51.6521,-0.2791,80,Thames Group,Pg,54.8,33.7,PG,sf
+369.2,51.6445,-0.2712,80,Thames Group,Pg,54.8,33.7,PG,sf
+370.2,51.6369,-0.2632,80,Thames Group,Pg,54.8,33.7,PG,sf
+371.2,51.6292,-0.2552,80,Thames Group,Pg,54.8,33.7,PG,sf
+372.2,51.6216,-0.2473,80,Thames Group,Pg,54.8,33.7,PG,sf
+373.2,51.614,-0.2393,80,Thames Group,Pg,54.8,33.7,PG,sf
+374.2,51.6064,-0.2313,80,Thames Group,Pg,54.8,33.7,PG,sf
+375.2,51.5988,-0.2233,80,Thames Group,Pg,54.8,33.7,PG,sf
+376.2,51.5912,-0.2154,80,Thames Group,Pg,54.8,33.7,PG,sf
+377.2,51.5836,-0.2074,80,Thames Group,Pg,54.8,33.7,PG,sf
+378.2,51.5759,-0.1994,80,Thames Group,Pg,54.8,33.7,PG,sf
+379.2,51.5683,-0.1915,80,Thames Group,Pg,54.8,33.7,PG,sf
+380.2,51.5607,-0.1835,90,Bracklesham Group and Barton Group (Undifferentiated),Pg,54.8,33.7,PG,sf
+381.2,51.5531,-0.1755,80,Thames Group,Pg,54.8,33.7,PG,sf
+382.2,51.5455,-0.1676,80,Thames Group,Pg,54.8,33.7,PG,sf
+383.2,51.5379,-0.1596,80,Thames Group,Pg,54.8,33.7,PG,sf
+384.2,51.5303,-0.1516,80,Thames Group,Pg,54.8,33.7,PG,sf
+385.2,51.5226,-0.1437,80,Thames Group,Pg,54.8,33.7,PG,sf
+386.2,51.515,-0.1357,80,Thames Group,Pg,54.8,33.7,PG,sf
+387.2,51.5074,-0.1277,80,Thames Group,Pg,54.8,33.7,PG,sf
