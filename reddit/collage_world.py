@@ -87,7 +87,7 @@ def lab(ax, W, H, lon, lat, text, dx, dy, ha="left"):
     ax.annotate(text, xy=(X, Y), xytext=(X + dx, Y + dy), family=MONO, fontsize=9.5, color=FG, ha=ha, va="center",
                 arrowprops=dict(arrowstyle="-", color=FG, lw=.7), bbox=dict(facecolor=BG2, edgecolor="none", alpha=.85, pad=1.4))
 H0, W0 = big.shape[:2]
-lab(ax, W0, H0, 22, 63, "Baltic Shield: 86% Precambrian", 330, -40)
+lab(ax, W0, H0, 24, 64, "Scandinavia: 86% Precambrian", 360, -70)
 lab(ax, W0, H0, -88, 60, "Canadian Shield", -420, 60)
 lab(ax, W0, H0, 39, 9, "East African Rift lavas", 260, 40)
 lab(ax, W0, H0, -19, 64.8, "Iceland: young lava", -150, 130, "right")
@@ -115,14 +115,14 @@ for (ei, name, sub, ek), (x0, y0) in zip(eras, pos):
     fig.text(x0 + 0.005, y0 + 0.141, sub, family=SER, fontsize=10, color=MUT, va="top")
 
 # shields bar chart
-bx = fig.add_axes([0.73, 0.175, 0.24, 0.215])
-items = sorted([(k.replace(" (Norway, Sweden, Finland)", "").replace("Fennoscandia", "Scandinavia and Finland").replace(" (Macrostrat)", "").replace(" (continent)", ""), v)
+bx = fig.add_axes([0.78, 0.175, 0.19, 0.215])
+items = sorted([(k.replace(" (Norway, Sweden, Finland)", "").replace("Fennoscandia", "Scandinavia").replace(" (Macrostrat)", "").replace(" (continent)", ""), v)
                 for k, v in R["shields"].items()], key=lambda t: t[1])
 bx.barh(range(len(items)), [v for _, v in items], color=[PCOL["A"] if v >= 40 else "#E8A0C0" for _, v in items], height=.7)
-bx.set_yticks(range(len(items))); bx.set_yticklabels([n for n, _ in items], fontsize=10.5)
+bx.set_yticks(range(len(items))); bx.set_yticklabels([n for n, _ in items], fontsize=10.5, color=FG)
 for i, (_, v) in enumerate(items): bx.text(v + 1.5, i, f"{v:.0f}%", va="center", family=MONO, fontsize=9.5, color=FG)
 bx.set_xlim(0, 100); bx.set_xticks([]); bx.spines["bottom"].set_visible(False); bx.spines["left"].set_visible(False); bx.tick_params(length=0)
-fig.text(0.68, 0.405, "HOW MUCH OF EACH PLACE IS\nPRECAMBRIAN ROCK", family=MONO, fontsize=10, color=MUT, va="bottom", linespacing=1.3)
+fig.text(0.69, 0.405, "HOW MUCH OF EACH PLACE IS\nPRECAMBRIAN ROCK", family=MONO, fontsize=10, color=MUT, va="bottom", linespacing=1.3)
 
 # big numbers
 fig.text(0.68, 0.335 + 0.10, "", fontsize=1)
