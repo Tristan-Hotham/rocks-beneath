@@ -92,7 +92,7 @@ def lab(ax, W, H, lon, lat, text, tlon, tlat, ha="left"):
                 arrowprops=dict(arrowstyle="-", color=FG, lw=.75, shrinkA=3, shrinkB=1, relpos=rel), bbox=dict(facecolor="#E6EDF0", edgecolor="none", pad=2.5))
 H0, W0 = big.shape[:2]
 lab(ax, W0, H0, -82, 57, "Canadian Shield:\n52% Precambrian", -150, 32, "center")
-lab(ax, W0, H0, 20, 64, "Scandinavia\nand Finland:\n86% Precambrian", -30, 45, "center")
+lab(ax, W0, H0, 20, 64, "Scandinavia\nand Finland:\n86% Precambrian", -40, 34, "center")
 lab(ax, W0, H0, 38, 8, "East African\nRift lavas", 73, -6, "center")
 lab(ax, W0, H0, -69, -18, "The Andes", -105, -22, "center")
 lab(ax, W0, H0, -58, -8, "Amazonian Craton", -17, -24, "center")
