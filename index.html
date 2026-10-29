@@ -159,6 +159,12 @@ footer p{margin:0 0 10px}
 .theme{position:fixed;right:12px;bottom:12px;z-index:1002}
 .loading{font:400 12px/1.4 var(--mono);color:var(--muted)}
 @media print{.theme,.controls{display:none}}
+html.embed body{background:var(--bg)}
+html.embed .wrap>*:not(.figure.bleed.main),html.embed .theme,html.embed .th-site-nav,html.embed .sg{display:none!important}
+html.embed .wrap{padding-top:0;padding-bottom:0}
+html.embed .wrap{max-width:none;padding:0 2px}
+html.embed .wrap .bleed{width:100%;margin:0}
+#viewBtns{display:none!important}
 </style>
 </head>
 <body>
@@ -167,7 +173,7 @@ footer p{margin:0 0 10px}
 <header class="hero">
   <div class="strata" id="strata" aria-hidden="true"></div>
   <h1>The rocks <span>beneath</span></h1>
-  <p class="dek">An interactive geological map of the British Isles and the world, coloured in the manner of the 1969 Geological Map of the British Islands. What lies under your town, how old is it, and why do England's layers tilt down towards London?</p>
+  <p class="dek">An interactive geological map of the world and of the British Isles, the world in the international period colours and Britain and Ireland in the manner of the 1969 Geological Map of the British Islands. What lies under your town, how old is it, and why do England's layers tilt down towards London?</p>
 </header>
 <div class="byline">Dr Tristan Hotham, Independent researcher · 2026 · Data: British Geological Survey (OGL v3); Geological Survey Ireland (CC BY 4.0); Macrostrat (CC BY 4.0)</div>
 
@@ -181,17 +187,32 @@ footer p{margin:0 0 10px}
 <p class="lede">In 1969 the Geological Survey published the fifth edition of its Geological Map of the British Islands: one sheet, every rock in two islands, and a key of about forty colours that generations of students learnt by heart. Chalk a soft grey green, the Coal Measures grey, the Carboniferous Limestone sky blue, the Keuper red, the old Highland schists in pale pinks and yellows. I have borrowed those colours, and only the colours, and put them on today's open digital maps.</p>
 <p>The heart of the page is Britain and Ireland: 315,859 square kilometres of bedrock from the British Geological Survey's 1:625,000 map and Geological Survey Ireland's 1:500,000 map, every unit clickable, with the ice-age deposits that hide much of it on a layer of their own. Around it lies the world, from Macrostrat's compilation of regional maps, in 4,639 map units. Switch to the international period colours, to rock types or to a smooth scale of age, drag the time slider, or press play and watch the islands build themselves, oldest rock first.</p>
 
-<h2><span class="n">01 · The map</span>What lies beneath</h2>
-<div class="figure bleed">
+<h2><span class="n">01 · The world</span>Shields, sediments and fresh lava</h2>
+<p>Start with the whole planet. Every colour is a rock unit on Macrostrat's world map, coloured by geological period: the pinks and magentas of the ancient shields, the greens of the Palaeozoic, the blues and greens of the age of the dinosaurs and the yellows of the young basins and lava fields. Press play under the map to watch the continents build up, oldest rock first, or click anywhere to see what lies beneath it.</p>
+<div class="figure bleed wframe"><iframe id="wmap" src="index.html?embed=world" title="Interactive geological map of the world" loading="lazy" style="width:100%;height:860px;border:0;display:block"></iframe></div>
+
+<p>On the Macrostrat map 23.8% of the dated, ice-free land is Precambrian, 16.2% Palaeozoic, 21.7% Mesozoic and 38.3% Cenozoic. The old rock gathers in shields, the worn-down cores of the continents: the Baltic Shield of Scandinavia and Finland, the Canadian Shield around Hudson Bay, and the old cratons of Africa, Brazil, India and Western Australia.</p>
+<div class="figure">
+  <div class="fig-h">How much of each region is Precambrian</div>
+  <div class="chart" id="shieldChart"></div>
+  <div class="src">Share of each region's dated, ice-free land on Precambrian map units. Macrostrat world map at zoom 4; country outlines from Natural Earth.</div>
+</div>
+<p>The youngest volcanic rocks, from the last 2.6 million years, cover 824,618 km² of the map (0.62% of the dated land). The biggest areas are in the United States, the lava fields of Saudi Arabia, Ethiopia and Kenya along the East African Rift, and Mexico; Iceland, the size of Ireland, has 31,313 km².</p>
+<div class="figure">
+  <div class="fig-h">Where else has rocks the same age as yours?</div>
+  <p class="fig-sub" style="margin-bottom:0">Click a rock on either map, or search a place, then press "Where else in the world?" on its card. The world map lights up every unit whose age range overlaps it.</p>
+</div>
+
+<h2><span class="n">02 · The British Isles</span>What lies beneath Britain and Ireland</h2>
+<div class="figure bleed main">
   <div class="controls">
-    <label class="l">View</label>
-    <div class="seg" role="group" aria-label="View" id="viewBtns"><button class="btn" data-v="uk" aria-pressed="true">British Isles</button><button class="btn" data-v="world" aria-pressed="false">The world</button></div>
+    <div class="seg" role="group" aria-label="View" id="viewBtns" hidden><button class="btn" data-v="uk" aria-pressed="true">British Isles</button><button class="btn" data-v="world" aria-pressed="false">The world</button></div>
     <label class="l">Colours</label>
     <div class="seg" role="group" aria-label="Colours" id="palBtns"><button class="btn" data-p="c69" aria-pressed="true">1969 survey</button><button class="btn" data-p="ics" aria-pressed="false">Periods (ICS)</button><button class="btn" data-p="rock" aria-pressed="false">Rock type</button><button class="btn" data-p="age" aria-pressed="false">Age</button></div>
   </div>
   <div class="controls">
     <div class="searchbox">
-      <input type="search" id="q" placeholder="What's under your town? Type a place" aria-label="Find a place" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sug">
+      <input type="search" id="q" placeholder="What's under your town? Type any place in the world" aria-label="Find a place" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sug">
       <ul class="suggest" id="sug" role="listbox"></ul>
     </div>
     <button class="btn" id="geo">Use my location</button>
@@ -224,7 +245,7 @@ footer p{margin:0 0 10px}
 
 <p>A word on what you are looking at. Bedrock is the solid rock under the soil and under the loose sands, gravels and clays the ice ages left behind. Each colour is a map unit: a body of rock the surveyors grouped by age and type. Ages are the range the unit spans, as the source gives it, so a unit "354 to 290 million years old" may hold rocks from anywhere in that span. At this scale the maps are generalised: lines are drawn to about a fifth of a kilometre in Britain, and to several kilometres in the world view.</p>
 
-<h2><span class="n">02 · The layer cake</span>Why England tilts towards London</h2>
+<h2><span class="n">03 · The layer cake</span>Why England tilts towards London</h2>
 <p>Walk from the Lake District to London and you walk forwards through time. On the line from the summit of Scafell Pike to Charing Cross the first rock is Caradoc Rocks (Undifferentiated), about 458 million years old; the last is the Thames Group, the London Clay and its neighbours, about 55 million years old. In between come the Carboniferous rocks of Lancashire, the red Triassic of Cheshire and the Midlands, the Jurassic limestones of the Cotswold edge, and the Chalk of the Chilterns.</p>
 <div class="figure">
   <div class="fig-h">The ages of the rocks along the line</div>
@@ -235,7 +256,7 @@ footer p{margin:0 0 10px}
 </div>
 <p>The reason is that the layers of England, laid down one on top of another, have been tilted gently down to the south east and planed off. Their edges come to the surface in bands, each younger than the one to its north west. Across all of England and Wales the rank correlation between how far south east a point lies and the age of the rock beneath it is −0.76 (−0.78 for England's sedimentary rocks alone). Wales, the Lake District and the Highlands break the pattern with older, harder, crumpled rocks, which is why they are the high ground.</p>
 
-<h2><span class="n">03 · Shares</span>What Britain is made of</h2>
+<h2><span class="n">04 · Shares</span>What Britain is made of</h2>
 <div class="figure">
   <div class="fig-h">Share of the land by geological period</div>
   <div class="fig-sub">Great Britain, the island of Ireland and the world's dated land. Tap a bar to show that period on the map.</div>
@@ -246,35 +267,22 @@ footer p{margin:0 0 10px}
 <p>The Carboniferous covers more of Great Britain than any other period: 17.5% of the land, from the limestone dales of the Pennines to the coalfields. It covers 54.7% of the Republic of Ireland, where the pale blue of the Carboniferous Limestone floods the middle of the country on the 1969 map. In Scotland the largest share is Neoproterozoic (40.8%), the Moine and Dalradian schists of the Highlands; in Wales it is the Silurian (34.7%); in England the Carboniferous (21.6%) just leads the Cretaceous (21.3%).</p>
 <p>By rock type, mudstones, siltstones and shales cover 28.9% of Great Britain, sandstones 20.9% and metamorphic rocks 15.0%. Where people live is another matter: of the people in Great Britain's towns of 15,000 or more, 33.8% live on Palaeogene rocks (mostly London) and 24.4% on Carboniferous ones.</p>
 
-<h2><span class="n">04 · Oldest and youngest</span>From three billion years to yesterday</h2>
+<h2><span class="n">05 · Oldest and youngest</span>From three billion years to yesterday</h2>
 <p>The oldest rocks in the British Isles are the Lewisian gneisses of the Outer Hebrides and the far north west of Scotland. The BGS map dates them only as "Archaean to Proterozoic"; the oldest of them, in the Outer Hebrides, formed as igneous rocks between about 3,200 and 2,800 million years ago and were later crushed and reheated deep in the crust. They cover 4,299 km² on this map, 1.86% of Great Britain, and 54.1% of that lies in the Outer Hebrides.</p>
 <p>The youngest bedrock is in Norfolk and Suffolk: the shelly sands and gravels the BGS maps as Neogene to Quaternary Rocks (Undifferentiated), 3,602 km², laid down in the last few million years. The youngest volcanic rocks are the Palaeogene lavas and intrusions of Skye, Mull, Rum, Arran and Antrim, around 60 million years old, which cover 6,417 km² of the British Isles, more of it in Northern Ireland (3,668 km²) than in Great Britain (2,660 km²).</p>
 <p><button class="go" data-fly="58.2,-6.6,8">Show me Lewis</button><button class="go" data-fly="52.45,1.35,9">Show me the East Anglian sands</button><button class="go" data-fly="57.25,-6.2,9">Show me Skye</button><button class="go" data-fly="55.1,-6.4,9">Show me Antrim</button></p>
 
-<h2><span class="n">05 · Chalk and coal</span>White cliffs and black towns</h2>
+<h2><span class="n">06 · Chalk and coal</span>White cliffs and black towns</h2>
 <p>Chalk, the bright white limestone built from the shells of microscopic algae in a Cretaceous sea, covers 19,238 km² of Great Britain (8.3%) and 14.7% of England. On the map every one of the famous white cliffs I checked falls on the White Chalk Subgroup: Dover, Beachy Head, the Seven Sisters, Old Harry, Durdle Door and Flamborough Head. In Northern Ireland the Chalk survives under the Antrim lavas and peeps out in a thin white rim (154 km²).</p>
 <p>The Coal Measures, the grey of the 1969 map, cover 11,828 km², 5.1% of Great Britain. Yet 264 of the 1,426 cities and towns in OS Open Names (18.5%) stand on them, 3.6 times what their area alone would give, and so do 18.2% of the people in Britain's towns of 15,000 or more. The industrial towns grew where the coal was: Sheffield, Leeds, Bradford, Swansea, Newcastle, Wolverhampton, Stoke-on-Trent, Wigan.</p>
 <p><button class="go" id="coalBtn">Show the coalfield towns on the map</button><button class="go" data-fly="51.0,0.9,8" data-pal="c69">Show me the chalk of Kent and Sussex</button></p>
 
-<h2><span class="n">06 · The ice-age blanket</span>Under the boulder clay</h2>
+<h2><span class="n">07 · The ice-age blanket</span>Under the boulder clay</h2>
 <p>Most of what lies at the surface is not bedrock at all. The ice sheets and their meltwater, the rivers and the bogs, have spread a cover of loose deposits over 54.0% of Great Britain: 65.1% of Scotland, 50.5% of England and 34.4% of Wales. Till, the stony clay dumped by glaciers and once called boulder clay, covers 29.3% on its own. Turn on "Ice-age deposits" in the map layers to lay them over the bedrock.</p>
 <div class="figure">
   <div class="fig-h">Share of Great Britain's land under each kind of superficial deposit</div>
   <div class="chart" id="supChart"></div>
   <div class="src">BGS Geology 625k superficial deposits. The map leaves 1,297 km² of Great Britain unmapped for these deposits; shares are of the mapped land. The same BGS map covers Northern Ireland, which the map layer shows too; the map used for the Republic of Ireland has bedrock only.</div>
-</div>
-
-<h2><span class="n">07 · The world</span>Shields, sediments and fresh lava</h2>
-<p>Switch the map to "The world" and the same colours spread over every continent. On the Macrostrat map 23.8% of the dated, ice-free land is Precambrian, 16.2% Palaeozoic, 21.7% Mesozoic and 38.3% Cenozoic. The old rock gathers in shields, the worn-down cores of the continents: the Baltic Shield of Scandinavia and Finland, the Canadian Shield around Hudson Bay, and the old cratons of Africa, Brazil, India and Western Australia.</p>
-<div class="figure">
-  <div class="fig-h">How much of each region is Precambrian</div>
-  <div class="chart" id="shieldChart"></div>
-  <div class="src">Share of each region's dated, ice-free land on Precambrian map units. Macrostrat world map at zoom 4; country outlines from Natural Earth.</div>
-</div>
-<p>The youngest volcanic rocks, from the last 2.6 million years, cover 824,618 km² of the map (0.62% of the dated land). The biggest areas are in the United States, the lava fields of Saudi Arabia, Ethiopia and Kenya along the East African Rift, and Mexico; Iceland, the size of Ireland, has 31,313 km².</p>
-<div class="figure">
-  <div class="fig-h">Where else has rocks the same age as yours?</div>
-  <p class="fig-sub" style="margin-bottom:0">Click a rock on the map, or search a place, then press "Where else in the world?" on its card. The world map lights up every unit whose age range overlaps it.</p>
 </div>
 
 <h2><span class="n">08 · The colours</span>The 1969 palette</h2>
@@ -355,6 +363,8 @@ function ageCol(ma) {
 const periodOfAge = ma => { for (const p of PER) if (ma >= p[3] && ma <= p[2]) return p[0]; return "A"; };
 
 /* ===== state ===== */
+const EMBED = /[?&]embed=world/.test(location.search);
+if (EMBED) document.documentElement.classList.add("embed");
 const S = { view: "uk", pal: "c69", tmode: "all", t: 3000, iso: null, per: null, same: null, sel: null };
 const DS = {};   // datasets: uk, world
 function unitsFor(v) { return v === "uk" ? UKU : DS.world.units; }
@@ -959,7 +969,7 @@ async function readPoint(lat, lon, name, how) {
   if (pinM) lmap.removeLayer(pinM);
   pinM = L.marker([lat, lon], { icon: L.divIcon({ className: "pin", iconSize: [20, 20], iconAnchor: [10, 10] }), interactive: false, keyboard: false }).addTo(lmap);
   let v = S.view, hit = null;
-  if (v === "uk") { hit = await unitAt("uk", lat, lon); if (!hit && !UKB.contains([lat, lon])) { v = "world"; } }
+  if (v === "uk") { hit = await unitAt("uk", lat, lon); if (!hit && !UKB.contains([lat, lon])) { if (!EMBED && toWorld({ go: { lat, lon, name, how } })) { card.hidden = true; return; } v = "world"; } }
   if (v === "world" || !hit) { await ensureWorld(); const h2 = await unitAt("world", lat, lon); if (!hit) { hit = h2; v = "world"; } }
   const title = name ? `What's under ${esc(name)}?` : "This spot";
   if (!hit) { card.innerHTML = `<div class="pn">${esc(lat.toFixed(3))}, ${esc(lon.toFixed(3))}</div><div class="big">${title}</div><p class="pn">No rock is mapped here: it is sea, a lake, or outside the maps.</p>`; S.selCard = null; return; }
@@ -981,7 +991,7 @@ async function readPoint(lat, lon, name, how) {
     if (S.same) h += `<button class="go" id="sameClr">Clear the age filter</button>`;
     if (v === "world") h += `<div class="live" id="liveCard">Asking Macrostrat for more detail...</div>`;
     card.innerHTML = h;
-    const sb = $("sameBtn"); if (sb) sb.onclick = async () => { S.same = [U.x[i], U.m[i] || 0]; await setView("world"); legend(); repaintSoon(); render(); sameShare(); };
+    const sb = $("sameBtn"); if (sb) sb.onclick = async () => { if (!EMBED && toWorld({ same: [U.x[i], U.m[i] || 0] })) return; S.same = [U.x[i], U.m[i] || 0]; await setView("world"); legend(); repaintSoon(); render(); sameShare(); };
     const sc = $("sameClr"); if (sc) sc.onclick = () => { S.same = null; repaintSoon(); render(); };
   };
   S.selCard = render; render();
@@ -1046,6 +1056,7 @@ qi.addEventListener("blur", () => setTimeout(() => showSug([]), 150));
 async function pick(p) {
   showSug([]); qi.value = p.name;
   const inUK = UKB.contains([p.lat, p.lon]) && (await unitAt("uk", p.lat, p.lon));
+  if (!EMBED && !inUK && toWorld({ go: { lat: p.lat, lon: p.lon, name: p.name } })) return;
   if (inUK && S.view !== "uk") await setView("uk", false); if (!inUK && S.view !== "world") await setView("world", false);
   lmap.setView([p.lat, p.lon], inUK ? 10 : 7);
   readPoint(p.lat, p.lon, p.name, "search");
@@ -1118,6 +1129,27 @@ resp($("shieldChart"), (w, sm) => {
 
 /* ===== start ===== */
 setBase(); legend(); timeBar(); readTime();
+const WF = () => document.getElementById("wmap");
+function toWorld(msg) { const f = WF(); if (!f) return false; f.scrollIntoView({ behavior: "smooth", block: "start" }); const send = () => f.contentWindow.postMessage(Object.assign({ rb: 1 }, msg), "*"); if (f.dataset.ready) send(); else (f._q = f._q || []).push(send); return true; }
+if (EMBED) {
+  S.pal = "ics"; document.querySelectorAll("#palBtns .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.p === "ics"));
+  setView("world").then(() => { legend(); repaintSoon(); });
+  const tellH = () => parent.postMessage({ rbH: document.documentElement.scrollHeight }, "*");
+  new ResizeObserver(tellH).observe(document.body); setInterval(tellH, 1500); tellH();
+  window.addEventListener("message", async e => {
+    const d = e.data || {}; if (!d.rb) return;
+    if (d.theme) { document.documentElement.dataset.theme = d.theme; redraws.forEach(f => f()); setBase(); seaL.redraw(); waterL.redraw(); }
+    if (d.go) { await setView("world", false); lmap.setView([d.go.lat, d.go.lon], 6); readPoint(d.go.lat, d.go.lon, d.go.name, d.go.how || "search"); }
+    if (d.same) { S.same = d.same; await setView("world"); legend(); repaintSoon(); sameShare(); }
+  });
+  parent.postMessage({ rbReady: 1 }, "*");
+} else {
+  window.addEventListener("message", e => { const d = e.data || {}, f = WF(); if (!f || e.source !== f.contentWindow) return;
+    if (d.rbH) f.style.height = Math.min(1400, Math.max(600, d.rbH + 4)) + "px";
+    if (d.rbReady) { f.dataset.ready = 1; (f._q || []).forEach(g => g()); f._q = []; if (document.documentElement.dataset.theme) f.contentWindow.postMessage({ rb: 1, theme: document.documentElement.dataset.theme }, "*"); }
+  });
+  $("theme").addEventListener("click", () => { const f = WF(); if (f && f.dataset.ready) f.contentWindow.postMessage({ rb: 1, theme: document.documentElement.dataset.theme }, "*"); });
+}
 lmap.on("click", () => lmap.scrollWheelZoom.enable());
 </script>
 <script src="/assets/site-nav.js" defer></script>

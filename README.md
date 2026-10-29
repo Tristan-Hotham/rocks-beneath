@@ -28,7 +28,7 @@ Every number is in `data/results.json`, which the page, paper, blog and collage 
 
 | Path | What it is |
 |---|---|
-| `index.html` | The interactive page. Palettes, the British Isles unit table, results, coalfield towns, transects and label places are embedded; rasters and the other tables are fetched from `data/`. |
+| `index.html` | The interactive page: the world map first (the same page loaded in a frame with `?embed=world`), then the British Isles. Palettes, the British Isles unit table, results, coalfield towns, transects and label places are embedded; rasters and the other tables are fetched from `data/`. |
 | `header.png` | Social card (1200 by 630). |
 | `data/uk/u_<x>_<y>.png` | British Isles grid in Web Mercator at zoom 9 (about 175 m), in 512 px chunks named by zoom-8 tile: unit id = R + 256 G (`data/units_uk.csv`), B = superficial class. `h_<x>_<y>.jpg` hill shade; `overview.png` and `overview_h.jpg` at zoom 7; `meta.json` describes the layout. |
 | `data/world/w_<x>_<y>.png` | World grid at zoom-5 pixels (about 4.9 km), one 512 px image per zoom-4 tile: unit id = R + 256 G (`data/units_world.csv`). Hill shade, overview and `meta.json` as above. |
@@ -55,7 +55,7 @@ Every number is in `data/results.json`, which the page, paper, blog and collage 
 | `code/09_paper.py` | Builds the paper PDF from `code/paper_template.tex` with xelatex. |
 | `code/10_release.py` | README, blog post, blog and Zenodo metadata, Zenodo folder. |
 | `code/11_water.py`, `code/12_sea.py` | Rivers and lakes; sea mask and depth shading. |
-| `reddit/` | Collage (`collage.py`, PNG) and post text. |
+| `reddit/` | Collages and post text: `collage.py` (British Isles) and `collage_world.py` (the world, Equal Earth projection), with `post.md` and `post_world.md`. |
 | `release/` | Paper PDF and source, blog post and figures, Zenodo files. |
 
 ## Method in brief
